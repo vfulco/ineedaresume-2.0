@@ -1,0 +1,23 @@
+<!-- <h1 class="section-title">Qualifications</h1> -->
+
+
+<div class="current-items">
+    <div class="item" ng-repeat="item in qualifications">
+        <i class="ion-edit" ng-click="editQualification($index)"></i>
+        <i class="ion-close-round" ng-click="deleteQualification($index)"></i>
+        {{item.qualificationTitle}}
+  </div>
+</div>
+
+
+<form class="input-form" ng-submit="saveQualification()" ng-hide="hello">
+    <label>What is your <b>degree</b> or other <b>qualification</b>?</label>
+    <input type="text" ng-model="qualificationTitleInput" placeholder="B.S. in Computer Science"></input>
+    <label><b>Where</b> did you earn your <span ng-show="qualificationTitleInput">{{qualificationTitleInput}}</span><span ng-hide="qualificationTitleInput">degree/qualification</span>?</label>
+    <input type="text" ng-model="qualificationInstitutionInput" placeholder="University of Wisconsin, Madison"></input>
+    <label><b>Where</b> is <span ng-show="qualificationInstitutionInput">{{qualificationInstitutionInput}}</span><span ng-hide="qualificationInstitutionInput">the institution</span> located?</label>
+    <input type="text" ng-model="qualificationLocationInput" placeholder="Madison, WI"></input>
+    <label><b>When</b> did you earn your <span ng-show="qualificationTitleInput">{{qualificationTitleInput}}</span><span ng-hide="qualificationTitleInput">degree/qualification</span>?</label>
+    <input type="text" ng-model="qualificationCompletionInput" placeholder="2013"></input>
+    <button type="submit" class="save-add-another"><i class="ion-checkmark-round"></i> Save to qualifications list</button>
+</form>

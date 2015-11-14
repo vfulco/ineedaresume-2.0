@@ -1,0 +1,8 @@
+a {
+  text-decoration: none;
+  transition: 0.12s;
+}
+a:hover {
+  transition: 0.12s;
+  text-decoration: none;
+}

@@ -1,0 +1,15 @@
+<!-- <h1 class="section-title">Personal Info</h1> -->
+
+<form ng-submit="saveUserInfo(); saveUserInfoAlert()" class="input-form" ng-init="fillUserInfo()">
+    <label>What's your <b>name</b>?</label>
+    <input ng-blur="saveUserInfo()" type="text" ng-model="userNameInput" placeholder="Mitch Samuels" />
+    <label><b>Where</b> do you live?</label>
+    <input ng-blur="saveUserInfo()"  type="text" ng-model="userLocationInput" placeholder="Madison, WI" />
+    <label>What's your <b>email address</b>?</label>
+    <input ng-blur="saveUserInfo()"  type="text" ng-model="userEmailInput" placeholder="mitch@mitchs.co" />
+    <label>What's your <b>phone number<b/>?</label>
+    <input ng-blur="saveUserInfo()"  type="text" ng-model="userPhoneInput" placeholder="7605764824" />
+    <label>Do you have a <b>LinkedIn</b> or <b>online portfolio</b>?</label>
+    <input ng-blur="saveUserInfo()"  type="text" ng-model="userLinkInput" placeholder="http://linkedin.com/in/mitchas" />
+    <button type="submit" class="save-add-another"><i class="ion-checkmark-round"></i> Save Personal Info</button>
+</form>

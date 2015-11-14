@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="resumeApp">
+<head>
+    <title>REBUILD</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/input.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/print.css" />
+    <link rel="stylesheet" href="css/angular-toastr.css" />
+    <!-- PDF THEMES -->
+    <link rel="stylesheet" href="css/themes/theme-basic.css" />
+    <link rel="stylesheet" href="css/themes/theme-cursive.css" />
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,900" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
+    <!-- SCRIPTS -->
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/angular/src/angular.min.js"></script>
+    <script src="scripts/angular/src/angular-route.js"></script>
+    <script src="scripts/angular/src/jquery-ui.min.js"></script>
+    <!-- Angular Plugins/Additions -->
+    <script src="scripts/angular/src/sortable.js"></script>
+    <script src="scripts/angular/src/angular-animate.min.js"></script>
+    <script src="scripts/angular/src/angular-toastr.tpls.min.js"></script>
+    <!-- Custom/App scripts -->
+    <script src="app.js"></script>
+    <script src="scripts/angular/controllers.js"></script>
+
+
+</head>
+<body ng-controller="mainController">
+
+    <nav>
+        <i class="ion-document-text logo"></i>
+    </nav>
+
+    <ul id="navigation-links" ng-controller="navCtrl">
+        <li ng-class="navClass('home')"><a href="#/">Home</a></li>
+        <li ng-class="navClass('personal')"><a href="#personal">Personal Info</a></li>
+        <li ng-class="navClass('summary')"><a href="#summary">Summary</a></li>
+        <li ng-class="navClass('jobs')"><a href="#jobs">Jobs</a></li>
+        <li ng-class="navClass('projects')"><a href="#projects">Projects</a></li>
+        <li ng-class="navClass('qualifications')"><a href="#qualifications">Qualifications</a></li>
+        <li ng-class="navClass('skills')"><a href="#skills">Skills</a></li>
+        <li ng-class="navClass('generate')"><a href="#generate">Generate</a></li>
+    </ul>
+
+
+    <div id="content">
+
+        <div ng-view class="fade"></div>
+
+    </div>
+
+</body>
+</html>
