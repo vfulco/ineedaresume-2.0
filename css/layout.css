@@ -1,3 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,300,700);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
 body,
 html {
   padding: 0;
@@ -36,6 +41,7 @@ nav .logo {
   background-color: #4887f4;
   box-sizing: border-box;
   padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.18);
 }
 #navigation-links li {
   display: inline-block;
@@ -96,16 +102,18 @@ nav .logo {
 }
 /* The starting CSS styles for the enter animation */
 .fade.ng-enter {
-  transition: 0.15s linear all;
+  transition: 0.18s linear all;
   opacity: 0;
 }
 .fade.ng-enter.ng-enter-active {
   opacity: 1;
+  transition: 0.18s linear all;
 }
 .fade.ng-leave {
-  transition: 0s linear all;
   opacity: 1;
+  transition: 0s linear all;
 }
 .fade.ng-leave.ng-leave-active {
   opacity: 0;
+  transition: 0s linear all;
 }

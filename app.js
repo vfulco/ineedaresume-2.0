@@ -1,4 +1,4 @@
-var resumeApp = angular.module('resumeApp', ['ngRoute', 'ui.sortable', 'ngAnimate', 'toastr']);
+var resumeApp = angular.module('resumeApp', ['ngRoute', 'ui.sortable', 'ngAnimate', 'toastr', 'ngStorage']);
 
 // configure our routes
 resumeApp.config(function($routeProvider) {
@@ -12,8 +12,14 @@ resumeApp.config(function($routeProvider) {
 
     // route for personal info entry
     .when('/personal', {
-        templateUrl : 'pages/personalinfo.html',
-        controller  : 'personalInfoController'
+        templateUrl : 'pages/personal.html',
+        controller  : 'personalController'
+    })
+
+    // route for social info entry
+    .when('/social', {
+        templateUrl : 'pages/social.html',
+        controller  : 'socialController'
     })
 
     // route for statement entry

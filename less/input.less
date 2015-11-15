@@ -2,7 +2,38 @@
 
 @import "variables.less";
 
-
+#input-base(){
+    font-family: @sans-font;
+    display: block;
+    font-size: 16pt;
+    color: @dark-text;
+    font-weight: bolder;
+    border: none;
+    box-sizing: border-box;
+    padding: 14px;
+    width: 100%;
+    text-align: left;
+    display: block;
+    margin: -12px auto;
+    letter-spacing: 1px;
+    transition: @transition;
+    background-size: 200% 100%;
+    // background-image: linear-gradient(to right, @color-white 0%, @color-white 50%, fade(@color-blue, 25%) 50%);
+    border: 1px solid fade(@color-blue, 20%);
+    &::-webkit-input-placeholder{
+        color: fade(@dark-text, 30%);
+    }
+    &:focus{
+        transition: 0.3s;
+        cursor: text;
+        // color: @color-white;
+        // background-position: -100% 0%;
+        border-color: fade(@color-blue, 90%);
+        &::-webkit-input-placeholder{
+            transition: 0.3s;
+        }
+    }
+}
 .section-save{
     display: none;
 }
@@ -47,58 +78,37 @@
     max-width: 460px;
     margin: 0 auto;
     padding: 10px 0 70px 0;
-}
-
-label{
-    font-family: @sans-font;
-    font-size: 10pt;
-    margin: 23px auto 17px auto;
-    text-align: left;
-    display: block;
-    text-transform: uppercase;
-    color: fade(@color-black, 50%);
-    line-height: 1.2em;
-    b{
-        color: @color-black;
-    }
-}
-input,
-textarea{
-    font-family: @sans-font;
-    display: block;
-    font-size: 16pt;
-    color: @dark-text;
-    font-weight: bolder;
-    border: none;
-    box-sizing: border-box;
-    padding: 14px;
-    width: 100%;
-    text-align: left;
-    display: block;
-    margin: -12px auto;
-    letter-spacing: 1px;
-    transition: @transition;
-    background-size: 200% 100%;
-	// background-image: linear-gradient(to right, @color-white 0%, @color-white 50%, fade(@color-blue, 25%) 50%);
-    border: 1px solid fade(@color-blue, 20%);;
-    &::-webkit-input-placeholder{
-        color: fade(@dark-text, 30%);
-    }
-    &:focus{
-        transition: 0.3s;
-        cursor: text;
-        // color: @color-white;
-        // background-position: -100% 0%;
-        border-color: fade(@color-blue, 90%);
-        &::-webkit-input-placeholder{
-            transition: 0.3s;
+    label{
+        font-family: @sans-font;
+        font-size: 10pt;
+        margin: 23px auto 17px auto;
+        text-align: left;
+        display: block;
+        text-transform: uppercase;
+        color: fade(@color-black, 50%);
+        line-height: 1.2em;
+        b{
+            color: @color-black;
         }
     }
+    input,
+    textarea{
+        #input-base();
+    }
+    textarea{
+        text-align: left;
+        font-size: 10pt;
+        letter-spacing: 0;
+        height: 200px;
+        line-height: 1.5em;
+    }
+
 }
-textarea{
-    text-align: left;
-    font-size: 10pt;
-    letter-spacing: 0;
-    height: 200px;
-    line-height: 1.5em;
+
+
+
+.text-edit-modal{
+    input{
+        #input-base();
+    }
 }

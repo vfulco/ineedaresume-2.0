@@ -1,0 +1,15 @@
+<form ng-submit="saveSocial(); saveSocialAlert()" class="input-form" ng-init="fillSocial()">
+    <label>Do you have a <b>LinkedIn</b> or <b>online portfolio</b>?</label>
+    <input ng-blur="saveSocial()"  type="text" ng-model="linkedinInput" placeholder="linkedin.com/in/mitchas" />
+    <label>What about Twitter <b>Twitter</b>?</label>
+    <input ng-blur="saveSocial()"  type="text" ng-model="twitterInput" placeholder="@sleumasm" />
+    <label><b>Skype</b> could be nice to include.</label>
+    <input ng-blur="saveSocial()"  type="text" ng-model="skypeInput" placeholder="mitch-samuels" />
+    <label>If you're a developer, include your <b>GitHub</b>.</label>
+    <input ng-blur="saveSocial()"  type="text" ng-model="githubInput" placeholder="github.com/mitchas" />
+    <label>Or if you're a designer, <b>Dribbble</b>.</label>
+    <input ng-blur="saveSocial()"  type="text" ng-model="dribbbleInput" placeholder="dribbble.com/mitchas" />
+    <label>You can also enter your own <b>Website</b>.</label>
+    <input ng-blur="saveSocial()"  type="text" ng-model="linkInput" placeholder="mitchs.co" />
+    <button type="submit" class="save-add-another"><i class="ion-checkmark-round"></i> Save Social Links</button>
+</form>

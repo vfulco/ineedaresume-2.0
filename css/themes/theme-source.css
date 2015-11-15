@@ -1,0 +1,163 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,300,700);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
+#print-page.theme-source {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#print-page.theme-source hr {
+  display: block;
+  opacity: 1;
+  color: transparent;
+  background-color: transparent;
+  border: 0px solid #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  margin: 17px 0;
+}
+#print-page.theme-source .pdf-section-header {
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13pt;
+}
+#print-page.theme-source .section-body {
+  transition: 0.12s;
+}
+#print-page.theme-source .adjust-lineheight {
+  line-height: 1.5em;
+}
+#print-page.theme-source #name {
+  font-weight: 700;
+  font-size: 28pt;
+  padding: 0px 0 2px 0;
+  margin: 0;
+  display: block;
+  transition: 0.12s;
+}
+#print-page.theme-source #personalHeaderBottom,
+#print-page.theme-source #personalHeaderTop {
+  display: none;
+}
+#print-page.theme-source #contact-info-bottom {
+  display: none;
+}
+#print-page.theme-source #contact-info-top {
+  transition: 0.12s;
+  margin: 0 0 3px 0;
+}
+#print-page.theme-source #contact-info-top span {
+  display: inline-block;
+  font-weight: lighter;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  font-weight: 600;
+  font-size: 10pt;
+}
+#print-page.theme-source #contact-info-top span i {
+  margin: 0 2px 0 0;
+}
+#print-page.theme-source #social-links-bottom {
+  display: none;
+}
+#print-page.theme-source #social-links-top {
+  transition: 0.12s;
+}
+#print-page.theme-source #social-links-top span {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 2px 8px 4px 8px;
+  font-size: 9pt;
+  font-weight: 400;
+}
+#print-page.theme-source #social-links-top span i {
+  margin: 0 1px 0 0;
+  position: relative;
+  top: 2px;
+  font-size: 10pt;
+}
+#print-page.theme-source .summary {
+  text-align: left;
+  font-size: 9pt;
+  text-align: justify;
+  white-space: pre-line;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  transition: 0.12s;
+}
+#print-page.theme-source .job {
+  text-align: left;
+  padding: 6px 0;
+}
+#print-page.theme-source .job span {
+  font-size: 9pt;
+  font-weight: 400;
+  line-height: 1.4em;
+}
+#print-page.theme-source .job span:nth-child(1) {
+  display: block;
+  font-size: 11pt;
+  font-weight: 700;
+  font-style: normal;
+  position: relative;
+  top: 4px;
+}
+#print-page.theme-source .job p {
+  text-align: left;
+  font-size: 9pt;
+  text-align: justify;
+  font-weight: 300;
+  margin: 0;
+}
+#print-page.theme-source .project {
+  text-align: left;
+  padding: 6px 0;
+}
+#print-page.theme-source .project span {
+  font-size: 11pt;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+#print-page.theme-source .project p {
+  text-align: left;
+  font-size: 9pt;
+  text-align: justify;
+  font-weight: 300;
+  margin: 0;
+}
+#print-page.theme-source .qualification {
+  text-align: center;
+  padding: 10px 0;
+}
+#print-page.theme-source .qualification span {
+  font-size: 10pt;
+  font-weight: 400;
+  line-height: 1.0em;
+  font-size: 9pt;
+}
+#print-page.theme-source .qualification span:nth-child(1) {
+  display: block;
+  font-weight: 600;
+  font-size: 11pt;
+}
+#print-page.theme-source .skill {
+  display: inline-block;
+  text-align: center;
+}
+#print-page.theme-source .skill:last-child .dot-divider {
+  display: none;
+}
+#print-page.theme-source .skill .dot-divider {
+  font-size: 2pt;
+  padding: 0 8px 0px 4px;
+  position: relative;
+  top: -3px;
+  display: inline-block;
+}
+#print-page.theme-source .skill span {
+  font-size: 11pt;
+  font-weight: 400;
+  line-height: 1.0em;
+  font-size: 9pt;
+  display: inline-block;
+}

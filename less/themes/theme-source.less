@@ -1,10 +1,13 @@
-// theme-basic.less - for standard resume theme
+// theme-source.less - for source/standard resume theme
 
 @import "../variables.less";
 
+
+
 #print-page{
 
-    &.theme-basic{
+    &.theme-source{
+        font-family: @source-font;
 
     	hr{
     		display: block;
@@ -25,45 +28,75 @@
             transition: @transition;
         }
 
+        // Line height for all paragraphs
+        .adjust-lineheight{
+            line-height: 1.5em;
+        }
+
+
     	// Personal Information
     	#name{
-    		font-weight: 200;
+    		font-weight: 700;
     		font-size: 28pt;
-    		text-transform: uppercase;
     		padding: 0px 0 2px 0;
     		margin: 0;
     		display: block;
             transition: @transition;
     	}
 
-    	#contact-info{
+        // Contact information
+        #personalHeaderBottom,
+        #personalHeaderTop{
+            display: none;
+        }
+        #contact-info-bottom{
+            display: none;
+        }
+    	#contact-info-top{
             transition: @transition;
+            margin: 0 0 3px 0;
     		span{
     			display: inline-block;
     			font-weight: lighter;
     			box-sizing: border-box;
-    			padding: 5px 15px;
-    			font-size: 12pt;
+    			padding: 5px 8px;
+                font-weight: 600;
+    			font-size: 10pt;
+                i{
+                    margin: 0 2px 0 0;
+                }
     		}
     	}
 
-    	#link{
-    		font-size: 12pt;
-    		font-weight: 400;
-    		padding-top: 5px;
-    		display: block;
+        // Social
+        #social-links-bottom{
+            display: none;
+        }
+        #social-links-top{
             transition: @transition;
+    		span{
+    			display: inline-block;
+    			box-sizing: border-box;
+    			padding: 2px 8px 4px 8px;
+    			font-size: 9pt;
+                font-weight: 400;
+                i{
+                    margin: 0 1px 0 0;
+                    position: relative;
+                    top: 2px;
+                    font-size: 10pt;
+                }
+    		}
     	}
 
     	// Summary
     	.summary{
-    		line-height: 1.5em;
     		text-align: left;
     		font-size: 9pt;
     		text-align: justify;
-    		font-family: @lato-font;
      		white-space: pre-line;
-     		font-weight: 400;
+            font-family: @source-font;
+     		font-weight: 300;
             transition: @transition;
     	}
 
@@ -73,20 +106,23 @@
     		text-align: left;
     		padding: 6px 0;
     		span{
-    			font-size: 10pt;
-    			font-weight: 600;
+    			font-size: 9pt;
+    			font-weight: 400;
     			line-height: 1.4em;
-    			&:nth-child(7){
+    			&:nth-child(1){
     				display: block;
     				font-size: 11pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    position: relative;
+                    top: 4px;
     			}
     		}
     		p{
-    			line-height: 1.5em;
     			text-align: left;
     			font-size: 9pt;
     			text-align: justify;
-    			font-weight: 400;
+    			font-weight: 300;
     			margin: 0;
     		}
     	}
@@ -96,16 +132,15 @@
     		text-align: left;
     		padding: 6px 0;
     		span{
-    			font-size: 10pt;
+    			font-size: 11pt;
     			font-weight: 600;
     			line-height: 1.4em;
     		}
     		p{
-    			line-height: 1.5em;
     			text-align: left;
     			font-size: 9pt;
     			text-align: justify;
-    			font-weight: 400;
+    			font-weight: 300;
     			margin: 0;
     		}
     	}

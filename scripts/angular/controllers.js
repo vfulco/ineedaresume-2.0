@@ -1,12 +1,53 @@
 
 // Controller for home page
 // resumeApp.controller('mainController', function($scope) {
-resumeApp.controller('mainController', ['$scope', function($scope){
+resumeApp.controller('mainController',
+    ['$scope', '$localStorage', '$sessionStorage', 'personal', 'social', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
+    function($scope, $localStorage, $sessionStorage, personal, social, summary, jobs, projects, qualifications, skills){
+
+    $storage = $localStorage;
+    $sstorage = $sessionStorage;
+    $scope.personal = personal.personal;
+    $scope.social = social.social;
+    $scope.summary = summary.summary;
+    $scope.jobs = jobs.jobs;
+    $scope.projects = projects.projects;
+    $scope.qualifications = qualifications.qualifications;
+    $scope.skills = skills.skills;
 
     $scope.navClass = function (page) {
         var currentRoute = $location.path().substring(1) || '';
         return page === currentRoute ? 'active' : '';
     };
+
+
+
+    // Check if previous local storage exists
+    $scope.hasAnsweredLocal = false;
+    $scope.welcomeName = $storage.localPersonal[0].name;
+    if (!$storage.localPersonal | $sstorage.hasAnsweredLocal) {
+        $("#has-local-storage").slideUp(500);
+    }else{
+        $("#has-local-storage").slideDown(500);
+    }
+
+    $scope.loadLocal = function(){
+        $("#has-local-storage").slideUp(500);
+        $scope.personal.push($storage.localPersonal[0]);
+        $scope.social.push($storage.localSocial[0]);
+        $scope.summary.push($storage.localSummary[0]);
+        $scope.jobs.push($storage.localJobs[0]);
+        $scope.projects.push($storage.localProjects[0]);
+        $scope.qualifications.push($storage.localQualifications[0]);
+        $scope.skills.push($storage.localSkills[0]);
+        $sstorage.hasAnsweredLocal = true;
+    }
+    $scope.ignoreLocal = function(){
+        $("#has-local-storage").slideUp(500);
+        $("#has-local-storage").addClass("hidden");
+        $sstorage.hasAnsweredLocal = true;
+    }
+
 
 }]);
 resumeApp.controller('navCtrl', ['$scope', '$location', function ($scope, $location) {
@@ -19,21 +60,19 @@ resumeApp.controller('navCtrl', ['$scope', '$location', function ($scope, $locat
 
 
 // Controller for personal info data entry
-// resumeApp.controller('personalinfoController', function($scope) {
-resumeApp.controller('personalInfoController', ['$scope', 'toastr', 'personalInfo', function($scope, toastr, personalInfo){
+resumeApp.controller('personalController', ['$scope', 'toastr', 'personal', function($scope, toastr, personal){
 
-    $scope.personalInfo = personalInfo.personalInfo;
+    $scope.personal = personal.personal;
 
-    $scope.saveSuccess = "Save";
-    $scope.saveUserInfo = function(){
-        if(!$scope.userNameInput && !$scope.userEmailInput && !$scope.userPhoneInput && !$scope.userLocationInput && !$scope.userLinkInput){
+    $scope.savePersonal = function(){
+        if(!$scope.nameInput && !$scope.emailInput && !$scope.phoneInput){
             return;
         }
-        $scope.personalInfo.splice(0,1);
-        $scope.personalInfo.push( {userName: $scope.userNameInput, userEmail: $scope.userEmailInput, userPhone: $scope.userPhoneInput, userLocation: $scope.userLocationInput, userLink: $scope.userLinkInput} );
+        $scope.personal.splice(0,1);
+        $scope.personal.push( {name: $scope.nameInput, email: $scope.emailInput, phone: $scope.phoneInput} );
     };
-    $scope.saveUserInfoAlert = function(){
-        if(!$scope.userNameInput && !$scope.userEmailInput && !$scope.userPhoneInput && !$scope.userLocationInput && !$scope.userLinkInput){
+    $scope.savePersonalAlert = function(){
+        if(!$scope.nameInput && !$scope.emailInput && !$scope.phoneInput){
             toastr.error("You can't leave it all empty :(", {
                 timeOut: 800
             });
@@ -43,35 +82,64 @@ resumeApp.controller('personalInfoController', ['$scope', 'toastr', 'personalInf
             timeOut: 1500
         });
     };
-    $scope.editUserInfo = function(){
-        $scope.fillUserInfo();
-        $scope.personalInfo.splice(0,1);
+    $scope.editPersonal = function(){
+        $scope.fillPersonal();
+        $scope.personal.splice(0,1);
     };
-    $scope.fillUserInfo = function(){
-        $scope.userNameInput = $scope.personalInfo[0].userName;
-        $scope.userLocationInput = $scope.personalInfo[0].userLocation;
-        $scope.userEmailInput = $scope.personalInfo[0].userEmail;
-        $scope.userPhoneInput = $scope.personalInfo[0].userPhone;
-        $scope.userLinkInput = $scope.personalInfo[0].userLink;
+    $scope.fillPersonal = function(){
+        $scope.nameInput = $scope.personal[0].name;
+        $scope.emailInput = $scope.personal[0].email;
+        $scope.phoneInput = $scope.personal[0].phone;
     };
 
 }]);
 
 
+
+
+
+// Controller for social entry
+resumeApp.controller('socialController', ['$scope', 'toastr', 'social', function($scope, toastr, social){
+    $scope.social = social.social;
+
+    $scope.saveSocial = function(){
+        $scope.social.splice(0,1);
+        $scope.social.push( {linkedin: $scope.linkedinInput, twitter: $scope.twitterInput, skype: $scope.skypeInput, github: $scope.githubInput, dribbble: $scope.dribbbleInput, link: $scope.linkInput} );
+    };
+    $scope.saveSocialAlert = function(){
+        toastr.success("Social links saved :)", {
+            timeOut: 1500
+        });
+    };
+    $scope.editSocial = function(){
+        $scope.fillPersonal();
+        $scope.personal.splice(0,1);
+    };
+    $scope.fillSocial = function(){
+        $scope.linkedinInput = $scope.social[0].linkedin;
+        $scope.twitterInput = $scope.social[0].twitter;
+        $scope.skypeInput = $scope.social[0].skype;
+        $scope.githubInput = $scope.social[0].github;
+        $scope.dribbbleInput = $scope.social[0].dribbble;
+        $scope.linkInput = $scope.social[0].link;
+    };
+
+}]);
+
+
+
+
 // Controller for summary entry
-resumeApp.controller('summaryController', ['$scope', 'toastr', 'theSummary', function($scope, toastr, theSummary){
-    $scope.theSummary = theSummary.theSummary;
+resumeApp.controller('summaryController', ['$scope', 'toastr', 'summary', function($scope, toastr, summary){
+    $scope.summary = summary.summary;
     $scope.saveSummary = function(){
-        if(!$scope.summaryBodyInput){
-            return;
-        }
-        $scope.theSummary.splice(0,1);
-        $scope.theSummary.push( {summaryBody: $scope.summaryBodyInput} );
+        $scope.summary.splice(0,1);
+        $scope.summary.push( {summaryBody: $scope.summaryBodyInput} );
     };
 
     $scope.saveSummaryAlert = function(){
         if(!$scope.summaryBodyInput){
-            toastr.error("You can't save what's not there :(", {
+            toastr.success("Summary Erased :(", {
                 timeOut: 2200
             });
             return;
@@ -83,10 +151,10 @@ resumeApp.controller('summaryController', ['$scope', 'toastr', 'theSummary', fun
 
     $scope.editSummary = function(){
         $scope.fillSummary();
-        $scope.theSummary.splice(0,1);
+        $scope.summary.splice(0,1);
     };
     $scope.fillSummary = function(){
-        $scope.summaryBodyInput = $scope.theSummary[0].summaryBody;
+        $scope.summaryBodyInput = $scope.summary[0].summaryBody;
     };
 
 }]);
@@ -215,153 +283,4 @@ resumeApp.controller('skillsController', ['$scope', 'toastr', 'skills', function
     $scope.deleteSkill = function($index){
         $scope.skills.splice($index,1);
     }
-}]);
-
-
-
-
-// Controller for resume generation
-resumeApp.controller('generateController',
-    ['$scope', 'toastr', 'personalInfo', 'theSummary', 'jobs', 'projects', 'qualifications', 'skills',
-    function($scope, toastr, personalInfo, theSummary, jobs, projects, qualifications, skills){
-
-        $scope.personalInfo = personalInfo.personalInfo;
-        $scope.theSummary = theSummary.theSummary;
-        $scope.jobs = jobs.jobs;
-        $scope.projects = projects.projects;
-        $scope.qualifications = qualifications.qualifications;
-        $scope.skills = skills.skills;
-
-
-
-
-        // Edit and modal controls
-        $scope.closeModal = function(){
-            $scope.lightbox = false;
-            $scope.modal = false;
-            $scope.editingSummaryHeader = false;
-            $scope.editingJobsHeader = false;
-            $scope.editingProjectsHeader = false;
-            $scope.editingQualificationsHeader = false;
-            $scope.editingSkillsHeader = false;
-        };
-
-        $scope.displayModal = function(){
-            $scope.lightbox = true;
-            $scope.modal = true;
-        };
-
-        // Resume Header editing
-        $scope.summaryTitle = 'Professional Summary';
-        $scope.editSummaryTitle = function(){
-            $scope.editingSummaryHeader = true;
-            $scope.displayModal();
-        };
-        $scope.jobsHeader = 'Work Experience';
-        $scope.editJobsHeader = function(){
-            $scope.editingJobsHeader = true;
-            $scope.displayModal();
-        };
-        $scope.projectsHeader = 'Projects';
-        $scope.editProjectsHeader = function(){
-            $scope.editingProjectsHeader = true;
-            $scope.displayModal();
-        };
-        $scope.qualificationsHeader = 'Qualifications';
-        $scope.editQualificationsHeader = function(){
-            $scope.editingQualificationsHeader = true;
-            $scope.displayModal();
-        };
-        $scope.skillsHeader = 'Skills';
-        $scope.editSkillsHeader = function(){
-            $scope.editingSkillsHeader = true;
-            $scope.displayModal();
-        };
-
-
-
-        // Theme control
-        $scope.themeClass = "theme-cursive";
-        $scope.setThemeBasic = function(){
-            $scope.themeClass = "theme-basic";
-        };
-        $scope.setThemeCursive = function(){
-            $scope.themeClass = "theme-cursive";
-        };
-
-
-
-
-
-
-
-
-}]);
-
-
-resumeApp.factory('personalInfo', [function(){
-    var o = {
-        personalInfo: [
-            {userName: "Mitch Samuels", userEmail: "samuels.mitch@gmail.com", userPhone: "5073305897", userLocation: "Madison, WI", userLink:"http://mitchs.co"}
-        ]
-    }
-    return o;
-}]);
-
-resumeApp.factory('theSummary', [function(){
-    var o = {
-        theSummary: [
-            {summaryBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."}
-        ]
-    }
-    return o;
-}]);
-
-resumeApp.factory('jobs', [function(){
-    var o = {
-        jobs: [
-            {jobEmployer: "Export Abroad", jobLocation: "Madison, WI", jobTime: "2014 - Present", jobTitle: "Frontend Engineer", jobDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."},
-            {jobEmployer: "U.S. Geological Survey", jobLocation: "Middleton, WI", jobTime: "2014 - Present", jobTitle: "Frontend UI/UX Designer", jobDescription: "Vivamus suscipit egestas odio vitae iaculis. Pellentesque in fringilla nunc. Duis aliquet ultrices ornare. In quis urna sit amet augue pretium vestibulum et congue arcu. Duis quis elit a tellus consectetur varius et vel justo."}
-        ]
-    }
-    return o;
-}]);
-
-resumeApp.factory('projects', [function(){
-    var o = {
-        projects: [
-            {projectTitle: "Volunteering with the United Way", projectDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."},
-            {projectTitle: "Creation of ineedaresume", projectDescription: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."}
-        ]
-    }
-    return o;
-}]);
-
-resumeApp.factory('qualifications', [function(){
-    var o = {
-        qualifications: [
-            {qualificationTitle: "Bachelor of Science in Computer Science", qualificationInstitution: "University of Wisconsin", qualificationLocation: "Madison, WI", qualificationCompletion: "2015"},
-            {qualificationTitle: "Bachelor of Arts in Graphics", qualificationInstitution: "University of Minnesota", qualificationLocation: "Minneapolis, MN", qualificationCompletion: "2012"}
-        ]
-    }
-    return o;
-}]);
-
-
-
-resumeApp.factory('skills', [function(){
-    var o = {
-        skills: [
-            {skill: "HTML"},
-            {skill: "CSS"},
-            {skill: "Javascript"},
-            {skill: "MEAN"},
-            {skill: "LESS"},
-            {skill: "Sketch"},
-            {skill: "Adobe Suite"},
-            {skill: "UI / UX"},
-            {skill: "Responsive"}
-        ]
-    }
-    return o;
 }]);

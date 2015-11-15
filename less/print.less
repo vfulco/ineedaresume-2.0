@@ -19,7 +19,7 @@
 	.pdf-advice{
 		text-align: center;
 		box-sizing: border-box;
-		padding: 55px 0;
+		padding: 55px 0 85px 0;
 		display: block;
 		font-weight: bolder;
 		font-family: @sans-font;
@@ -32,7 +32,14 @@
 
 	.sortable{
 		&:hover{
-			cursor: move;
+			cursor: grab;
+			background-color: fade(@color-black, 4%);
+			cursor: -webkit-grab;
+			cursor: -moz-grab;
+		}
+		&:active{
+			cursor: -webkit-grabbing;
+			cursor: -moz-grabbing;
 		}
 	}
 
@@ -47,7 +54,9 @@
 @media print {
 	nav,
 	#navigation-links,
-	.section-title
+	.section-title,
+	#toolbar-spacer,
+	.settings
 	{
 		display: none !important;
 	}

@@ -1,3 +1,12 @@
 <div class="home-wrapper">
+
+    <div id="has-local-storage">
+        <h1>Hey, <b>{{ welcomeName }}</b>, it looks like you saved your data here last time.</h1>
+        <h2>Would you like us to load it, or do you want to start fresh?</h2>
+        <button class="blue" ng-click="loadLocal()">Load it, please</button>
+        <button ng-click="ignoreLocal()">I'll start fresh</button>
+    </div>
+
     <h1 class="home-name"><b>ineedaresume</b> 2.0</h1>
+
 </div>
