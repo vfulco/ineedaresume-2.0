@@ -1,16 +1,16 @@
 // Controller for resume generation
 resumeApp.controller('generateController',
-    ['$scope', '$localStorage', '$sessionStorage', 'toastr', 'personal', 'social', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
-    function($scope, $localStorage, $sessionStorage, toastr, personal, social, summary, jobs, projects, qualifications, skills){
+    ['$scope', '$localStorage', '$sessionStorage', 'toastr', 'basic', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
+    function($scope, $localStorage, $sessionStorage, toastr, basic, summary, jobs, projects, qualifications, skills){
 
         $storage = $localStorage;
-        $scope.personal = personal.personal;
-        $scope.social = social.social;
+        $scope.basic = basic.basic;
         $scope.summary = summary.summary;
         $scope.jobs = jobs.jobs;
         $scope.projects = projects.projects;
         $scope.qualifications = qualifications.qualifications;
         $scope.skills = skills.skills;
+
 
 
 
@@ -24,7 +24,7 @@ resumeApp.controller('generateController',
             $scope.editingProjectsHeader = false;
             $scope.editingQualificationsHeader = false;
             $scope.editingSkillsHeader = false;
-            $scope.editingPersonalHeader = false;
+            $scope.editingBasicHeader = false;
         };
 
         $scope.displayModal = function(){
@@ -58,9 +58,9 @@ resumeApp.controller('generateController',
             $scope.editingSkillsHeader = true;
             $scope.displayModal();
         };
-        $scope.personalHeader = 'Contact';
-        $scope.editPersonalHeader = function(){
-            $scope.editingPersonalHeader = true;
+        $scope.basicHeader = 'Contact';
+        $scope.editBasicHeader = function(){
+            $scope.editingBasicHeader = true;
             $scope.displayModal();
         };
         $scope.skillsHeader = 'Skills';
@@ -107,7 +107,6 @@ resumeApp.controller('generateController',
         // Show/hide icons
         $scope.showIcons = true;
         $scope.showHideIcons = function() {
-
         };
 
         // Print control

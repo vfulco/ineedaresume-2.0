@@ -18,7 +18,8 @@
 #print-page.theme-source .pdf-section-header {
   display: inline-block;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.75px;
   font-size: 13pt;
 }
 #print-page.theme-source .section-body {
@@ -33,10 +34,11 @@
   padding: 0px 0 2px 0;
   margin: 0;
   display: block;
+  letter-spacing: 1px;
   transition: 0.12s;
 }
-#print-page.theme-source #personalHeaderBottom,
-#print-page.theme-source #personalHeaderTop {
+#print-page.theme-source #basicHeaderBottom,
+#print-page.theme-source #basicHeaderTop {
   display: none;
 }
 #print-page.theme-source #contact-info-bottom {
@@ -51,11 +53,15 @@
   font-weight: lighter;
   box-sizing: border-box;
   padding: 5px 8px;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 10pt;
 }
 #print-page.theme-source #contact-info-top span i {
   margin: 0 2px 0 0;
+}
+#print-page.theme-source #contact-info-top span.social {
+  font-weight: 400;
+  font-size: 9pt;
 }
 #print-page.theme-source #social-links-bottom {
   display: none;

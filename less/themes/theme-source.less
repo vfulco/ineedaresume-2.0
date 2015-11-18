@@ -21,7 +21,8 @@
     	.pdf-section-header{
     		display: inline-block;
     		text-align: center;
-    		font-weight: 600;
+    		font-weight: 700;
+            letter-spacing: 0.75px;
     		font-size: 13pt;
     	}
         .section-body{
@@ -41,12 +42,13 @@
     		padding: 0px 0 2px 0;
     		margin: 0;
     		display: block;
+            letter-spacing: 1px;
             transition: @transition;
     	}
 
         // Contact information
-        #personalHeaderBottom,
-        #personalHeaderTop{
+        #basicHeaderBottom,
+        #basicHeaderTop{
             display: none;
         }
         #contact-info-bottom{
@@ -60,10 +62,14 @@
     			font-weight: lighter;
     			box-sizing: border-box;
     			padding: 5px 8px;
-                font-weight: 600;
+                font-weight: 500;
     			font-size: 10pt;
                 i{
                     margin: 0 2px 0 0;
+                }
+                &.social{
+                    font-weight: 400;
+                    font-size: 9pt;
                 }
     		}
     	}

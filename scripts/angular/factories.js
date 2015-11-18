@@ -1,19 +1,10 @@
-resumeApp.factory('personal', [function(){
+resumeApp.factory('basic', [function(){
     var o = {
         personal: [
         ]
     }
     return o;
 }]);
-
-resumeApp.factory('social', [function(){
-    var o = {
-        social: [
-        ]
-    }
-    return o;
-}]);
-
 
 resumeApp.factory('summary', [function(){
     var o = {

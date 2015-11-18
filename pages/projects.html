@@ -1,20 +1,26 @@
-<!-- <h1 class="section-title">Projects</h1> -->
-
-
-<div class="current-items">
-    <div class="item" ng-repeat="item in projects">
-        <i class="ion-edit" ng-click="editProject($index)"></i>
-        <i class="ion-close-round" ng-click="deleteProject($index)"></i>
-        {{item.projectTitle}}
-  </div>
-</div>
-
-
-
 <form class="input-form" ng-submit="saveProject()">
-    <label>Give your project a <b>title</b>.</label>
-    <input type="text" ng-model="projectTitleInput" placeholder="Project Title" />
-    <label>Now describe what <b>you did</b>.</label>
-    <textarea ng-model="projectDescriptionInput" placeholder="Project Description"></textarea>
-    <button type="submit" class="save-add-another"><i class="ion-checkmark-round"></i> Save to projects list</button>
+    <span class="sidebar">
+        <span class="inner">
+            <h6>Your Projects</h6>
+            <h5 ng-hide="projects[0]">Add your first project</h5>
+            <div class="item" ng-repeat="item in projects">
+                <b>{{item.projectTitle}}</b>
+                <em ng-click="editProject($index)">Edit<i class="ion-edit"></i></em>
+                <em ng-click="deleteProject($index)">Delete<i class="ion-close-round"></i></em>
+            </div>
+        </span>
+    </span><!--
+    --><span class="body-sidebar">
+        <span class="form-group full-width">
+            <label>Give your project a <b>title</b>.</label>
+            <input class="required" type="text" ng-model="projectTitleInput" placeholder="Project Title" />
+        </span><!--
+        --><span class="form-group full-width">
+            <label>Now describe what <b>you did</b>.</label>
+            <textarea class="required" ng-model="projectDescriptionInput" placeholder="Project Description"></textarea>
+        </span><!--
+        --><span class="form-group full-width">
+            <button type="submit" class="save-btn" id="save-project"><i class="ion-checkmark-round"></i> Save to projects list</button>
+        </span>
+    </span>
 </form>

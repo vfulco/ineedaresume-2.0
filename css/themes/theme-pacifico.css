@@ -37,10 +37,10 @@
   text-align: left;
   transition: 0.12s;
 }
-#print-page.theme-pacifico #personalHeaderTop {
+#print-page.theme-pacifico #basicHeaderTop {
   display: none;
 }
-#print-page.theme-pacifico #personalHeaderBottom {
+#print-page.theme-pacifico #basicHeaderBottom {
   margin: 18px 0 0 0;
 }
 #print-page.theme-pacifico #contact-info-top {

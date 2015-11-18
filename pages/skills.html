@@ -1,14 +1,24 @@
-<!-- <h1 class="section-title">Skills</h1> -->
-
-
-<div class="current-items">
-    <div class="item" ng-repeat="item in skills">
-      <i class="ion-close-round" ng-click="deleteSkill($index)"></i> {{item.skill}}
-  </div>
-</div>
-
 <form class="input-form" ng-submit="saveSkill()">
-    <label>Enter a <b>skill</b> you possess.</label>
-    <input type="text" ng-model="skillInput" placeholder="UX/UI Design"/>
-    <button type="submit" class="save-add-another"><i class="ion-checkmark-round"></i> Save to skills list</button>
+    <span class="sidebar">
+        <span class="inner">
+            <h6>Your Skills</h6>
+            <h5 ng-hide="skills[0]">Add your first skill</h5>
+            <div style="display: block; height: 10px;"></div>
+            <div class="item skill" ng-repeat="item in skills">
+                <b><i class="ion-close-round" ng-click="deleteSkill($index)"></i> {{item.skill}}</b>
+            </div>
+        </span>
+    </span><!--
+    --><span class="body-sidebar">
+        <span class="form-group full-width">
+            <label>Enter a <b>skill</b> you possess.</label>
+            <input class="required" type="text" ng-model="skillInput" placeholder="UX/UI Design"/>
+        </span><!--
+        --><span class="form-group full-width">
+            <button type="submit" class="save-btn"><i class="ion-checkmark-round"></i> Save to skills list</button>
+        </span>
+    </span>
+</form>
+
+
 </form>

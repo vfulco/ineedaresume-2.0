@@ -3,11 +3,19 @@
 <head>
     <title>REBUILD</title>
 
+    <!-- Responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/ico" href="src/favicon.ico" />
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#4887F4">
+
     <!-- STYLES -->
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/input.css" />
     <link rel="stylesheet" href="css/typography.css" />
     <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/print.css" />
     <link rel="stylesheet" href="css/angular-toastr.css" />
     <!-- PDF THEMES -->
@@ -32,11 +40,19 @@
     <script src="scripts/angular/src/ngStorage.min.js"></script>
     <!-- Custom/App scripts -->
     <script src="app.js"></script>
-    <script src="scripts/angular/generate.js"></script>
     <!-- <script src="scripts/angular/factories.js"></script> -->
     <script src="scripts/angular/testfactories.js"></script>
     <script src="scripts/javascript.js"></script>
-    <script src="scripts/angular/controllers.js"></script>
+    <!-- Controllers -->
+    <script src="scripts/angular/controllers/home.js"></script>
+    <script src="scripts/angular/controllers/basic.js"></script>
+    <script src="scripts/angular/controllers/summary.js"></script>
+    <script src="scripts/angular/controllers/experience.js"></script>
+    <script src="scripts/angular/controllers/projects.js"></script>
+    <script src="scripts/angular/controllers/qualifications.js"></script>
+    <script src="scripts/angular/controllers/skills.js"></script>
+    <script src="scripts/angular/controllers/generate.js"></script>
+
 
 
 </head>
@@ -44,24 +60,29 @@
 
     <nav>
         <i class="ion-document-text logo"></i>
+        <i class="ion-navicon" id="menu-btn"></i>
     </nav>
 
     <ul id="navigation-links" ng-controller="navCtrl">
         <li ng-class="navClass('home')"><a href="#/">Home</a></li>
-        <li ng-class="navClass('personal')"><a href="#personal">Personal</a></li>
-        <li ng-class="navClass('social')"><a href="#social">Social</a></li>
+        <li ng-class="navClass('basic')"><a href="#basic">Basic Info</a></li>
+        <!-- <li ng-class="navClass('social')"><a href="#social">Social</a></li> -->
         <li ng-class="navClass('summary')"><a href="#summary">Summary</a></li>
-        <li ng-class="navClass('jobs')"><a href="#jobs">Jobs</a></li>
+        <li ng-class="navClass('experience')"><a href="#experience">Experience</a></li>
         <li ng-class="navClass('projects')"><a href="#projects">Projects</a></li>
         <li ng-class="navClass('qualifications')"><a href="#qualifications">Qualifications</a></li>
         <li ng-class="navClass('skills')"><a href="#skills">Skills</a></li>
-        <li ng-class="navClass('generate')"><a href="#generate">Generate</a></li>
+        <li ng-class="navClass('generate')"><a href="#generate">Generate&nbsp;</a></li>
     </ul>
+
+    <span class="nav-spacer">&nbsp;</span>
+
+    <span id="menu-lightbox">&nbsp;</span>
 
 
     <div id="content">
 
-        <div ng-view class="fade"></div>
+        <div ng-view class="fade view"></div>
 
     </div>
 

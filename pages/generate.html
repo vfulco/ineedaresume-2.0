@@ -27,7 +27,7 @@
                 </li>
             </ol>
         </li>
-        <li ng-click="saveLocally()">Save Locally</li>
+        <li ng-click="saveLocally()">Save Data</li>
         <li ng-click="savePDF()">Download Resume</li>
     </ul>
 </div>
@@ -37,32 +37,28 @@
 
 <div id="print-page" ng-class="themeClass">
 
-    <span class="pdf-advice" ng-hide="personal.length > 0 || social.length > 0 || summary.length > 0 || jobs.length > 0 || projects.length > 0 || qualifications.length > 0 || skills.length > 0">
-        You must fill in at least one section!
-        <small>Your resume will appear here once you have.</small>
+    <span class="pdf-advice" ng-hide="basic.length > 0 || summary.length > 0 || jobs.length > 0 || projects.length > 0 || qualifications.length > 0 || skills.length > 0">
+        How can we make you a resume<br/>if you haven't filled anyhting in?
     </span>
 
 
-    <div ng-repeat="item in personal">
+    <div ng-repeat="item in basic">
         <span id="name" ng-show="item.name">{{item.name}}</span>
 
-        <span class="pdf-section-header editable-header" id="personalHeaderTop" ng-click="editPersonalHeader()" ng-show="personal.length > 0 || social.length > 0"><span>{{personalHeader}}</span></span>
+        <span class="pdf-section-header editable-header" id="basicHeaderTop" ng-click="editBasicHeader()" ng-show="basic.length > 0"><span>{{basicHeader}}</span></span>
 
         <div id="contact-info-top">
             <span ng-show="item.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{item.email}}</span>
             <span ng-show="item.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{item.phone}}</span>
+            <br/>
+            <span class="social" ng-show="item.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{item.linkedin}}</span>
+            <span class="social" ng-show="item.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{item.twitter}}</span>
+            <span class="social" ng-show="item.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{item.skype}}</span>
+            <span class="social" ng-show="item.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{item.link}}</span>
         </div>
 
-    </div> <!-- End Personal info -->
+    </div> <!-- End Basic info -->
 
-    <div id="social-links-top" ng-repeat="item in social">
-        <span ng-show="item.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{item.linkedin}}</span>
-        <span ng-show="item.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{item.twitter}}</span>
-        <span ng-show="item.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{item.skype}}</span>
-        <span ng-show="item.github"><i class="ion-social-github" ng-show="showIcons"></i> {{item.github}}</span>
-        <span ng-show="item.dribbble"><i class="ion-social-dribbble-outline" ng-show="showIcons"></i> {{item.dribbble}}</span>
-        <span ng-show="item.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{item.link}}</span>
-    </div><!-- End Social links -->
 
 
     <hr ng-hide="!summary[0].summaryBody">
@@ -138,23 +134,20 @@
 
 
 
-    <span class="pdf-section-header editable-header" id="personalHeaderBottom" ng-click="editPersonalHeader()" ng-show="personal.length > 0 || social.length > 0">{{personalHeader}}</span>
-    <div ng-repeat="item in personal">
+    <span class="pdf-section-header editable-header" id="basicHeaderBottom" ng-click="editBasicHeader()" ng-show="basic.length > 0">{{basicHeader}}</span>
+    <div ng-repeat="item in basic">
         <div class="section-body" id="contact-info-bottom">
             <span ng-show="item.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{item.email}}</span>
             <span ng-show="item.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{item.phone}}</span>
+            <span ng-show="item.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{item.linkedin}}</span>
+            <span ng-show="item.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{item.twitter}}</span>
+            <span ng-show="item.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{item.skype}}</span>
+            <span ng-show="item.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{item.link}}</span>
         </div>
-    </div> <!-- End Personal info bottom -->
+    </div> <!-- End Basic info bottom -->
 
 
-    <div class="section-body" id="social-links-bottom" ng-repeat="item in social">
-        <span ng-show="item.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{item.linkedin}}</span>
-        <span ng-show="item.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{item.twitter}}</span>
-        <span ng-show="item.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{item.skype}}</span>
-        <span ng-show="item.github"><i class="ion-social-github" ng-show="showIcons"></i> {{item.github}}</span>
-        <span ng-show="item.dribbble"><i class="ion-social-dribbble-outline" ng-show="showIcons"></i> {{item.dribbble}}</span>
-        <span ng-show="item.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{item.link}}</span>
-    </div><!-- End Social links bottom -->
+
 
 
 </div><!-- End PDF -->
@@ -174,7 +167,7 @@
         <input type="text" ng-model="qualificationsHeader" ng-show="editingQualificationsHeader" />
         <input type="text" ng-model="projectsHeader" ng-show="editingProjectsHeader" />
         <input type="text" ng-model="skillsHeader" ng-show="editingSkillsHeader" />
-        <input type="text" ng-model="personalHeader" ng-show="editingPersonalHeader" />
+        <input type="text" ng-model="basicHeader" ng-show="editingBasicHeader" />
         <button type="submit" class="modal-save">Save / Close</button>
     </form>
 </div>

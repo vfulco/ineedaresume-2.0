@@ -1,16 +1,7 @@
-resumeApp.factory('personal', [function(){
+resumeApp.factory('basic', [function(){
     var o = {
-        personal: [
-            {name: "Mitch Samuels", email: "samuels.mitch@gmail.com", phone: "507-330-5897"}
-        ]
-    }
-    return o;
-}]);
-
-resumeApp.factory('social', [function(){
-    var o = {
-        social: [
-            {linkedin: "/in/mitchas", twitter: "@sleumasm", skype: "mitch-samuels", github: "github.com/mitchas", dribbble: "dribbble.com/mitchas", link: "mitchs.co"}
+        basic: [
+            {name: "Mitch Samuels", email: "samuels.mitch@gmail.com", phone: "507-330-5897", linkedin: "linkedin.com/in/mitchas", twitter: "@sleumasm", skype: "mitch-samuels", link: "mitchs.co"}
         ]
     }
     return o;

@@ -10,17 +10,12 @@ resumeApp.config(function($routeProvider) {
         controller  : 'mainController'
     })
 
-    // route for personal info entry
-    .when('/personal', {
-        templateUrl : 'pages/personal.html',
-        controller  : 'personalController'
+    // route for basic info entry
+    .when('/basic', {
+        templateUrl : 'pages/basic.html',
+        controller  : 'basicController'
     })
 
-    // route for social info entry
-    .when('/social', {
-        templateUrl : 'pages/social.html',
-        controller  : 'socialController'
-    })
 
     // route for statement entry
     .when('/summary', {
@@ -28,10 +23,10 @@ resumeApp.config(function($routeProvider) {
         controller  : 'summaryController'
     })
 
-    // route for employment entry
-    .when('/jobs', {
-        templateUrl : 'pages/jobs.html',
-        controller  : 'jobsController'
+    // route for experience entry
+    .when('/experience', {
+        templateUrl : 'pages/experience.html',
+        controller  : 'experienceController'
     })
 
     // route for project entry

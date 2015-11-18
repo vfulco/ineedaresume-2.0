@@ -14,13 +14,14 @@
     	}
     	.pdf-section-header{
             font-family: @raleway-font;
-    		font-size: 11pt;
+    		font-size: 14pt;
             margin: 10px 0 10px 0;
             width:100%;
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 4px;
             display: table;
+            padding: 0;
             span{
                 width: 1px;
                 white-space: nowrap;
@@ -32,17 +33,17 @@
             }
             &:before{
                 content: "\00a0";
-                border-top: 2px solid @color-black;
+                border-top: 1px solid @color-black;
                 position: relative;
-                top: 11px;
+                top: 12px;
                 display: table-cell;
             }
             &:after{
                 content: "\00a0";
                 height: 0;
-                border-top: 2px solid @color-black;
+                border-top: 1px solid @color-black;
                 position: relative;
-                top: 11px;
+                top: 12px;
                 display: table-cell;
             }
     	}
@@ -72,7 +73,7 @@
     	}
 
         // Contact information
-        #personalHeaderBottom{
+        #basicHeaderBottom{
             display: none;
         }
         #contact-info-bottom{
@@ -85,11 +86,11 @@
     			display: inline-block;
     			font-weight: lighter;
     			box-sizing: border-box;
-    			padding: 2px 8px;
-                font-weight: 800;
+    			padding: 2px 8px 6px 8px;
+                font-weight: 700;
     			font-size: 9pt;
                 text-transform: uppercase;
-                letter-spacing: 2px;
+                letter-spacing: 1.25px;
                 &:nth-child(2){
                     position: relative;
                     top: -2px;
@@ -103,6 +104,16 @@
                     font-size: 13pt;
                     position: relative;
                     top: 1px;
+                }
+                &.social{
+                    font-weight: 500;
+                    font-size: 7pt;
+                    letter-spacing: 1px;
+                    i{
+                        margin: 0 0 0 0;
+                        font-size: 11pt;
+                        top: 2px;
+                    }
                 }
     		}
     	}
@@ -150,6 +161,7 @@
     		text-align: justify;
      		white-space: pre-line;
             font-family: @source-font;
+            letter-spacing: 0.5px;
      		font-weight: 300;
             transition: @transition;
     	}
@@ -194,7 +206,9 @@
     			font-size: 9pt;
     			text-align: justify;
     			font-weight: 300;
+                font-family: @source-font;
     			margin: 0;
+                letter-spacing: 0.5px;
     		}
     	}
 
@@ -217,6 +231,8 @@
     			text-align: justify;
     			font-weight: 300;
     			margin: 0;
+                font-family: @source-font;
+                letter-spacing: 0.5px;
     		}
     	}
 
@@ -226,7 +242,7 @@
     		padding: 5px 0;
     		span{
     			font-size: 10pt;
-    			font-weight: 600;
+    			font-weight: 500;
     			font-size: 9pt;
                 letter-spacing: 1.5px;
                 line-height: 0.8em;

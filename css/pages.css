@@ -3,91 +3,23 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
-.section-title {
-  color: #4887f4;
-  text-transform: uppercase;
-  font-size: 14pt;
-  text-align: center;
-  padding: 20px 0 16px 0;
-}
-.home-wrapper {
-  background-color: #ffffff;
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0 0;
-}
-.home-wrapper #has-local-storage {
-  display: none;
-  background-color: #ffffff;
-  text-align: left;
-  color: #313544;
-  box-sizing: border-box;
-  padding: 15px;
-  border: 1px solid rgba(72, 135, 244, 0.3);
-}
-.home-wrapper #has-local-storage h1 {
-  font-size: 12pt;
-  margin: 0;
-  padding: 0 0 6px 0;
-  font-weight: lighter;
-}
-.home-wrapper #has-local-storage h2 {
-  font-size: 9pt;
-  letter-spacing: 0.35px;
-  font-weight: lighter;
-  margin: 0 0 8px 0;
-  padding: 0;
-}
-.home-wrapper #has-local-storage button {
-  border: none;
-  box-sizing: border-box;
-  padding: 10px 16px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bolder;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 3px 5px 0 0;
-  transition: 0.12s;
-  background-color: rgba(49, 53, 68, 0.85);
-}
-.home-wrapper #has-local-storage button:hover {
-  cursor: pointer;
-  color: #ffffff;
-  transition: 0.12s;
-  background-color: #313544;
-}
-.home-wrapper #has-local-storage button.blue {
-  background-color: rgba(72, 135, 244, 0.85);
-}
-.home-wrapper #has-local-storage button.blue:hover {
-  background-color: #4887f4;
-}
-.home-wrapper .home-name {
-  display: block;
-  text-align: center;
-  padding: 20px 0 0 0;
-  margin: 0;
-  font-size: 32pt;
-  font-weight: 400;
-  color: rgba(58, 63, 82, 0.2);
-}
-.home-wrapper .home-name b {
-  font-weight: bolder;
-  font-weight: 800;
-  color: #3a3f52;
-}
 .settings {
   width: 100%;
   height: 49px;
   background-color: #313544;
   box-sizing: border-box;
   position: absolute;
-  top: 99px;
+  top: 0px;
   left: 0;
   text-align: center;
   z-index: 5000;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+@media (max-width: 800px) {
+  .settings {
+    position: fixed;
+    top: 49px;
+  }
 }
 .settings ul {
   margin: 0;
@@ -115,9 +47,11 @@
   opacity: 1;
   transition: visibility 0s, opacity 0.1s linear;
 }
-.settings ul li ol {
+.settings ul li:nth-child(2) ol {
   visibility: hidden;
   opacity: 0;
+}
+.settings ul li ol {
   position: absolute;
   left: 0;
   padding: 0;
@@ -261,7 +195,7 @@
   transition: 0.12s;
 }
 .settings-scrolled {
-  top: 0px;
+  top: 49px;
   position: fixed;
   left: 0;
   width: 100%;

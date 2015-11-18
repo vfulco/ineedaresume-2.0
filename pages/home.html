@@ -1,12 +1,115 @@
-<div class="home-wrapper">
+<div id="has-local-storage">
+    <h2>You have data saved from last time. Would you like to load it or start fresh?</h2>
+    <button class="blue" ng-click="loadLocal()">Load it, please</button>
+    <button ng-click="ignoreLocal()">I'll start fresh</button>
+</div>
 
-    <div id="has-local-storage">
-        <h1>Hey, <b>{{ welcomeName }}</b>, it looks like you saved your data here last time.</h1>
-        <h2>Would you like us to load it, or do you want to start fresh?</h2>
-        <button class="blue" ng-click="loadLocal()">Load it, please</button>
-        <button ng-click="ignoreLocal()">I'll start fresh</button>
+<div id="home-page">
+
+    <div id="home-intro">
+
+        <span id="intro-text">
+            <h1 class="home-name"><b>ineedaresume</b> 2.0</h1>
+            <h1>Creating a resume shouldn't suck</h1>
+            <h2>
+                Simply enter your information and get a beautifully formatted resume in seconds.
+            </h2>
+        </span>
+
     </div>
 
-    <h1 class="home-name"><b>ineedaresume</b> 2.0</h1>
+    <div id="media">
+        <h6>You have have seen ineedaresu.me on</h6>
+        <a href="#" target="_blank"><img src="assets/media/producthunt.png"></a>
+        <a href="#" target="_blank"><img src="assets/media/lifehacker.png"></a>
+        <a href="#" target="_blank"><img src="assets/media/newsweek.png"></a>
+        <a href="#" target="_blank"><img src="assets/media/netted.png"></a>
+        <span style="white-space: nowrap">
+            <a href="#" target="_blank"><img src="assets/media/muse.png"></a>
+            <a href="#" target="_blank"><img src="assets/media/ktla.png"></a>
+        </span>
+    </div>
 
+    <div id="process">
+        <h1>Here's how it works</h1>
+        <h2>A well-designed resume has never been so simple.</h2>
+        <span>
+            <img src="assets/oneline-hi.png">
+            <h4>Fill out your information</h4>
+            <p>Only provide what you want on your resume. Leave the rest blank. It adapts based on what you provide.</p>
+        </span><!--
+        --><span>
+            <img src="assets/oneline-gear.png">
+            <h4>Perfect your design</h4>
+            <p>Change the theme, reorder items, and fine tune your resume to make sure it's ready to impress.</p>
+        </span><!--
+        --><span>
+            <img src="assets/oneline-download.png">
+            <h4>Save or print</h4>
+            <p>Download your resume to your computer as a PDF document, or print it directly from your web browser.</p>
+        </span>
+    </div>
+
+    <div id="whats-new">
+        <span id="whats-new-image">
+            <img src="assets/rebuild.png">
+        </span><!--
+        --><span id="whats-new-text">
+            <h1>Version 2.0. Built from the ground up.</h1>
+            <h2>More customization. More speed. Just as simple.</h2>
+            <p>
+                People loved Version 1.0, and there's even more to love in 2.0. We've rebuilt it using AngularJS which has allowed us to add more customization options such as <b>custom themes</b>, <b>drag & drop to reorder items</b>, <b>the ability to change section headers</b>, and <b>support for more devices</b>.
+            </p>
+        </span>
+    </div>
+
+    <div id="questions">
+        <h1>Questions & Answers</h1>
+        <span class="columns">
+            <span>
+                <h3>Can I save my information to edit later?</h3>
+                <p>
+                    Yes! When you want to save your data, go to the <a href="/#/personal">generate</a> page and click the <i>Save Data</i> button. Next time you come back, we will automatically ask if you want to load it!
+                </p>
+            </span><!--
+            --><span>
+                <h3>Do you save/sell the personal information I enter/save?</h3>
+                <p>
+                    No way. Nobody but you has access to the information you enter here. It is only saved on your own computer using local storage. That means if you want to come back and edit it later, you must be using the same browser and computer, and don't clear your cache or you'll lose everything.
+                </p>
+            </span><!--
+            --><span>
+                <h3>Can I download my resume as a Word document?</h3>
+                <p>
+                    No, not at the moment. We are working on figuring out a method to export the resume as a Word document, but for now, only PDF is supported.
+                </p>
+            </span><!--
+            --><span>
+                <h3>You're missing <i>__________&nbsp; </i>, can I request a feature?</h3>
+                <p>
+                    Of course! We are always looking for ideas to make this site better! Please <a href="mailto:mitch@mitchs.co">contact us</a> with your suggestions or feedback! We are already working on more features, including <b>LinkedIn integration</b>, <b>more themes</b>, <b>accounts so you can edit your resume from anywhere</b>, and professional resume review
+                </p>
+            </span>
+        </span>
+    </div>
+    <div id="get-started">
+        <h1>Start building your resume now! It's completely free.</h1>
+        <a id="start-now" href="/#/personal">Get Started</a>
+    </div>
+    <div id="footer">
+        <span id="footer-name">
+            ineedaresume
+        </span><!--
+        --><span id="footer-about">
+            <h6>About</h6>
+            <p>
+                ineedaresume was built by <b>Mitch Samuels</b> in Madison, WI. If you have feedback, suggestions, or find a bug, email me at <a href="mailto:mitch@mitchs.co">mitch@mitchs.co</a>. You can also follow me on <a href="http://twitter.com/sleumasm" target="_blank">Twitter</a> or <a href="http://instagram.com/mitchas" target="_blank">Instagram</a>, connect on <a href="http://linkedin.com/in/mitchas" target="_blank">LinkedIn</a>, or check out my <a href="http://github.com/mitchas" target="_blank">Github</a> or personal website, <a href="http://mitchs.co" target="_blank">mitchs.co</a>.
+            </p>
+        </span><!--
+        --><span id="footer-subscribe">
+            <h6>Stay updated</h6>
+            <p>Subscribe for bi-weekly curated updates about ineedaresume, career advice, resume tips, and more.</p>
+            <button onclick="window.open('https://tinyletter.com/ineedaresume')">Subscribe Now</button>
+        </span>
+    </div>
 </div>
