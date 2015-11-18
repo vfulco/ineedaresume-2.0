@@ -35,6 +35,34 @@
   font-size: 9pt;
   color: rgba(255, 255, 255, 0.65);
   transition: 0.12s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+@media (max-width: 605px) {
+  .settings ul li {
+    font-size: 8pt;
+    padding: 19px 10px 18px 10px;
+  }
+}
+@media (max-width: 475px) {
+  .settings ul li {
+    font-size: 7pt;
+    letter-spacing: -0.3px;
+    padding: 20px 8px 20px 8px;
+  }
+}
+@media (max-width: 430px) {
+  .settings ul li {
+    font-size: 6pt;
+    padding: 20px 8px 20px 8px;
+  }
+}
+@media (max-width: 390px) {
+  .settings ul li {
+    letter-spacing: -0.5px;
+    padding: 21px 8px 21px 8px;
+  }
 }
 .settings ul li:hover {
   color: #ffffff;
@@ -48,10 +76,11 @@
   transition: visibility 0s, opacity 0.1s linear;
 }
 .settings ul li:nth-child(2) ol {
-  visibility: hidden;
-  opacity: 0;
+  padding: 20px 0;
 }
 .settings ul li ol {
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
   left: 0;
   padding: 0;
@@ -62,6 +91,12 @@
   text-align: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.18);
 }
+@media (max-width: 800px) {
+  .settings ul li ol {
+    box-sizing: border-box;
+    padding: 8px 10px;
+  }
+}
 .settings ul li ol li.theme {
   display: inline-block;
   padding: 30px 0px 30px 0px;
@@ -71,11 +106,20 @@
   text-transform: none;
   color: rgba(49, 53, 68, 0.4);
   background-color: #ffffff;
-  width: 11%;
+  width: 150px;
   font-size: 12pt;
   line-height: 100%;
   vertical-align: middle;
   border: 3px solid #ffffff;
+}
+@media (max-width: 800px) {
+  .settings ul li ol li.theme {
+    width: 100px;
+    padding: 20px 0 20px 0;
+    font-size: 10pt;
+    border: 2px solid #ffffff;
+    margin: 5px 4px 5px 4px;
+  }
 }
 .settings ul li ol li.theme:hover {
   background-color: #ffffff;
@@ -198,6 +242,7 @@
   top: 49px;
   position: fixed;
   left: 0;
+  z-index: 3000;
   width: 100%;
 }
 #toolbar-spacer {
@@ -207,11 +252,11 @@
 .modal-lightbox {
   width: 100%;
   height: 100%;
-  background-color: rgba(14, 28, 52, 0.2);
+  background-color: rgba(14, 28, 52, 0.3);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 4000;
 }
 .text-edit-modal {
   border-radius: 3px;
@@ -220,11 +265,18 @@
   padding: 14px 25px 19px 25px;
   background-color: #ffffff;
   position: fixed;
-  top: 20%;
+  top: 25%;
   left: 50%;
   margin-left: -200px;
-  z-index: 11000;
+  z-index: 1100000000;
   font-family: 'Montserrat', sans-serif;
+}
+@media (max-width: 450px) {
+  .text-edit-modal {
+    width: 90%;
+    left: 5%;
+    margin-left: 0;
+  }
 }
 .text-edit-modal h6 {
   margin: 0;
@@ -270,14 +322,158 @@
   color: #ffffff;
   transition: 0.12s;
 }
+.text-edit-modal .info {
+  font-weight: lighter;
+  font-size: 8pt;
+  text-align: center;
+  color: rgba(58, 63, 82, 0.9);
+  line-height: 1.6em;
+  display: block;
+}
+.text-edit-modal .info small {
+  display: block;
+  padding: 10px 0 0 0;
+  font-size: 8pt;
+  letter-spacing: 0.5px;
+}
 .editable-header {
   transition: 0.12s;
-  background-color: rgba(72, 135, 244, 0.4);
+  background-color: rgba(72, 135, 244, 0.2);
   box-sizing: border-box;
   padding: 0 15px;
 }
 .editable-header:hover {
   cursor: pointer;
   transition: 0.12s;
-  background-color: rgba(72, 135, 244, 0.5);
+  background-color: rgba(72, 135, 244, 0.4);
+}
+#pdf-instructions {
+  background-color: #ffffff;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  margin-left: -300px;
+  width: 600px;
+  min-height: 20px;
+  z-index: 5000;
+  box-sizing: border-box;
+  padding: 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: #3a3f52;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  #pdf-instructions {
+    width: 90%;
+    left: 5%;
+    margin-left: 0;
+  }
+}
+#pdf-instructions .close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  color: rgba(58, 63, 82, 0.5);
+  transition: 0.12s;
+}
+#pdf-instructions .close:hover {
+  cursor: pointer;
+  color: #3a3f52;
+  transition: 0.12s;
+}
+#pdf-instructions .text h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14pt;
+  margin: 0 auto;
+  padding: 0;
+}
+#pdf-instructions .text h2 {
+  font-size: 12pt;
+  margin: 0 auto;
+  padding: 5px 0;
+}
+#pdf-instructions .text p {
+  font-size: 9.5pt;
+  margin: 0 auto;
+  padding: 5px 0;
+}
+#pdf-instructions .text p em {
+  font-size: 11pt;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+#pdf-instructions .text .button {
+  background-color: #4887f4;
+  color: #ffffff;
+  box-sizing: border-box;
+  padding: 10px 16px;
+  text-align: center;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 9pt;
+  font-weight: bolder;
+  font-family: 'Montserrat', sans-serif;
+  margin: 14px 0 0 0;
+  float: left;
+}
+#pdf-instructions .text .button:hover {
+  cursor: pointer;
+  transition: 0.12s;
+  background-color: rgba(72, 135, 244, 0.8);
+}
+#pdf-instructions .text .button.proceed {
+  background-color: #29cdb5;
+  float: right;
+}
+#pdf-instructions .text .button.proceed:hover {
+  background-color: rgba(41, 205, 181, 0.8);
+}
+#pdf-instructions .text a:hover {
+  cursor: pointer;
+}
+#pdf-instructions .videos h1 {
+  padding: 0px 0 10px 0;
+  margin: 0 auto;
+  font-size: 14pt;
+}
+#pdf-instructions .videos span {
+  font-size: 8pt;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  padding: 8px 15px;
+  display: inline-block;
+  border-radius: 3px;
+  margin: 0 4px 0 4px;
+  letter-spacing: 1px;
+  transition: 0.12s;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+#pdf-instructions .videos span.active {
+  background-color: #4887f4;
+  color: #ffffff;
+  transition: 0.12s;
+}
+#pdf-instructions .videos span:hover {
+  background-color: rgba(72, 135, 244, 0.8);
+  transition: 0.12s;
+  color: #ffffff;
+  cursor: pointer;
+}
+#pdf-instructions .videos video {
+  margin: 15px auto;
+  width: 80%;
+  max-width: 600px;
+  display: block;
+  border: 3px solid #4887f4;
+}
+#pdf-instructions .contribute h1 {
+  padding: 0px 0 10px 0;
+  margin: 0 auto;
+  font-size: 14pt;
 }

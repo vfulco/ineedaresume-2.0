@@ -11,7 +11,7 @@ resumeApp.controller('generateController',
         $scope.qualifications = qualifications.qualifications;
         $scope.skills = skills.skills;
 
-
+        $(document).prop('title', "Your Resume | ineedaresume");
 
 
 
@@ -19,6 +19,7 @@ resumeApp.controller('generateController',
         $scope.closeModal = function(){
             $scope.lightbox = false;
             $scope.modal = false;
+            $scope.savedData = false;
             $scope.editingSummaryHeader = false;
             $scope.editingJobsHeader = false;
             $scope.editingProjectsHeader = false;
@@ -33,46 +34,53 @@ resumeApp.controller('generateController',
         };
 
         // Resume Header editing
+        $scope.basicHeader = 'Contact';
+        $scope.editBasicHeader = function(){
+            $scope.editingBasicHeader = true;
+            $scope.displayModal();
+            $scope.modalHeader = "editing basic info header";
+            $scope.modalButton = "Save / Close";
+        };
         $scope.summaryTitle = 'Professional Summary';
         $scope.editSummaryTitle = function(){
             $scope.editingSummaryHeader = true;
             $scope.displayModal();
+            $scope.modalHeader = "editing summary header";
+            $scope.modalButton = "Save / Close";
         };
         $scope.jobsHeader = 'Experience';
         $scope.editJobsHeader = function(){
             $scope.editingJobsHeader = true;
             $scope.displayModal();
+            $scope.modalHeader = "editing experience header";
+            $scope.modalButton = "Save / Close";
         };
         $scope.projectsHeader = 'Projects';
         $scope.editProjectsHeader = function(){
             $scope.editingProjectsHeader = true;
             $scope.displayModal();
+            $scope.modalHeader = "editing projects header";
+            $scope.modalButton = "Save / Close";
         };
         $scope.qualificationsHeader = 'Education';
         $scope.editQualificationsHeader = function(){
             $scope.editingQualificationsHeader = true;
             $scope.displayModal();
+            $scope.modalHeader = "editing qualifications header";
+            $scope.modalButton = "Save / Close";
         };
         $scope.skillsHeader = 'Skills';
         $scope.editSkillsHeader = function(){
             $scope.editingSkillsHeader = true;
             $scope.displayModal();
-        };
-        $scope.basicHeader = 'Contact';
-        $scope.editBasicHeader = function(){
-            $scope.editingBasicHeader = true;
-            $scope.displayModal();
-        };
-        $scope.skillsHeader = 'Skills';
-        $scope.editSkillsHeader = function(){
-            $scope.editingSkillsHeader = true;
-            $scope.displayModal();
+            $scope.modalHeader = "editing skills header";
+            $scope.modalButton = "Save / Close";
         };
 
 
 
         // Theme control
-        $scope.themeClass = "theme-raleway";
+        $scope.themeClass = "theme-pacifico";
         $scope.setThemeSource = function(){
             $scope.themeClass = "theme-source";
             $scope.showIcons = true;
@@ -109,18 +117,17 @@ resumeApp.controller('generateController',
         $scope.showHideIcons = function() {
         };
 
-        // Print control
-        $scope.savePDF = function(){
-            print();
-        };
 
 
 
 
         // Local Storage
         $scope.saveLocally = function(){
-            $storage.localPersonal = $scope.personal;
-            $storage.localSocial = $scope.social;
+            $scope.savedData = true;
+            $scope.displayModal();
+            $scope.modalHeader = "Saved Successfully!";
+            $scope.modalButton = "Sounds good!";
+            $storage.localBasic = $scope.basic;
             $storage.localSummary = $scope.summary;
             $storage.localJobs = $scope.jobs;
             $storage.localProjects = $scope.projects;
@@ -129,6 +136,58 @@ resumeApp.controller('generateController',
         }
 
 
+
+
+
+
+        // Instructions Dialog
+        $scope.showInstructions = function(){
+            $scope.lightbox = true;
+            $scope.instructions = true;
+            $scope.instructionsText = true;
+            $scope.instructionsVideos = false;
+        }
+        $scope.closeInstructions = function(){
+            $scope.instructionsText = true;
+            $scope.instructionsVideos = false;
+            $scope.lightbox = false;
+            $scope.instructions = false;
+        }
+
+        $scope.instructionsText = true;
+        $scope.instructionsVideos = false;
+        $scope.showVideos = function(){
+            $scope.instructionsText = false;
+            $scope.instructionsVideos = true;
+        }
+
+        $scope.src = "assets/chrome.mp4";
+        $scope.chromeVideo = function(){
+            $scope.src = "assets/chrome.mp4";
+            $(".browser").removeClass("active");
+            $("#chrome").addClass("active");
+        }
+        $scope.firefoxVideo = function(){
+            $scope.src = "assets/firefox.mp4";
+            $(".browser").removeClass("active");
+            $("#firefox").addClass("active");
+        }
+        $scope.safariVideo = function(){
+            $scope.src = "assets/safari.mp4";
+            $(".browser").removeClass("active");
+            $("#safari").addClass("active");
+        }
+        $scope.returnToInstructions = function(){
+            $scope.instructionsText = true;
+            $scope.instructionsVideos = false;
+        }
+
+
+        // Actual Printing
+        $scope.printResume = function(){
+            print();
+            $scope.closeInstructions();
+        }
 
 
 

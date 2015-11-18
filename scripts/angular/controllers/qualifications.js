@@ -4,6 +4,11 @@
 resumeApp.controller('qualificationsController', ['$scope', 'toastr', 'qualifications', function($scope, toastr, qualifications){
     $scope.qualifications = qualifications.qualifications;
 
+    $("form input:first").focus();
+
+    $(document).prop('title', "Qualifications | ineedaresume");
+
+
     $scope.saveQualification = function(){
         if(!$scope.qualificationTitleInput || !$scope.qualificationInstitutionInput || !$scope.qualificationLocationInput){
             $("#save-qualifications").html('<i class="ion-close-round"></i> Missing required fields');

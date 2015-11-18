@@ -4,6 +4,10 @@
 resumeApp.controller('projectsController', ['$scope', 'toastr', 'projects', function($scope, toastr, projects){
     $scope.projects = projects.projects;
 
+    $("form input:first").focus();
+
+    $(document).prop('title', "Projects | ineedaresume");
+
     $scope.saveProject = function(){
         if(!$scope.projectTitleInput || !$scope.projectDescriptionInput){
             $("#save-project").html('<i class="ion-close-round"></i> All fields are required');

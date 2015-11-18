@@ -3,6 +3,12 @@
 //
 resumeApp.controller('skillsController', ['$scope', 'toastr', 'skills', function($scope, toastr, skills){
     $scope.skills = skills.skills;
+
+    $("form input:first").focus();
+
+    $(document).prop('title', "Skills | ineedaresume");
+
+
     $scope.saveSkill = function(){
         if(!$scope.skillInput){
             toastr.error("You have to enter a skill first :(", {

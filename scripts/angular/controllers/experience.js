@@ -3,6 +3,11 @@
 //
 resumeApp.controller('experienceController', ['$scope', 'toastr', 'jobs', function($scope, toastr, jobs){
     $scope.jobs = jobs.jobs;
+
+    $("form input:first").focus();
+
+    $(document).prop('title', "Experiences | ineedaresume");
+
     $scope.saveJob = function(){
         // If employer or title empty
         if(!$scope.jobEmployerInput || !$scope.jobTitleInput){

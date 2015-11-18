@@ -5,6 +5,10 @@ resumeApp.controller('basicController', ['$scope', 'toastr', 'basic', function($
 
     $scope.basic = basic.basic;
 
+    $("form input:first").focus();
+
+    $(document).prop('title', "Basic Info | ineedaresume");
+
     $scope.saveBasic = function(){
         $scope.basic.splice(0,1);
         $scope.basic.push( {name: $scope.nameInput, email: $scope.emailInput, phone: $scope.phoneInput, linkedin: $scope.linkedinInput, twitter: $scope.twitterInput, skype: $scope.skypeInput, link: $scope.linkInput } );

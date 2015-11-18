@@ -1,6 +1,6 @@
 resumeApp.factory('basic', [function(){
     var o = {
-        personal: [
+        basic: [
         ]
     }
     return o;

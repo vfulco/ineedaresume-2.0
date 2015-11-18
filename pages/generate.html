@@ -1,11 +1,11 @@
 <div class="settings">
     <ul>
         <li>
-            Change Theme <i class="ion-chevron-down"></i>
+            Theme <i class="ion-chevron-down"></i>
             <ol>
                 <li class="theme" ng-click="setThemeSource(); activeTheme($event)">Source</li>
-                <li class="theme" ng-click="setThemePacifico(); activeTheme($event)">Pacifico</li>
-                <li class="theme active" ng-click="setThemeRaleway(); activeTheme($event)">Raleway</li>
+                <li class="theme active" ng-click="setThemePacifico(); activeTheme($event)">Pacifico</li>
+                <li class="theme" ng-click="setThemeRaleway(); activeTheme($event)">Raleway</li>
             </ol>
         </li>
         <li>
@@ -28,7 +28,7 @@
             </ol>
         </li>
         <li ng-click="saveLocally()">Save Data</li>
-        <li ng-click="savePDF()">Download Resume</li>
+        <li ng-click="showInstructions()">Download PDF</li>
     </ul>
 </div>
 <div id="toolbar-spacer"></div>
@@ -159,15 +159,46 @@
 <div class="modal-lightbox fade" ng-show="lightbox"></div>
 
 <div class="text-edit-modal fade" ng-show="modal">
-    <h6>Edit Header</h6>
+    <h6>{{modalHeader}}</h6>
     <i class="ion-close-round" ng-click="closeModal()"></i>
     <form ng-submit="closeModal()">
+        <span class="info" ng-show="savedData">Now you can come back later and your data will still be here.<small>You must use the same computer & web browser.</small></span>
         <input type="text" ng-model="summaryTitle" ng-show="editingSummaryHeader" />
         <input type="text" ng-model="jobsHeader" ng-show="editingJobsHeader" />
         <input type="text" ng-model="qualificationsHeader" ng-show="editingQualificationsHeader" />
         <input type="text" ng-model="projectsHeader" ng-show="editingProjectsHeader" />
         <input type="text" ng-model="skillsHeader" ng-show="editingSkillsHeader" />
         <input type="text" ng-model="basicHeader" ng-show="editingBasicHeader" />
-        <button type="submit" class="modal-save">Save / Close</button>
+        <button type="submit" class="modal-save">{{modalButton}}</button>
     </form>
 </div>
+
+<div id="pdf-instructions" ng-show="instructions">
+    <i class="ion-close-round close" ng-click="closeInstructions()"></i>
+    <span class="text" ng-show="instructionsText">
+        <h1>Before you download your resume...</h1>
+        <p>
+            A print dialog will open where you can print it or save it as a PDF. Once it does, be sure <b>background colors/images are disabled</b>, <b>margins are set to default</b>, and <b>headers/footers are disabled</b>. If you are not sure how to do that, find instructions <a ng-click="showVideos()">here</a>.
+            <br/><br/>
+            <em>ineedaresume is completely free, but please consider contributing to make sure I can keep it free and continue adding awesome features!</em>
+            <br/><br/>
+            If you are unable to contribute, please consider sharing it on Twitter or Facebook!
+        </p>
+        <a class="button plo-button" href="https://plasso.co/s/0wwIPUFBug" target="_blank">Contribute</a>
+        <span class="button proceed" ng-click="printResume()">Download Resume</span>
+    </span>
+    <span class="videos" ng-show="instructionsVideos">
+        <h1>Instructions for</h1>
+        <span class="browser active" id="chrome" ng-click="chromeVideo()">Chrome</span>
+        <span class="browser" id="firefox" ng-click="firefoxVideo()">Firefox</span>
+        <span class="browser" id="safari" ng-click="safariVideo()">Safari</span>
+
+        <video id="helpVideo" ng-src="{{src}}" controls>
+        </video>
+
+        <span class="browser" ng-click="returnToInstructions()">Return to Download</span>
+    </span>
+</div>
+
+
+<script type='text/javascript' src='https://plasso.co/embed/v2/embed.js'></script>

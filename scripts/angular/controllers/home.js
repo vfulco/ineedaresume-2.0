@@ -24,7 +24,7 @@ resumeApp.controller('mainController',
     if($sstorage.hasAnsweredLocal){$scope.hasAnsweredLocal = true;}
         else{$scope.hasAnsweredLocal = false;}
 
-    if ($storage.localPersonal && !$scope.hasAnsweredLocal) {
+    if ($storage.localBasic && !$scope.hasAnsweredLocal) {
         $("#has-local-storage").slideDown(500);
     }else{
         $("#has-local-storage").slideUp(500);

@@ -8,6 +8,11 @@ resumeApp.controller('summaryController', ['$scope', 'toastr', 'summary', functi
         $scope.summary.push( {summaryBody: $scope.summaryBodyInput} );
     };
 
+    $("form textarea:first").focus();
+
+    $(document).prop('title', "Summary | ineedaresume");
+
+
     $scope.isMakingChanges = false;
     $scope.makingChanges = function(){
         if($scope.isMakingChanges){

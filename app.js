@@ -53,4 +53,11 @@ resumeApp.config(function($routeProvider) {
         controller  : 'generateController'
     })
 
+
+    // route for personal info entry
+    .when('/help', {
+        templateUrl : 'pages/help.html',
+        controller  : 'helpController'
+    })
+
 });
