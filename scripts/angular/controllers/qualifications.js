@@ -1,16 +1,17 @@
 //
 // Controller for qualifications entry
 //
-resumeApp.controller('qualificationsController', ['$scope', 'toastr', 'qualifications', function($scope, toastr, qualifications){
+resumeApp.controller('qualificationsController', ['$scope', 'qualifications', function($scope, qualifications){
     $scope.qualifications = qualifications.qualifications;
-
-    $("form input:first").focus();
 
     $(document).prop('title', "Qualifications | ineedaresume");
 
-
+    if( window.canRunAds === undefined ){
+        $(".advertisement").slideUp();
+    }
+    
     $scope.saveQualification = function(){
-        if(!$scope.qualificationTitleInput || !$scope.qualificationInstitutionInput || !$scope.qualificationLocationInput){
+        if(!$scope.qualificationTitleInput || !$scope.qualificationInstitutionInput){
             $("#save-qualifications").html('<i class="ion-close-round"></i> Missing required fields');
             $("#save-qualifications").addClass("save-error");
             $('.required').each(function(i, obj) {
@@ -25,13 +26,14 @@ resumeApp.controller('qualificationsController', ['$scope', 'toastr', 'qualifica
             return;
         }
 
-
-        $scope.qualifications.push( {qualificationTitle: $scope.qualificationTitleInput, qualificationInstitution: $scope.qualificationInstitutionInput, qualificationLocation: $scope.qualificationLocationInput, qualificationCompletion: $scope.qualificationCompletionInput } );
+        $scope.qualifications.push( {qualificationTitle: $scope.qualificationTitleInput, qualificationInstitution: $scope.qualificationInstitutionInput, qualificationLocation: $scope.qualificationLocationInput, qualificationCompletion: $scope.qualificationCompletionInput, qualificationGpa: $scope.qualificationGpaInput } );
+        $storage.localQualifications = $scope.qualifications; // Save locally
 
         $scope.qualificationTitleInput = "";
         $scope.qualificationInstitutionInput = "";
         $scope.qualificationLocationInput = "";
         $scope.qualificationCompletionInput = "";
+        $scope.qualificationGpaInput = "";
 
         $("#save-qualification").html('<i class="ion-checkmark-round"></i> Saved to list');
         $("#save-qualification").addClass("save-success");
@@ -51,6 +53,7 @@ resumeApp.controller('qualificationsController', ['$scope', 'toastr', 'qualifica
         $scope.qualificationInstitutionInput = $scope.qualifications[$index].qualificationInstitution;
         $scope.qualificationLocationInput = $scope.qualifications[$index].qualificationLocation;
         $scope.qualificationCompletionInput = $scope.qualifications[$index].qualificationCompletion;
+        $scope.qualificationGpaInput = $scope.qualifications[$index].qualificationGpa;
         $scope.qualifications.splice($index,1);
     }
 

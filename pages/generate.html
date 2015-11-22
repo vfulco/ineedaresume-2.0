@@ -25,54 +25,63 @@
                         Show icons&nbsp;
                     </label>
                 </li>
+                <li class="adjustment">
+                      <input id="font-size-range" type="range" ng-model="fontSize" value="9" ng-change="adjustFontSize()" min="6" max="14" step="0.5" />
+                      <label>Font Size <u>{{fontSize}} pt</u></label>
+                </li>
             </ol>
         </li>
-        <li ng-click="saveLocally()">Save Data</li>
         <li ng-click="showInstructions()">Download PDF</li>
     </ul>
 </div>
 <div id="toolbar-spacer"></div>
 
 
+<span class="hint">
+    Click on a section header highlighed in blue to change it.
+</span>
+<span class="hint">
+    You can rearrange items within a section by clicking and dragging.
+</span>
 
 <div id="print-page" ng-class="themeClass">
 
-    <span class="pdf-advice" ng-hide="basic.length > 0 || summary.length > 0 || jobs.length > 0 || projects.length > 0 || qualifications.length > 0 || skills.length > 0">
+    <span class="pdf-advice" ng-hide="basics.name || basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link || summary.body || jobs.length > 0 || projects.length > 0 || qualifications.length > 0 || skills.length > 0">
         How can we make you a resume<br/>if you haven't filled anyhting in?
     </span>
 
 
-    <div ng-repeat="item in basic">
-        <span id="name" ng-show="item.name">{{item.name}}</span>
+    <div>
+        <span id="name" ng-show="basics.name">{{basics.name}}</span>
 
-        <span class="pdf-section-header editable-header" id="basicHeaderTop" ng-click="editBasicHeader()" ng-show="basic.length > 0"><span>{{basicHeader}}</span></span>
+        <span class="pdf-section-header editable-header" id="basicHeaderTop" ng-click="editBasicHeader()" ng-show="basics.name || basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link"><span>{{basicHeader}}</span></span>
 
-        <div id="contact-info-top">
-            <span ng-show="item.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{item.email}}</span>
-            <span ng-show="item.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{item.phone}}</span>
+        <div id="contact-info-top" ng-show="basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link">
+            <span ng-show="basics.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{basics.email}}</span>
+            <span ng-show="basics.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{basics.phone}}</span>
             <br/>
-            <span class="social" ng-show="item.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{item.linkedin}}</span>
-            <span class="social" ng-show="item.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{item.twitter}}</span>
-            <span class="social" ng-show="item.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{item.skype}}</span>
-            <span class="social" ng-show="item.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{item.link}}</span>
+            <span class="social" ng-show="basics.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{basics.linkedin}}</span>
+            <span class="social" ng-show="basics.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{basics.twitter}}</span>
+            <span class="social" ng-show="basics.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{basics.skype}}</span>
+            <span class="social" ng-show="basics.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{basics.link}}</span>
         </div>
 
     </div> <!-- End Basic info -->
 
 
 
-    <hr ng-hide="!summary[0].summaryBody">
+    <hr ng-show="summary.body">
 
 
-    <span class="pdf-section-header editable-header" ng-click="editSummaryTitle()" ng-hide="!summary[0].summaryBody"><span>{{summaryTitle}}</span></span>
-    <div class="section-body" ng-repeat="item in summary" ng-hide="!summary[0].summaryBody">
-        <pre class="summary adjust-lineheight">
-            {{item.summaryBody}}
-        </pre>
+    <span class="pdf-section-header editable-header" ng-click="editSummaryTitle()" ng-hide="!summary.body"><span>{{summaryTitle}}</span></span>
+    <div class="section-body" ng-hide="!summary.body">
+        <p class="summary adjust-lineheight" ng-bind-html="summary.body | unsafe" >
+            <!-- summaryFormatted if rich text -->
+        </p>
     </div><!-- End Summary -->
 
 
-    <hr ng-show="projects.length > 0">
+    <hr ng-show="jobs.length > 0">
 
     <span class="pdf-section-header editable-header" ng-click="editJobsHeader()" ng-show="jobs.length > 0"><span>{{jobsHeader}}</span></span>
     <div class="section-body" ui-sortable ng-model="jobs">
@@ -84,8 +93,9 @@
             <span>{{item.jobLocation}}</span>
             <span ng-show="jobs[$index].jobLocation && jobs[$index].jobTime">&nbsp;&middot;&nbsp;</span>
             <span>{{item.jobTime}}</span>
-            <p class="adjust-lineheight">
-                {{item.jobDescription}}
+            <p class="adjust-lineheight" ng-bind-html="item.jobDescription | unsafe" >
+                <!-- {{item.jobDescription}} -->
+                <!-- {{addBullets(item.jobDescription)}} -->
             </p>
         </div>
     </div><!-- End Jobs -->
@@ -93,13 +103,15 @@
 
     <hr ng-show="projects.length > 0">
 
+    <div class="section-spacer" ng-hide="projects.length > 0 && jobs.length > 0 && qualifications.length > 0"></div>
+
 
     <span class="pdf-section-header editable-header" ng-click="editProjectsHeader()" ng-show="projects.length > 0"><span>{{projectsHeader}}</span></span>
     <div class="section-body" ui-sortable ng-model="projects">
         <div class="project sortable" ng-repeat="item in projects">
             <span>{{item.projectTitle}}</span>
-            <p class="adjust-lineheight">
-                {{item.projectDescription}}
+            <p class="adjust-lineheight" ng-bind-html="item.projectDescription | unsafe" >
+                <!-- {{item.projectDescription}} -->
             </p>
         </div>
     </div><!-- End Projects -->
@@ -116,7 +128,10 @@
             <span ng-show="qualifications[$index].qualificationInstitution && qualifications[$index].qualificationCompletion && !qualifications[$index].qualificationLocation">&nbsp;&middot;&nbsp;</span>
             <span>{{item.qualificationLocation}}</span>
             <span ng-show="qualifications[$index].qualificationLocation && qualifications[$index].qualificationCompletion">&nbsp;&middot;&nbsp;</span>
+            <span ng-show="qualifications[$index].qualificationLocation && qualifications[$index].qualificationGpa && !qualification[$index].qualificationLocation">&nbsp;&middot;&nbsp;</span>
             <span>{{item.qualificationCompletion}}</span>
+            <span ng-show="qualifications[$index].qualificationLocation && qualifications[$index].qualificationCompletion">&nbsp;&middot;&nbsp;</span>
+            <span ng-show="qualifications[$index].qualificationGpa">{{item.qualificationGpa}} GPA</span>
         </div>
     </div><!-- End Qualifications -->
 
@@ -134,15 +149,15 @@
 
 
 
-    <span class="pdf-section-header editable-header" id="basicHeaderBottom" ng-click="editBasicHeader()" ng-show="basic.length > 0">{{basicHeader}}</span>
-    <div ng-repeat="item in basic">
+    <span class="pdf-section-header editable-header" id="basicHeaderBottom" ng-click="editBasicHeader()" ng-show="basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link">{{basicHeader}}</span>
+    <div>
         <div class="section-body" id="contact-info-bottom">
-            <span ng-show="item.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{item.email}}</span>
-            <span ng-show="item.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{item.phone}}</span>
-            <span ng-show="item.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{item.linkedin}}</span>
-            <span ng-show="item.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{item.twitter}}</span>
-            <span ng-show="item.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{item.skype}}</span>
-            <span ng-show="item.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{item.link}}</span>
+            <span ng-show="basics.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{basics.email}}</span>
+            <span ng-show="basics.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{basics.phone}}</span>
+            <span ng-show="basics.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{basics.linkedin}}</span>
+            <span ng-show="basics.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{basics.twitter}}</span>
+            <span ng-show="basics.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{basics.skype}}</span>
+            <span ng-show="basics.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{basics.link}}</span>
         </div>
     </div> <!-- End Basic info bottom -->
 
@@ -180,12 +195,19 @@
         <p>
             A print dialog will open where you can print it or save it as a PDF. Once it does, be sure <b>background colors/images are disabled</b>, <b>margins are set to default</b>, and <b>headers/footers are disabled</b>. If you are not sure how to do that, find instructions <a ng-click="showVideos()">here</a>.
             <br/><br/>
-            <em>ineedaresume is completely free, but please consider contributing to make sure I can keep it free and continue adding awesome features!</em>
+            <em>While ineedaresume is completely free, it takes money to keep it running and updated, please consider contributing if you are able to!</em>
             <br/><br/>
-            If you are unable to contribute, please consider sharing it on Twitter or Facebook!
+            If you are unable to contribute, please consider sharing it with friends!
+            <br/><br/>
+            <div class="social-links">
+                <h6>Share on</h6>
+                <a href="http://twitter.com/intent/tweet?status=Create%20a%20beautiful%20resume%20completely%20free%20and%20super%20fast!+http://ineedaresu.me" target="_blank"><i class="ion-social-twitter"></i></a>
+                <a href="http://www.facebook.com/sharer/sharer.php?u=http://ineedaresu.me" target="_blank"><i class="ion-social-facebook"></i></a>
+                <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://ineedaresu.me&title=Check%20out%20this%20free%20tool%20that%20creates%20a%20beautiful%20resume%20in%20seconds!" target="_blank"><i class="ion-social-linkedin"></i></a>
+            </div>
         </p>
         <a class="button plo-button" href="https://plasso.co/s/0wwIPUFBug" target="_blank">Contribute</a>
-        <span class="button proceed" ng-click="printResume()">Download Resume</span>
+        <span class="button proceed" ng-click="printResume()" onclick="ga('send', 'event', 'ButtonClick', 'Download', 'Download Resume');">Download Resume</span>
     </span>
     <span class="videos" ng-show="instructionsVideos">
         <h1>Instructions for</h1>

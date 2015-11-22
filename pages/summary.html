@@ -1,10 +1,36 @@
-<form class="input-form" ng-submit="saveSummary(); saveSummaryAlert()" ng-submit="saveSummary()" ng-init="initSummary()">
+<span class="input-hint">
+    Remember: HTML tags are supported in all large text areas.
+</span>
+
+
+<form class="input-form" ng-submit="saveSummaryAlert()" ng-submit="saveSummary()" ng-init="summaryInit()">
     <span class="form-group full-width">
         <label>Write a nice <b>professional summary</b>.</label>
-        <textarea ng-focus="makingChanges()" ng-model="summaryBodyInput" placeholder="Summary Body"></textarea>
+        <!-- <span class="richtext">
+            <a ng-click="bold()">B</a>
+            <a ng-click="italic()">I</a>
+            <a ng-click="underline()">U</a>
+            <a ng-click="bullet()"><i class="ion-record"></i></a>
+        </span> -->
+        <textarea ng-focus="makingChanges()" ng-model="summary.body" id="summaryRichText" placeholder="I'm a young professional fresh out of school this past semester. I applied for this job because it aligns with my career goals and I hear you have the gnarliest lunch buffet..."></textarea>
     </span><!--
     --><span class="form-group empty"></span><!--
     --><span class="form-group">
         <button type="submit" class="save-btn" id="save-summary"><i class="ion-checkmark-round"></i> Save Summary</button>
     </span>
 </form>
+
+
+<div class="advertisement">
+    <h1>Advertisement:</h1>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Resume Two Point Oh -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4815459630320404"
+         data-ad-slot="7076793927"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>

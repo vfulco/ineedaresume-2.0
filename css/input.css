@@ -18,7 +18,7 @@
   width: 760px;
   margin: 0 auto;
   position: relative;
-  padding: 25px 25px 30px 25px;
+  padding: 25px 25px 25px 25px;
   margin: 30px auto;
   display: block;
 }
@@ -172,11 +172,11 @@
   text-align: left;
   display: block;
   text-transform: uppercase;
-  color: rgba(49, 53, 68, 0.5);
+  color: rgba(58, 63, 82, 0.5);
   line-height: 1.2em;
 }
 .input-form .form-group label b {
-  color: #313544;
+  color: rgba(58, 63, 82, 0.85);
 }
 .input-form .form-group label:nth-child(1) {
   margin: 0px auto 17px auto;
@@ -184,6 +184,7 @@
 .input-form .form-group input,
 .input-form .form-group textarea {
   font-family: 'Montserrat', sans-serif;
+  background-image: none !important;
   font-size: 10pt;
   color: #3a3f52;
   font-weight: bolder;
@@ -218,6 +219,7 @@
   letter-spacing: 0;
   height: 200px;
   line-height: 1.5em;
+  font-weight: lighter;
 }
 @media (max-width: 670px) {
   .input-form .form-group.empty {
@@ -261,8 +263,39 @@
   background-color: #e52b50;
   border-color: #e52b50;
 }
+.richtext {
+  display: block;
+  text-align: left;
+  height: 25px;
+  overflow: hidden;
+  line-height: 25px;
+  padding: 0 0 18px 0;
+}
+.richtext a {
+  font-size: 12pt;
+  background-color: rgba(72, 135, 244, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-weight: bolder;
+  width: 30px;
+  height: 26px;
+  line-height: 25px;
+  display: inline-block;
+  margin: 0 2px 0 0;
+}
+.richtext a:hover {
+  cursor: pointer;
+  background-color: #4887f4;
+  color: #ffffff;
+}
+.richtext a i {
+  font-size: 8pt;
+  position: relative;
+  top: -1px;
+}
 .text-edit-modal input {
   font-family: 'Montserrat', sans-serif;
+  background-image: none !important;
   font-size: 10pt;
   color: #3a3f52;
   font-weight: bolder;

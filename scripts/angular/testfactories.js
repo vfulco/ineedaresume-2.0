@@ -1,21 +1,8 @@
-resumeApp.factory('basic', [function(){
-    var o = {
-        basic: [
-            {name: "Mitch Samuels", email: "mitch@mitchs.co", phone: "507-330-5897", linkedin: "linkedin.com/in/mitchas", twitter: "@sleumasm", skype: "mitch-samuels", link: "mitchs.co"}
-        ]
-    }
-    return o;
-}]);
+resumeApp.value('prompts', {answeredLocal: false});
 
+resumeApp.value('basics', {name: "Mitch A Samuels", email: "samuels.mitch@gmail.com", phone: "7065764824", linkedin: "linkedin.com/in/mitchas", twitter: "@sleumasm", skype: "mitch-samuels", link: "mitchs.co"});
+resumeApp.value('summary', {body: "I'm Mitch. I'm 20 years old and I'm a completely self-taught web designer/developer and current 3rd-year student at the University of Wisconsin, Madison, working towards a degree entirely unrelated to web design. I'm fluent in HTML, CSS, and Javascipt/JQuery, and I use them to make cool things on the internet. I started creating websites in middle school, and since then I have created websites for all kinds of people and organizations. From local restaurants and businesses, to small startup companies, to federal government agencies. I also like to play around with basically every language and platform out there, and because of that, I have published apps on the Google Play Store, the iOS App Store, the Windows Store, and even on WebOS and Zune."});
 
-resumeApp.factory('summary', [function(){
-    var o = {
-        summary: [
-            {summaryBody: "I'm Mitch. I'm 20 years old and I'm a completely self-taught web designer/developer and current 3rd-year student at the University of Wisconsin, Madison, working towards a degree entirely unrelated to web design. I'm fluent in HTML, CSS, and Javascipt/JQuery, and I use them to make cool things on the internet. I started creating websites in middle school, and since then I have created websites for all kinds of people and organizations. From local restaurants and businesses, to small startup companies, to federal government agencies. I also like to play around with basically every language and platform out there, and because of that, I have published apps on the Google Play Store, the iOS App Store, the Windows Store, and even on WebOS and Zune."}
-        ]
-    }
-    return o;
-}]);
 
 resumeApp.factory('jobs', [function(){
     var o = {
@@ -40,8 +27,8 @@ resumeApp.factory('projects', [function(){
 resumeApp.factory('qualifications', [function(){
     var o = {
         qualifications: [
-            {qualificationTitle: "Bachelor of Science in Computer Science", qualificationInstitution: "University of Wisconsin", qualificationLocation: "Madison, WI", qualificationCompletion: "2015"},
-            {qualificationTitle: "Bachelor of Science in Life Sciences Communications", qualificationInstitution: "University of Wisconsin", qualificationLocation: "Madison, WI", qualificationCompletion: "2017"}
+            {qualificationTitle: "Bachelor of Science in Computer Science", qualificationInstitution: "University of Wisconsin", qualificationLocation: "Madison, WI", qualificationCompletion: "2015", qualificationGpa: "3.75"},
+            {qualificationTitle: "Bachelor of Science in Life Sciences Communications", qualificationInstitution: "University of Wisconsin", qualificationLocation: "Madison, WI", qualificationCompletion: "2017", qualificationGpa: "1.05"}
         ]
     }
     return o;

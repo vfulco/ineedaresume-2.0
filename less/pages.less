@@ -21,6 +21,7 @@
     @media (max-width: 800px) {
         position: fixed;
         top: 49px;
+        z-index:4000;
     }
     ul{
         margin: 0;
@@ -137,6 +138,10 @@
                     display: inline-block;
                     padding: 20px 0;
                     vertical-align: top;
+                    @media (max-width: 625px){
+                        width: 80%;
+                        margin: 0 10%;
+                    }
                     &:hover{
                         cursor: default;
                     }
@@ -161,7 +166,8 @@
                             color: @color-white;
                         }
                     }
-                    #line-height-range {
+                    #line-height-range,
+                    #font-size-range {
                         -webkit-appearance: none;
                         width: 100%;
                         background-color: transparent;
@@ -231,6 +237,35 @@
         }
     }
 }
+
+
+.hint,
+.input-hint{
+    font-size: 8.5pt;
+    text-align: center;
+    letter-spacing: 0.25px;
+    line-height: 1.5em;
+    display: block;
+    font-weight: lighter;
+    color: fade(@dark-text, 55%);
+    position: relative;
+    top:-18px;
+    @media (max-width: 800px) {
+        top: 10px;
+        font-size: 7pt;
+        box-sizing:border-box;
+        padding: 0 10px 0 10px;
+    }
+}
+.input-hint{
+    top: 2px;
+    @media (max-width: 800px) {
+        top: 40px;
+        font-size: 7pt;
+    }
+}
+
+
 .settings-scrolled{
     top:49px;
     position: fixed;
@@ -251,6 +286,9 @@
     top:0;
     left: 0;
     z-index: 4000;
+    @media (max-width: 800px) {
+        height: 110%;
+    }
 }
 .text-edit-modal{
     border-radius: 3px;
@@ -360,11 +398,13 @@
     letter-spacing: 0.5px;
     font-weight: 400;
     color: @dark-text;
-    text-align: center;
+    text-align: justify;
     @media (max-width: 800px) {
         width: 90%;
         left: 5%;
         margin-left: 0;
+        text-align:left;
+        top: 65px;
     }
     .close{
         position: absolute;
@@ -384,21 +424,70 @@
             font-size: 14pt;
             margin: 0 auto;
             padding: 0;
+            @media (max-width: 800px) {
+                font-size:12pt;
+                line-height: 1.2em;
+            }
         }
         h2{
             font-size: 12pt;
             margin: 0 auto;
             padding: 5px 0;
+            @media (max-width: 800px) {
+                font-size:11pt;
+            }
         }
         p{
             font-size: 9.5pt;
             margin: 0 auto;
             padding: 5px 0;
+            @media (max-width: 800px) {
+                font-size:8pt;
+            }
             em{
                 font-size: 11pt;
                 font-style: normal;
                 letter-spacing: 0.5px;
                 font-weight: 500;
+                @media (max-width: 800px) {
+                    font-size:9pt;
+                }
+            }
+        }
+        .social-links{
+            text-align: center;
+            h6{
+                font-size: 10pt;
+                color: fade(@dark-text, 50%);
+                padding: 0;
+                margin: 0 auto;
+                text-transform: uppercase;
+                font-weight: 400;
+            }
+            a{
+                color: fade(@color-white, 70%);
+                font-size: 14pt;
+                box-sizing: border-box;
+                padding: 0 0 0 1px;
+                height: 40px;
+                background-color: @color-blue;
+                width: 40px;
+                display: inline-block;
+                margin: 5px 4px 0 4px;
+                border-radius: 20px;
+                line-height: 42px;
+                text-align: center;
+                transition: @transition;
+                @media (max-width: 800px) {
+                    font-size:12pt;
+                    height: 30px;
+                    width: 30px;
+                    line-height: 32px;
+                }
+                &:hover{
+                    color: @color-white;
+                    transition: @transition;
+                }
             }
         }
         .button{
@@ -415,6 +504,11 @@
             font-family: @sans-font;
             margin: 14px 0 0 0;
             float:left;
+            @media (max-width: 800px) {
+                font-size: 8pt;
+                padding: 10px 10px;
+                letter-spacing: -0px;
+            }
             &:hover{
                 cursor: pointer;
                 transition: @transition;

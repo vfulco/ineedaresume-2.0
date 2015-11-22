@@ -1,33 +1,52 @@
-<form ng-submit="saveBasic(); saveBasicAlert()" class="input-form" ng-init="initBasic()">
+<span class="input-hint">
+    Remember, if you don't want something on your resume, <span style="white-space: nowrap;">leave it blank!</span>
+</span>
+
+<form ng-submit="saveBasicAlert()" class="input-form" ng-init="basicInit()">
     <span class="form-group">
         <label><b>full name</b></label>
-        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="nameInput" placeholder="Mitch Samuels" />
+        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="basics.name" placeholder="Mitch Samuels" />
     </span><!--
     --><span class="form-group">
         <label><b>email address</b></label>
-        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="emailInput" placeholder="mitch@mitchs.co" />
+        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="basics.email" placeholder="mitch@mitchs.co" />
     </span><!--
     --><span class="form-group">
-        <label><b>phone number<b/></label>
-        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="phoneInput" placeholder="7605764824" />
+        <label><b>phone number</b></label>
+        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="basics.phone" placeholder="(760)576-4824" />
     </span><!--
     --><span class="form-group">
-        <label><b>LinkedIn</b> url</label>
-        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="linkedinInput" placeholder="linkedin.com/in/mitchas" />
+        <label><b>linkedin</b> url</label>
+        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="basics.linkedin" placeholder="linkedin.com/in/mitchas" />
     </span><!--
     --><span class="form-group">
-        <label><b>Twitter</b> handle</label>
-        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="twitterInput" placeholder="@sleumasm" />
+        <label><b>twitter</b> handle</label>
+        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="basics.twitter" placeholder="@sleumasm" />
     </span><!--
     --><span class="form-group">
-        <label><b>Skype</b> username</label>
-        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="skypeInput" placeholder="mitch-samuels" />
+        <label><b>skype</b> username</label>
+        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="basics.skype" placeholder="mitch-samuels" />
     </span><!--
     --><span class="form-group">
-        <label><b>Personal Website</b> or other relevant link.</label>
-        <input ng-blur="saveBasic()" ng-focus="checkIfSaved()" type="text" ng-model="linkInput" placeholder="mitchs.co" />
+        <label><b>personal website</b> or other relevant link</label>
+        <input ng-blur="saveBasic()" ng-focus="makingChanges()" type="text" ng-model="basics.link" placeholder="mitchs.co" />
     </span><!--
     --><span class="form-group">
         <button type="submit" class="save-btn" id="save-basic"><i class="ion-checkmark-round"></i> Save Basic Info</button>
     </span>
 </form>
+
+
+<div class="advertisement">
+    <h1>Advertisement:</h1>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Resume Two Point Oh -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4815459630320404"
+         data-ad-slot="7076793927"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>

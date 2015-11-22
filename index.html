@@ -1,15 +1,55 @@
 <!DOCTYPE html>
-<html ng-app="resumeApp">
+<html ng-app="resumeApp" itemscope itemtype="http://schema.org/Article">
 <head>
     <title>Resume Creator | ineedaresume</title>
 
     <!-- Meta -->
-    <meta name="description" content="Ineedaresu.me is a super fast, super simple, and completely free way to build a beautiful resume in minutes. Fill out your details, choose your theme, and either print your resume directly or save it to your computer!">
+    <meta name="description" content="ineedaresume is a completely free tool to create a beautiful resume in seconds. Enter your details, choose your layout, then download your resume in minutes!">
 	<meta name="author" content="Mitch Samuels">
 	<meta name="keywords" content="Simple, Quick, resume, CV, contact, job, work, career, fair, builder, minimal, Mitch Samuels, resume, generator, creator, maker, resumay, job, jobs, career, javascript, pdf, word, print, creating, make, generate, apply, applicant, Mitch, Samuels, CV, Kickresume, kick, recruiter, non profit">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/ico" href="assets/favicon.png" />
     <meta name="theme-color" content="#4887F4">
+
+    <!-- Social Media Content -->
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Ineedaresume - Free resume creator">
+    <meta itemprop="description" content="ineedaresume is a completely free tool to create a beautiful resume in seconds. Enter your details, choose your layout, then download your resume in minutes!">
+    <meta itemprop="image" content="http://ineedaresu.me/assets/socialpromo.png">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ineedaresume">
+    <meta name="twitter:title" content="ineedaresume - Beautiful free resume creator">
+    <meta name="twitter:description" content="ineedaresume is a completely free tool to create a beautiful resume in seconds. Enter your details, choose your layout, then download your resume in minutes!">
+    <meta name="twitter:creator" content="@sleumasm">
+    <meta name="twitter:image:src" content="http://ineedaresu.me/assets/socialpromo.png">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="ineedaresu.me - Beautiful free resume creator" />
+    <meta property="og:url" content="http://ineedaresu.me/beta" />
+    <meta property="og:image" content="http://ineedaresu.me/assets/socialpromo.png" />
+    <meta property="og:description" content="ineedaresume is a completely free tool to create a beautiful resume in seconds. Enter your details, choose your layout, then download your resume in minutes!" />
+
+    <!-- Mobile/Bookmark meta -->
+    <meta name="apple-mobile-web-app-title" content="ineedaresume"> <!-- New in iOS6 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="assets/appletouch192.png" rel="apple-touch-icon" type="image/png">
+    <link href="assets/appletouch114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="assets/appletouch72.png" rel="apple-touch-icon" sizes="72x72">
+
+    <link href="startup.png" rel="apple-touch-startup-image">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="shortcut icon" sizes="192x192" href="assets/touch192.png">
+    <link rel="shortcut icon" sizes="128x128" href="assets/touch128.png">
+    <link rel="apple-touch-icon-precomposed" sizes="128x128" href="assets/appletouch128.png">
+
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/layout.css" />
@@ -18,7 +58,7 @@
     <link rel="stylesheet" href="css/pages.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/print.css" />
-    <link rel="stylesheet" href="css/angular-toastr.css" />
+
     <!-- PDF THEMES -->
     <link rel="stylesheet" href="css/themes/theme-source.css" />
     <link rel="stylesheet" href="css/themes/theme-pacifico.css" />
@@ -34,16 +74,19 @@
     <script src="scripts/angular/src/angular.min.js"></script>
     <script src="scripts/angular/src/angular-route.js"></script>
     <script src="scripts/angular/src/jquery-ui.min.js"></script>
+
     <!-- Angular Plugins/Additions -->
     <script src="scripts/angular/src/sortable.js"></script>
     <script src="scripts/angular/src/angular-animate.min.js"></script>
-    <script src="scripts/angular/src/angular-toastr.tpls.min.js"></script>
     <script src="scripts/angular/src/ngStorage.min.js"></script>
+
     <!-- Custom/App scripts -->
     <script src="app.js"></script>
-    <!-- <script src="scripts/angular/factories.js"></script> -->
+    <!-- <script src="scripts/angular/factories.js/"></script> -->
     <script src="scripts/angular/testfactories.js"></script>
     <script src="scripts/javascript.js"></script>
+    <script src="scripts/ads.js"></script>
+
     <!-- Controllers -->
     <script src="scripts/angular/controllers/home.js"></script>
     <script src="scripts/angular/controllers/basic.js"></script>
@@ -53,15 +96,29 @@
     <script src="scripts/angular/controllers/qualifications.js"></script>
     <script src="scripts/angular/controllers/skills.js"></script>
     <script src="scripts/angular/controllers/generate.js"></script>
-    <script src="scripts/angular/controllers/help.js"></script>
+    <script src="scripts/angular/controllers/404.js"></script>
 
 
 
 </head>
 <body ng-controller="mainController">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60397420-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <div class="hasadblocker" id="adblockmessage">
+        <h2>We only use small, non-invasive ads.</h2>
+        <h2>Please consider turning your adblocker off to help keep this site free and updated.</h2>
+    </div>
 
     <nav>
-        <i class="ion-document-text logo"></i>
+        <i class="ion-ios-copy logo"></i>
         <i class="ion-navicon" id="menu-btn"></i>
     </nav>
 
@@ -87,6 +144,8 @@
         <div ng-view class="fade view"></div>
 
     </div>
+
+
 
 
 

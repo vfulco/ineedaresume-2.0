@@ -16,12 +16,12 @@
     		background-color: transparent;
     		border: 0px solid #000;
     		border-bottom: 1px solid rgba(0,0,0,0.075);
-    		margin: 17px 0;
+    		margin: 8px 0;
     	}
     	.pdf-section-header{
     		display: inline-block;
     		text-align: center;
-    		font-weight: 700;
+    		font-weight: 300;
             letter-spacing: 0.75px;
     		font-size: 13pt;
     	}
@@ -37,12 +37,12 @@
 
     	// Personal Information
     	#name{
-    		font-weight: 700;
+    		font-weight: 300;
     		font-size: 28pt;
     		padding: 0px 0 2px 0;
     		margin: 0;
     		display: block;
-            letter-spacing: 1px;
+            letter-spacing: 2.5px;
             transition: @transition;
     	}
 
@@ -74,27 +74,6 @@
     		}
     	}
 
-        // Social
-        #social-links-bottom{
-            display: none;
-        }
-        #social-links-top{
-            transition: @transition;
-    		span{
-    			display: inline-block;
-    			box-sizing: border-box;
-    			padding: 2px 8px 4px 8px;
-    			font-size: 9pt;
-                font-weight: 400;
-                i{
-                    margin: 0 1px 0 0;
-                    position: relative;
-                    top: 2px;
-                    font-size: 10pt;
-                }
-    		}
-    	}
-
     	// Summary
     	.summary{
     		text-align: left;
@@ -104,13 +83,14 @@
             font-family: @source-font;
      		font-weight: 300;
             transition: @transition;
+            margin: 4px 0;
     	}
 
 
     	// Jobs
     	.job{
     		text-align: left;
-    		padding: 6px 0;
+    		padding: 2px 0;
     		span{
     			font-size: 9pt;
     			font-weight: 400;
@@ -136,7 +116,7 @@
     	// Projects
     	.project{
     		text-align: left;
-    		padding: 6px 0;
+    		padding: 2px 0;
     		span{
     			font-size: 11pt;
     			font-weight: 600;
@@ -154,7 +134,7 @@
     	// Qualifications
     	.qualification{
     		text-align: center;
-    		padding: 10px 0;
+    		padding: 4px 0;
     		span{
     			font-size: 10pt;
     			font-weight: 400;
@@ -171,6 +151,7 @@
     	// Skills
     	.skill{
     		display: inline-block;
+            text-align: center;
     		&:last-child{
     			.dot-divider{
     				display: none;
@@ -183,7 +164,6 @@
     			top: -3px;
     			display: inline-block;
     		}
-    		text-align: center;
     		span{
     			font-size: 11pt;
     			font-weight: 400;
@@ -191,6 +171,11 @@
     			font-size: 9pt;
     			display: inline-block;
     		}
+            &:nth-child(even){
+                span{
+                    font-weight: 700;
+                }
+            }
     	}
 
 

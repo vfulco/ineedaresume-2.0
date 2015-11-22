@@ -19,6 +19,7 @@
   .settings {
     position: fixed;
     top: 49px;
+    z-index: 4000;
   }
 }
 .settings ul {
@@ -150,6 +151,12 @@
   padding: 20px 0;
   vertical-align: top;
 }
+@media (max-width: 625px) {
+  .settings ul li ol li.adjustment {
+    width: 80%;
+    margin: 0 10%;
+  }
+}
 .settings ul li ol li.adjustment:hover {
   cursor: default;
 }
@@ -174,14 +181,16 @@
   font-weight: bolder;
   color: #ffffff;
 }
-.settings ul li ol li.adjustment #line-height-range {
+.settings ul li ol li.adjustment #line-height-range,
+.settings ul li ol li.adjustment #font-size-range {
   -webkit-appearance: none;
   width: 100%;
   background-color: transparent;
   border: none;
   margin: 6px 0 20px 0;
 }
-.settings ul li ol li.adjustment #line-height-range::-webkit-slider-thumb {
+.settings ul li ol li.adjustment #line-height-range::-webkit-slider-thumb,
+.settings ul li ol li.adjustment #font-size-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 0px solid white;
   height: 15px;
@@ -191,7 +200,8 @@
   cursor: pointer;
   margin-top: -6px;
 }
-.settings ul li ol li.adjustment #line-height-range::-webkit-slider-runnable-track {
+.settings ul li ol li.adjustment #line-height-range::-webkit-slider-runnable-track,
+.settings ul li ol li.adjustment #font-size-range::-webkit-slider-runnable-track {
   width: 100%;
   height: 3px;
   border-radius: 5px;
@@ -238,6 +248,36 @@
   color: #ffffff;
   transition: 0.12s;
 }
+.hint,
+.input-hint {
+  font-size: 8.5pt;
+  text-align: center;
+  letter-spacing: 0.25px;
+  line-height: 1.5em;
+  display: block;
+  font-weight: lighter;
+  color: rgba(58, 63, 82, 0.55);
+  position: relative;
+  top: -18px;
+}
+@media (max-width: 800px) {
+  .hint,
+  .input-hint {
+    top: 10px;
+    font-size: 7pt;
+    box-sizing: border-box;
+    padding: 0 10px 0 10px;
+  }
+}
+.input-hint {
+  top: 2px;
+}
+@media (max-width: 800px) {
+  .input-hint {
+    top: 40px;
+    font-size: 7pt;
+  }
+}
 .settings-scrolled {
   top: 49px;
   position: fixed;
@@ -257,6 +297,11 @@
   top: 0;
   left: 0;
   z-index: 4000;
+}
+@media (max-width: 800px) {
+  .modal-lightbox {
+    height: 110%;
+  }
 }
 .text-edit-modal {
   border-radius: 3px;
@@ -363,13 +408,15 @@
   letter-spacing: 0.5px;
   font-weight: 400;
   color: #3a3f52;
-  text-align: center;
+  text-align: justify;
 }
 @media (max-width: 800px) {
   #pdf-instructions {
     width: 90%;
     left: 5%;
     margin-left: 0;
+    text-align: left;
+    top: 65px;
   }
 }
 #pdf-instructions .close {
@@ -390,21 +437,80 @@
   margin: 0 auto;
   padding: 0;
 }
+@media (max-width: 800px) {
+  #pdf-instructions .text h1 {
+    font-size: 12pt;
+    line-height: 1.2em;
+  }
+}
 #pdf-instructions .text h2 {
   font-size: 12pt;
   margin: 0 auto;
   padding: 5px 0;
+}
+@media (max-width: 800px) {
+  #pdf-instructions .text h2 {
+    font-size: 11pt;
+  }
 }
 #pdf-instructions .text p {
   font-size: 9.5pt;
   margin: 0 auto;
   padding: 5px 0;
 }
+@media (max-width: 800px) {
+  #pdf-instructions .text p {
+    font-size: 8pt;
+  }
+}
 #pdf-instructions .text p em {
   font-size: 11pt;
   font-style: normal;
   letter-spacing: 0.5px;
   font-weight: 500;
+}
+@media (max-width: 800px) {
+  #pdf-instructions .text p em {
+    font-size: 9pt;
+  }
+}
+#pdf-instructions .text .social-links {
+  text-align: center;
+}
+#pdf-instructions .text .social-links h6 {
+  font-size: 10pt;
+  color: rgba(58, 63, 82, 0.5);
+  padding: 0;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+#pdf-instructions .text .social-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14pt;
+  box-sizing: border-box;
+  padding: 0 0 0 1px;
+  height: 40px;
+  background-color: #4887f4;
+  width: 40px;
+  display: inline-block;
+  margin: 5px 4px 0 4px;
+  border-radius: 20px;
+  line-height: 42px;
+  text-align: center;
+  transition: 0.12s;
+}
+@media (max-width: 800px) {
+  #pdf-instructions .text .social-links a {
+    font-size: 12pt;
+    height: 30px;
+    width: 30px;
+    line-height: 32px;
+  }
+}
+#pdf-instructions .text .social-links a:hover {
+  color: #ffffff;
+  transition: 0.12s;
 }
 #pdf-instructions .text .button {
   background-color: #4887f4;
@@ -420,6 +526,13 @@
   font-family: 'Montserrat', sans-serif;
   margin: 14px 0 0 0;
   float: left;
+}
+@media (max-width: 800px) {
+  #pdf-instructions .text .button {
+    font-size: 8pt;
+    padding: 10px 10px;
+    letter-spacing: 0px;
+  }
 }
 #pdf-instructions .text .button:hover {
   cursor: pointer;

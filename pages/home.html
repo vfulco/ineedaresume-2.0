@@ -1,5 +1,5 @@
 <div id="has-local-storage">
-    <h2>You have data saved from last time. Would you like to load it or start fresh?</h2>
+    <h2>Hey<span ng-show="welcomeName"> <b>{{welcomeName}}</b></span>! You have data saved from last time. Would you like to load it or start fresh?</h2>
     <button class="blue" ng-click="loadLocal()">Load it, please</button>
     <button ng-click="ignoreLocal()">I'll start fresh</button>
 </div>
@@ -14,7 +14,7 @@
             <h2>
                 Simply enter your information and get a beautifully formatted resume in seconds.
                 <br/>
-                <small><a href="/src/example.pdf" target="_blank">View an example resume</a></small>
+                <small><a href="/beta/src/example.pdf" target="_blank">View an example resume</a></small>
             </h2>
         </span>
 
@@ -22,13 +22,14 @@
 
     <div id="media">
         <h6>You may have seen ineedaresu.me on</h6>
-        <a href="#" target="_blank"><img src="assets/media/producthunt.png"></a>
-        <a href="#" target="_blank"><img src="assets/media/lifehacker.png"></a>
-        <a href="#" target="_blank"><img src="assets/media/newsweek.png"></a>
-        <a href="#" target="_blank"><img src="assets/media/netted.png"></a>
+        <a href="https://www.producthunt.com/tech/i-need-a-resume" target="_blank"><img src="assets/media/producthunt.png"></a>
+        <a href="http://lifehacker.com/this-tool-helps-make-your-resume-visually-appealing-1709672920" target="_blank"><img src="assets/media/lifehacker.png"></a>
+        <a href="http://www.newsweek.com/career/free-tool-will-transform-your-ugly-duckling-resume-swan" target="_blank"><img src="assets/media/newsweek.png"></a>
+        <a href="http://www.inc.com/rahul-varshneya/how-side-projects-can-be-your-path-to-entrepreneurship.html" target="_blank"><img src="assets/media/inc.png"></a>
+        <a href="http://netted.net/ineedaresume/" target="_blank"><img src="assets/media/netted.png"></a>
         <span style="white-space: nowrap">
-            <a href="#" target="_blank"><img src="assets/media/muse.png"></a>
-            <a href="#" target="_blank"><img src="assets/media/ktla.png"></a>
+            <a href="https://www.themuse.com/advice/this-free-tool-will-transform-your-uglyduckling-resume-into-a-swan" target="_blank"><img src="assets/media/muse.png"></a>
+            <a href="http://ktla.com/2015/03/17/quick-tip-fast-resume-builder/" target="_blank"><img src="assets/media/ktla.png"></a>
         </span>
     </div>
 
@@ -71,7 +72,7 @@
             <span>
                 <h3>Can I save my information to edit later?</h3>
                 <p>
-                    Yes! When you want to save your data, go to the <a href="/#/personal">generate</a> page and click the <i>Save Data</i> button. Next time you come back, we will automatically ask if you want to load it!
+                    Yes! Your data for each page is saved locally on your computer <b>automatically</b> when you click the <i>save</i> button on that page (on desktop only, no mobile support). If you want to clear your information from your computer at any time, click <a ng-click="clearLocal()"><b>here</b></a>.
                 </p>
             </span><!--
             --><span>
@@ -83,20 +84,20 @@
             --><span>
                 <h3>Can I download my resume as a Word document?</h3>
                 <p>
-                    No, not at the moment. We are working on figuring out a method to export the resume as a Word document, but for now, only PDF is supported.
+                    No, not at the moment. We are currently working on figuring out a method to export the resume as a Word document, so for now, only PDF is supported. But remember, you can save your data on the site and come back later to edit it!
                 </p>
             </span><!--
             --><span>
                 <h3>You're missing <i>__________&nbsp; </i>, can I request a feature?</h3>
                 <p>
-                    Of course! We are always looking for ideas to make this site better! Please <a href="mailto:mitch@mitchs.co">contact us</a> with your suggestions or feedback! We are already working on more features, including <b>LinkedIn integration</b>, <b>more themes</b>, <b>accounts so you can edit your resume from anywhere</b>, and professional resume review
+                    Of course! We are always looking for ideas to make this site better! Please <a href="mailto:mitch@mitchs.co">contact us</a> with your suggestions or feedback! We are already working on more features, including <b>LinkedIn integration</b>, <b>more themes</b>, <b>accounts so you can edit your resume from anywhere</b>, and <b>professional resume review</b>.
                 </p>
             </span>
         </span>
     </div>
     <div id="get-started">
         <h1>Start building your resume now! It's completely free.</h1>
-        <a id="start-now" href="/#/basic">Get Started</a>
+        <a id="start-now" href="#/basic">Get Started</a>
     </div>
     <div id="footer">
         <span id="footer-name">
@@ -105,7 +106,7 @@
         --><span id="footer-about">
             <h6>About</h6>
             <p>
-                ineedaresume was built by <b>Mitch Samuels</b> in Madison, WI. If you have feedback, suggestions, or find a bug, email me at <a href="mailto:mitch@mitchs.co">mitch@mitchs.co</a>. You can also follow me on <a href="http://twitter.com/sleumasm" target="_blank">Twitter</a> or <a href="http://instagram.com/mitchas" target="_blank">Instagram</a>, connect on <a href="http://linkedin.com/in/mitchas" target="_blank">LinkedIn</a>, or check out my <a href="http://github.com/mitchas" target="_blank">Github</a> or personal website, <a href="http://mitchs.co" target="_blank">mitchs.co</a>.
+                ineedaresume was built by <b>Mitch Samuels</b> in Madison, WI. If you have feedback, suggestions, or find a bug, email me at <a href="mailto:mitch@mitchs.co">mitch@mitchs.co</a>. You can also follow me on <a href="http://twitter.com/sleumasm" target="_blank">Twitter</a> or <a href="http://instagram.com/mitchas" target="_blank">Instagram</a>, connect on <a href="http://linkedin.com/in/mitchas" target="_blank">LinkedIn</a>, or check out my <a href="http://github.com/mitchas" target="_blank">Github</a> or personal website, <a href="http://mitchs.co" target="_blank">mitchs.co</a>. Like the site? Need your own? Hire me!
             </p>
         </span><!--
         --><span id="footer-subscribe">

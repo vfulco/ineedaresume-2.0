@@ -3,13 +3,35 @@
     <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
     <title>Slice 1</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.207891757 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <circle id="Oval-1" stroke="#3A3F52" stroke-width="15" fill="#4887F4" sketch:type="MSShapeGroup" cx="235" cy="235" r="215"></circle>
-        <g id="Rectangle-1-+-Triangle-2-+-Triangle-1" sketch:type="MSLayerGroup" transform="translate(156.000000, 91.000000)">
-            <rect id="Rectangle-1" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="29.2777778" width="179.4" height="218.722222"></rect>
-            <path d="M129.636346,85.9145505 L130.061441,38.7694482 L176.813887,83.8450581 L129.636346,85.9145505 L129.636346,85.9145505 Z" id="Triangle-2" fill="#4887F4" sketch:type="MSShapeGroup"></path>
-            <path d="M195.374058,88.4550082 L126.175227,20.7170245 L190.852149,18.0687318 L195.374058,88.4550082 L195.374058,88.4550082 Z" id="Triangle-1" fill="#4887F4" sketch:type="MSShapeGroup"></path>
+        <rect id="Rectangle-2" stroke="#4887F4" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="470" height="470"></rect>
+        <circle id="Oval-1" fill="#4887F4" filter="url(#filter-1)" sketch:type="MSShapeGroup" cx="235" cy="235" r="215"></circle>
+        <g id="Document-2" sketch:type="MSLayerGroup" transform="translate(151.000000, 99.000000)">
+            <rect id="Rectangle-4" fill-opacity="0.145833333" fill="#000000" sketch:type="MSShapeGroup" x="0" y="37.3356643" width="23.060241" height="235.664336"></rect>
+            <rect id="Rectangle-5" fill-opacity="0.145833333" fill="#000000" sketch:type="MSShapeGroup" x="23.060241" y="250.622378" width="143.951807" height="22.3776224"></rect>
+            <rect id="Rectangle-6" fill-opacity="0.145833333" fill="#000000" sketch:type="MSShapeGroup" x="32.8433735" y="4.46853147" width="168.409639" height="235.664336"></rect>
+            <path d="M207.277688,0.853801646 L204.776944,58.1194917 L149.760588,3.34361426 L207.277688,0.853801646 L207.277688,0.853801646 Z" id="Triangle-1" fill="#4887F4" sketch:type="MSShapeGroup"></path>
+            <rect id="Rectangle-7" fill="#4887F4" sketch:type="MSShapeGroup" x="122.987952" y="26.8461538" width="11.1807229" height="55.9440559"></rect>
+            <rect id="Rectangle-8" fill="#4887F4" sketch:type="MSShapeGroup" x="132.771084" y="71.6013986" width="46.1204819" height="11.1888112"></rect>
+        </g>
+        <g id="Document" sketch:type="MSLayerGroup" transform="translate(146.000000, 67.000000)">
+            <rect id="Rectangle-4" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="64.3356643" width="23.060241" height="235.664336"></rect>
+            <rect id="Rectangle-5" fill="#FFFFFF" sketch:type="MSShapeGroup" x="19.5662651" y="277.622378" width="147.445783" height="22.3776224"></rect>
+            <rect id="Rectangle-6" fill="#FFFFFF" sketch:type="MSShapeGroup" x="32.8433735" y="31.4685315" width="168.409639" height="235.664336"></rect>
+            <path d="M207.277688,27.8538016 L204.776944,85.1194917 L149.760588,30.3436143 L207.277688,27.8538016 L207.277688,27.8538016 Z" id="Triangle-1" fill="#4887F4" sketch:type="MSShapeGroup"></path>
+            <rect id="Rectangle-7" fill="#4887F4" sketch:type="MSShapeGroup" x="122.987952" y="53.8461538" width="11.1807229" height="55.9440559"></rect>
+            <rect id="Rectangle-8" fill="#4887F4" sketch:type="MSShapeGroup" x="132.771084" y="98.6013986" width="46.1204819" height="11.1888112"></rect>
         </g>
     </g>
 </svg>

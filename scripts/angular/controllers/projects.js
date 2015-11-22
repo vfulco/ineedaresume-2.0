@@ -1,12 +1,14 @@
 //
 // Controller for projects entry
 //
-resumeApp.controller('projectsController', ['$scope', 'toastr', 'projects', function($scope, toastr, projects){
+resumeApp.controller('projectsController', ['$scope', 'projects', function($scope, projects){
     $scope.projects = projects.projects;
 
-    $("form input:first").focus();
-
     $(document).prop('title', "Projects | ineedaresume");
+
+    if( window.canRunAds === undefined ){
+        $(".advertisement").slideUp();
+    }
 
     $scope.saveProject = function(){
         if(!$scope.projectTitleInput || !$scope.projectDescriptionInput){
@@ -24,6 +26,7 @@ resumeApp.controller('projectsController', ['$scope', 'toastr', 'projects', func
             return;
         }
         $scope.projects.push( {projectTitle: $scope.projectTitleInput, projectDescription: $scope.projectDescriptionInput} );
+        $storage.localProjects = $scope.projects; // Save locally
 
         $("#save-project").html('<i class="ion-checkmark-round"></i> Saved to list');
         $("#save-project").addClass("save-success");

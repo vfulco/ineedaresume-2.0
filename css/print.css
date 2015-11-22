@@ -44,39 +44,39 @@
     margin-left: -2.892in;
   }
 }
-@media (max-width: 6.9in) {
-  #print-page {
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
-    margin-left: -2.5305in;
-  }
-}
 @media (max-width: 6.1in) {
   #print-page {
     -webkit-transform: scale(0.7);
     transform: scale(0.7);
-    margin-left: -2.169;
+    margin-left: -2.5305;
   }
 }
 @media (max-width: 5.4in) {
   #print-page {
     -webkit-transform: scale(0.6);
     transform: scale(0.6);
-    margin-left: -1.8075in;
+    margin-left: -2.169in;
   }
 }
 @media (max-width: 4.6in) {
   #print-page {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
-    margin-left: -1.446in;
+    margin-left: -1.8075in;
   }
 }
 @media (max-width: 3.8in) {
   #print-page {
     -webkit-transform: scale(0.4);
     transform: scale(0.4);
-    margin-left: -1.0845;
+    margin-left: -1.446in;
+  }
+}
+@media (max-width: 3in) {
+  #print-page {
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    margin-left: -1.0845in;
   }
 }
 #print-page .pdf-advice {
@@ -107,7 +107,9 @@
   .settings,
   .text-edit-modal,
   .modal-lightbox,
-  #pdf-instructions {
+  #pdf-instructions,
+  .hint,
+  .hasadblocker {
     display: none !important;
   }
   #print-page {

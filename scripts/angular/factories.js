@@ -1,18 +1,8 @@
-resumeApp.factory('basic', [function(){
-    var o = {
-        basic: [
-        ]
-    }
-    return o;
-}]);
+resumeApp.value('prompts', {answeredLocal: false});
 
-resumeApp.factory('summary', [function(){
-    var o = {
-        summary: [
-        ]
-    }
-    return o;
-}]);
+resumeApp.value('basics', {});
+resumeApp.value('summary', {});
+
 
 resumeApp.factory('jobs', [function(){
     var o = {

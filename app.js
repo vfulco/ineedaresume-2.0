@@ -1,4 +1,4 @@
-var resumeApp = angular.module('resumeApp', ['ngRoute', 'ui.sortable', 'ngAnimate', 'toastr', 'ngStorage']);
+var resumeApp = angular.module('resumeApp', ['ngRoute', 'ui.sortable', 'ngAnimate', 'ngStorage']);
 
 // configure our routes
 resumeApp.config(function($routeProvider) {
@@ -53,11 +53,19 @@ resumeApp.config(function($routeProvider) {
         controller  : 'generateController'
     })
 
-
     // route for personal info entry
-    .when('/help', {
-        templateUrl : 'pages/help.html',
-        controller  : 'helpController'
+    .when('/404', {
+        templateUrl : 'pages/404.html',
+        controller  : 'fourohfourController'
     })
 
+
+});
+
+
+// Preserve HTML
+resumeApp.filter('unsafe', function($sce) {
+    return function(val) {
+        return $sce.trustAsHtml(val);
+    };
 });

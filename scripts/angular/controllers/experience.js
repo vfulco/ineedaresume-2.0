@@ -1,12 +1,16 @@
 //
 // Controller for experience/jobs entry
 //
-resumeApp.controller('experienceController', ['$scope', 'toastr', 'jobs', function($scope, toastr, jobs){
+resumeApp.controller('experienceController', ['$scope', 'jobs', function($scope, jobs){
     $scope.jobs = jobs.jobs;
 
-    $("form input:first").focus();
 
     $(document).prop('title', "Experiences | ineedaresume");
+
+    if( window.canRunAds === undefined ){
+        $(".advertisement").slideUp();
+    }
+
 
     $scope.saveJob = function(){
         // If employer or title empty
@@ -21,11 +25,12 @@ resumeApp.controller('experienceController', ['$scope', 'toastr', 'jobs', functi
             setTimeout(function() {
                 $("#save-job").html('<i class="ion-checkmark-round"></i> Save to experiences list');
                 $("#save-job").removeClass("save-error");
-            }, 4000);
+            }, 2000);
             return;
         }
         // Otherwise push
         $scope.jobs.push( {jobEmployer: $scope.jobEmployerInput, jobLocation: $scope.jobLocationInput, jobTime: $scope.jobTimeInput, jobTitle: $scope.jobTitleInput, jobDescription: $scope.jobDescriptionInput} );
+        $storage.localJobs = $scope.jobs;
 
         $("#save-job").html('<i class="ion-checkmark-round"></i> Saved to list');
         $("#save-job").addClass("save-success");
@@ -33,7 +38,7 @@ resumeApp.controller('experienceController', ['$scope', 'toastr', 'jobs', functi
         setTimeout(function() {
             $("#save-job").html('<i class="ion-checkmark-round"></i> Save to experiences list');
             $("#save-job").removeClass("save-success");
-        }, 2000);
+        }, 1500);
 
         $scope.jobEmployerInput = "";
         $scope.jobLocationInput = "";

@@ -1,17 +1,28 @@
 // Controller for resume generation
 resumeApp.controller('generateController',
-    ['$scope', '$localStorage', '$sessionStorage', 'toastr', 'basic', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
-    function($scope, $localStorage, $sessionStorage, toastr, basic, summary, jobs, projects, qualifications, skills){
+    ['$scope', '$localStorage', '$sessionStorage', 'basics', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
+    function($scope, $localStorage, $sessionStorage, basics, summary, jobs, projects, qualifications, skills){
+
 
         $storage = $localStorage;
-        $scope.basic = basic.basic;
-        $scope.summary = summary.summary;
+        $scope.basics = basics;
+        $scope.summary = summary;
         $scope.jobs = jobs.jobs;
         $scope.projects = projects.projects;
         $scope.qualifications = qualifications.qualifications;
         $scope.skills = skills.skills;
 
-        $(document).prop('title', "Your Resume | ineedaresume");
+        $(document).prop('title', "Create a resume | ineedaresume");
+
+        // Text area formatting
+        // if($scope.summary[0]){
+        //     $scope.summaryFormatted = $scope.summary[0].summaryBody.replace(/\*/g,"&#8226;");
+        // }else{
+        //     $scope.summaryFormatted = "";
+        // }
+        // $scope.addBullets = function(entry) {
+        //   return entry.replace(/\*/g,"&#8226;");
+        // }
 
 
 
@@ -19,7 +30,6 @@ resumeApp.controller('generateController',
         $scope.closeModal = function(){
             $scope.lightbox = false;
             $scope.modal = false;
-            $scope.savedData = false;
             $scope.editingSummaryHeader = false;
             $scope.editingJobsHeader = false;
             $scope.editingProjectsHeader = false;
@@ -112,29 +122,14 @@ resumeApp.controller('generateController',
          $scope.adjustLineHeight = function() {
              $(".adjust-lineheight").css("line-height", $scope.lineHeight);
          };
+         $scope.fontSize = 9;
+          $scope.adjustFontSize = function() {
+              $(".adjust-lineheight").css("font-size", $scope.fontSize + "pt");
+          };
         // Show/hide icons
         $scope.showIcons = true;
         $scope.showHideIcons = function() {
         };
-
-
-
-
-
-        // Local Storage
-        $scope.saveLocally = function(){
-            $scope.savedData = true;
-            $scope.displayModal();
-            $scope.modalHeader = "Saved Successfully!";
-            $scope.modalButton = "Sounds good!";
-            $storage.localBasic = $scope.basic;
-            $storage.localSummary = $scope.summary;
-            $storage.localJobs = $scope.jobs;
-            $storage.localProjects = $scope.projects;
-            $storage.localQualifications = $scope.qualifications;
-            $storage.localSkills = $scope.skills;
-        }
-
 
 
 
@@ -185,8 +180,11 @@ resumeApp.controller('generateController',
 
         // Actual Printing
         $scope.printResume = function(){
+            ga('send', 'event', 'Button', 'Click', 'DownloadPDF');
+            $(document).prop('title', "Your Resume");
             print();
             $scope.closeInstructions();
+            $(document).prop('title', "Create a resume | ineedaresume");
         }
 
 

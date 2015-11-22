@@ -4,6 +4,16 @@ hdr = $('nav').height();
 
 
 $( document ).ready(function() {
+
+    if( window.canRunAds === undefined ){
+        $("#adblockmessage").slideDown();
+        $(".advertisement").slideUp();
+        // alert("ad block detected");
+    }else{
+        $("#adblockmessage").slideUp();
+        // alert("no ad block");
+    }
+
     $(".nav-spacer").hide();
 
     $("#menu-btn").click(function(){
@@ -51,4 +61,16 @@ window.onresize = function() {
         $("#menu-btn").removeClass("ion-ios-close-empty");
         $("#menu-btn").addClass("ion-navicon");
     }
+}
+
+
+
+function wrapText(elementID, openTag, closeTag) {
+    var textArea = $('#' + elementID);
+    var len = textArea.val().length;
+    var start = textArea[0].selectionStart;
+    var end = textArea[0].selectionEnd;
+    var selectedText = textArea.val().substring(start, end);
+    var replacement = openTag + selectedText + closeTag;
+    textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
 }

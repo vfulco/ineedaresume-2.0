@@ -19,11 +19,18 @@
 }
 @media (max-width: 950px) {
   #has-local-storage {
-    background-color: #4887f4;
-    display: block;
-    color: #ffffff;
+    background-color: #ffffff;
+    display: none;
+    color: #3a3f52;
     position: relative;
     padding: 10px 15px 10px 15px;
+    margin: -25px auto 0 auto;
+  }
+}
+@media (max-width: 800px) {
+  #has-local-storage {
+    background-color: #4887f4;
+    color: #ffffff;
     margin: 25px auto 0 auto;
   }
 }
@@ -83,7 +90,7 @@
 #has-local-storage button.blue {
   background-color: rgba(72, 135, 244, 0.85);
 }
-@media (max-width: 950px) {
+@media (max-width: 800px) {
   #has-local-storage button.blue {
     background-color: rgba(255, 255, 255, 0.85);
     color: #3a3f52;
@@ -92,7 +99,7 @@
 #has-local-storage button.blue:hover {
   background-color: #4887f4;
 }
-@media (max-width: 950px) {
+@media (max-width: 800px) {
   #has-local-storage button.blue:hover {
     background-color: #ffffff;
   }
@@ -192,6 +199,11 @@
   height: 70%;
 }
 @media (max-width: 950px) {
+  #home-page #home-intro {
+    padding: 80px 35px 60px 37px;
+  }
+}
+@media (max-width: 800px) {
   #home-page #home-intro {
     padding: 100px 35px 60px 37px;
   }
