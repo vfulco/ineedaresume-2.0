@@ -11,6 +11,9 @@ html{
     -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0,0,0,.01) 0 0 1px;
     max-width: 100%;
+    overflow:visible;
+    float: none;
+    display: block;
 }
 
 *,
@@ -120,7 +123,7 @@ nav{
         margin: 0 0 0 0;
         position:fixed;
         top: 50px;
-        z-index: 100000;
+        z-index: 10000;
         display: none;
         box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.18);
     }
@@ -129,7 +132,7 @@ nav{
         top:0;
         left: 0;
         width: 100%;
-        z-index: 3000;
+        z-index: 5001;
         box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.18);
         @media (max-width: 800px) {
             position:fixed;
@@ -151,12 +154,18 @@ nav{
             text-transform: uppercase;
             box-sizing: border-box;
             font-size: 9pt;
-            padding: 5px 6px;
+            padding: 5px 10px;
             margin: 0 4px;
             &:hover{
                 text-decoration: none;
                 color: @color-white;
                 font-weight: bolder;
+            }
+            @media (max-width: 950px) {
+                font-size: 8pt;
+                padding: 5px 4px;
+                position: relative;
+                top:-1px;
             }
             @media (max-width: 800px) {
                 display: block;
@@ -202,10 +211,13 @@ nav{
     width: 100%;
     display: block;
     position: absolute;
+    float:none;
     .view{
+        float:none;
         height: auto;
         width: 100%;
         overflow: auto;
+        display: block;
         padding: 25px 0;
     }
 }

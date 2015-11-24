@@ -1,16 +1,18 @@
 // Controller for resume generation
 resumeApp.controller('generateController',
-    ['$scope', '$localStorage', '$sessionStorage', 'basics', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
-    function($scope, $localStorage, $sessionStorage, basics, summary, jobs, projects, qualifications, skills){
+    ['$scope', '$localStorage', '$sessionStorage', 'cover', 'basics', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
+    function($scope, $localStorage, $sessionStorage, cover, basics, summary, jobs, projects, qualifications, skills){
 
 
         $storage = $localStorage;
+        $scope.cover = cover;
         $scope.basics = basics;
         $scope.summary = summary;
         $scope.jobs = jobs.jobs;
         $scope.projects = projects.projects;
         $scope.qualifications = qualifications.qualifications;
         $scope.skills = skills.skills;
+        $scope.date = new Date();
 
         $(document).prop('title', "Create a resume | ineedaresume");
 
@@ -89,6 +91,23 @@ resumeApp.controller('generateController',
 
 
 
+        // Switch between resume and cover letter-spacing
+        $scope.showingResume = true;
+        $scope.showingCoverLetter = false;
+        $scope.showResume = function(){
+            $scope.showingResume = true;
+            $scope.showingCoverLetter = false;
+            $("#showResumeBtn").addClass("active");
+            $("#showCoverBtn").removeClass("active");
+        }
+        $scope.showCoverLetter = function(){
+            $scope.showingResume = false;
+            $scope.showingCoverLetter = true;
+            $("#showResumeBtn").removeClass("active");
+            $("#showCoverBtn").addClass("active");
+        }
+
+
         // Theme control
         $scope.themeClass = "theme-pacifico";
         $scope.setThemeSource = function(){
@@ -99,12 +118,17 @@ resumeApp.controller('generateController',
         $scope.setThemePacifico = function(){
             $scope.themeClass = "theme-pacifico";
             $scope.showIcons = true;
-            $scope.lineHeight = 1.5;
+            $scope.lineHeight = 1.4;
         };
         $scope.setThemeRaleway = function(){
             $scope.themeClass = "theme-raleway";
             $scope.showIcons = true;
-            $scope.lineHeight = 1.2;
+            $scope.lineHeight = 1.4;
+        }
+        $scope.setThemeSlab = function(){
+            $scope.themeClass = "theme-slab";
+            $scope.showIcons = true;
+            $scope.lineHeight = 1.4;
         }
 
 
@@ -120,11 +144,11 @@ resumeApp.controller('generateController',
         // Adjust Line Height
         $scope.lineHeight = 1.5;
          $scope.adjustLineHeight = function() {
-             $(".adjust-lineheight").css("line-height", $scope.lineHeight);
+             $(".text-adjust").css("line-height", $scope.lineHeight);
          };
          $scope.fontSize = 9;
           $scope.adjustFontSize = function() {
-              $(".adjust-lineheight").css("font-size", $scope.fontSize + "pt");
+              $(".text-adjust").css("font-size", $scope.fontSize + "pt");
           };
         // Show/hide icons
         $scope.showIcons = true;
@@ -141,12 +165,20 @@ resumeApp.controller('generateController',
             $scope.instructions = true;
             $scope.instructionsText = true;
             $scope.instructionsVideos = false;
+            $scope.showingResume = true;
+            $scope.showingCoverLetter = true;
+            $("#showResumeBtn").addClass("active");
+            $("#showCoverBtn").removeClass("active");
         }
         $scope.closeInstructions = function(){
             $scope.instructionsText = true;
             $scope.instructionsVideos = false;
             $scope.lightbox = false;
             $scope.instructions = false;
+            $scope.showingResume = true;
+            $scope.showingCoverLetter = false;
+            $("#showResumeBtn").addClass("active");
+            $("#showCoverBtn").removeClass("active");
         }
 
         $scope.instructionsText = true;
@@ -180,10 +212,16 @@ resumeApp.controller('generateController',
 
         // Actual Printing
         $scope.printResume = function(){
+            $scope.showingResume = true;
+            $scope.showingCoverLetter = true;
             ga('send', 'event', 'Button', 'Click', 'DownloadPDF');
             $(document).prop('title', "Your Resume");
             print();
             $scope.closeInstructions();
+            $scope.showingResume = true;
+            $scope.showingCoverLetter = false;
+            $("#showResumeBtn").addClass("active");
+            $("#showCoverBtn").removeClass("active");
             $(document).prop('title', "Create a resume | ineedaresume");
         }
 

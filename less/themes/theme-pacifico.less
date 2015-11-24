@@ -1,240 +1,300 @@
-// theme-pacifico.less - for pacifico resume theme
+// theme-pacifico.less - for cursive resume theme
 
 @import "../variables.less";
 
-
 #print-page{
-    padding: 15px 15px 25px 15px;
-    .section-spacer{
-        width: 100%;
-        height: 25px;
-        display:block;
-    }
     &.theme-pacifico{
-        color: @color-black;
-    	hr{
-    		display: none;
-    	}
-    	.pdf-section-header{
-    		display: block;
-            font-family: @source-font;
-            width: 180px;
-    		font-size: 9pt;
-            text-transform: uppercase;
-            padding: 0;
-            text-align: right;
-            font-weight: 700;
-    	}
-        .section-body{
-            font-family: @source-font;
-            box-sizing: border-box;
-            padding-left: 210px;
-            margin-top: -25px;
-            transition: @transition;
-        }
-
-        // Line height for all paragraphs
-        .adjust-lineheight{
-            line-height: 1.5em;
-        }
-
-    	// Personal Information
-    	#name{
-            font-family: @cursive-font;
-    		font-weight: 200;
-    		font-size: 26pt;
-    		text-transform: capitalize;
-    		padding: 0px 0 2px 0;
-    		margin: 0 0 15px 0;
-    		display: block;
-            text-align: left;
-            transition: @transition;
-    	}
-
-        #basicHeaderTop{
-            display: none;
-        }
-        #basicHeaderBottom{
-            margin: 5px 0 0 0;
-        }
-        #contact-info-top{
-            display: none;
-        }
-    	#contact-info-bottom{
+        font-family: @source-font;
+        //
+        // UNIVERSAL ELEMENT STYLES
+        //
+        .pdf-header{
             display: block;
-            line-height: 1em;
-            margin: -17px 0 0 0;
-    		span{
-    			display: block;
-    			box-sizing: border-box;
-    			padding: 1px 0px;
-    			font-size: 9pt;
-                font-weight: 700;
-                text-align: left;
-                i{
-                    margin: 0 2px 0 0;
-                    font-size: 11pt;
-                    position: relative;
-                    top:2px;
-                    display: inline-block;
-                    width: 15px;
-                    text-align: center;
-                }
-    		}
-    	}
-
-
-    	// Summary
-    	.summary{
-    		text-align: left;
-    		font-size: 9pt;
-    		text-align: justify;
-    		font-family: @source-font;
-     		white-space: pre-line;
-            margin: 9px 0 10px 0;
-     		font-weight: 300;
-            transition: @transition;
-    	}
-
-
-    	// Jobs
-    	.job{
-    		text-align: left;
-    		padding: 18px 0 6px 0;
-            &:nth-child(1){
-                padding: 22px 0 6px 0;
-            }
-            &:last-child{
-                padding: 18px 0 10px 0;
-            }
-    		span{
-    			font-size: 9pt;
-    			font-weight: 400;
-    			line-height: 1.4em;
-                font-style: italic;
-                &:nth-child(1){
-                    font-style: normal;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    margin: -16px 0 0px 0;
-                    display: block;
-                    position: relative;
-                    top: 4px;
-                }
-                &:nth-child(3),
-                &:nth-child(4),
-                &:nth-child(6){
-                    display:none;
-                }
-                &:nth-child(2):after,
-                &:nth-child(5):after{
-                    content: ',';
-                }
-    		}
-    		p{
-    			text-align: left;
-    			font-size: 9pt;
-    			text-align: justify;
-    			font-weight: 300;
-    			margin: 0;
-    		}
-    	}
-
-    	// Projects
-    	.project{
-    		text-align: left;
-    		padding: 6px 0 0 0;
-            &:last-child{
-                padding: 6px 0 10px 0;
-            }
-    		span{
-    			font-size: 9pt;
-    			font-weight: 700;
-    			line-height: 1.4em;
+            font-size: 9pt;
+            font-weight: 700;
+            text-align: right;
+            text-transform: uppercase;
+            width: 26%;
+            &:after{
+                content: ' click to edit';
                 text-transform: uppercase;
-    		}
-    		p{
-    			text-align: left;
-    			font-size: 9pt;
-    			text-align: justify;
-    			font-weight: 300;
-    			margin: 0;
-    		}
-    	}
-
-    	// Qualifications
-    	.qualification{
-    		text-align: left;
-    		padding: 5px 0;
-            &:first-child{
-                margin-top: 2px;
-                padding: 10px 0 5px 0;
+                font-size: 7pt;
+                color: fade(@color-black, 30%);
+                position: absolute;
+                margin-top: 0px;
+                margin: 12px 0 0 -58px;
             }
-            &:last-child{
-                padding: 5px 0 10px 0;
-            }
-    		span{
-    			font-size: 10pt;
-    			font-weight: 400;
-                font-style: italic;
-    			line-height: 1.0em;
-    			font-size: 9pt;
-    			&:nth-child(1){
-    				display: block;
-                    font-style: normal;
-    				font-weight: 700;
-                    text-transform: uppercase;
-    				font-size: 9pt;
-    			}
-                &:nth-child(3),
-                &:nth-child(4),
-                &:nth-child(6),
-                &:nth-child(7),
-                &:nth-child(9){
-                    display: none;
-                }
-                &:nth-child(2):after,
-                &:nth-child(5):after{
-                    content: ',';
-                }
-                &:nth-child(10):before{
-                    content: ', ';
-                }
-    		}
-    	}
-
-    	// Skills
-        .skills{
-            margin: -13px 0 0 -8px;
-            text-align: left;
-            .skill{
+        }
+        p{
+            white-space: pre-line;
+            padding: 0;
+            margin: 0 auto;
+            font-size: 9pt;
+            text-align: justify;
+            line-height: 1.4em;
+        }
+        hr{
+            height: 0;
+            border-top: 1px solid fade(@color-black, 10%);
+            border-bottom: 0px;
+            padding: 0px 0;
+            margin: 10px auto;
+        }
+        //
+        // COVER LETTER
+        //
+        #cover-letter{
+            .date{
+                display: block;
                 text-align: left;
-        		display: inline-block;
+                font-size: 9pt;
                 font-weight: 700;
                 box-sizing: border-box;
-                padding: 0 8px;
-        		.dot-divider{
+                padding: 15px 0 15px 0;
+                border-top: 1px solid fade(@color-black, 10%);
+                margin: 15px 0 0 0;
+            }
+            p{
+                font-size: 10pt;
+            }
+            .contact{
+                display: block !important;
+                hr{
                     display: none;
-        		}
-        		span{
-        			font-size: 9pt;
-                    text-transform: uppercase;
-        			line-height: 1.0em;
-                    display: block;
-                    padding: 0 0 5px 0;
-                    display:table;
-                    &:before{
-                        content: "";
-                    }
-        		}
-                &:nth-child(even){
-                    font-weight: 400;
                 }
-        	}
+                span{
+                    padding: 0 0 2px 0 !important;
+                    display: block;
+                    text-align:left;
+                    font-weight: 700;
+                    i{
+                        width: 16px;
+                        text-align: center;
+                        display: inline-block;
+                    }
+                }
+            }
         }
-
-
-
-
+        //
+        // NAME
+        //
+        .name{
+            font-family: @cursive-font;
+            font-size: 26pt;
+            text-transform: capitalize;
+            text-align: left;
+            font-weight: 300;
+            padding: 0 0 3px 0;
+        }
+        //
+        // CONTACT
+        //
+        .contact{
+            display: none;
+            &.two{
+                display: block !important;
+                hr{
+                    opacity: 0;
+                }
+                .contactwrapper{
+                    margin: -15px 0 0 0;
+                }
+            }
+            span{
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 9pt;
+                display: block;
+                text-align: left;
+                box-sizing: border-box;
+                padding: 0 0 3px 30%;
+                letter-spacing: 0.5px;
+                i{
+                    position: relative;
+                    display: inline-block;
+                    width: 16px;
+                    text-align: center;
+                    top: 1px;
+                    margin: 0 3px 0 0;
+                }
+            }
+        }
+        //
+        // SUMMARY
+        //
+        .summary{
+            hr{
+                opacity: 0;
+                padding: 10px 0;
+            }
+            p{
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 0 0 30%;
+                margin: -16px 0 0 0;
+            }
+        }
+        //
+        // EXPERIENCE
+        //
+        .experience{
+            hr{
+                opacity: 0;
+            }
+            .item{
+                text-align: justify;
+                line-height: 1em;
+                padding: 5px 0 5px 30%;
+                box-sizing: bborder-box;
+                &:first-child{
+                    padding-top:0;
+                    margin: -12px 0 0 0;
+                }
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                span{
+                    &:nth-child(1){
+                        font-size: 9pt;
+                        font-weight: 700;
+                        text-align: left;
+                        display: block;
+                        padding: 0;
+                        text-transform: uppercase;
+                        margin: 0 auto;
+                        line-height: 0.8em;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(3),
+                    &:nth-child(4){
+                        font-size: 9pt;
+                        font-weight: 400;
+                        text-align: left;
+                        position: relative;
+                        line-height: 0.26em;
+                        font-style: italic;
+                    }
+                    &:nth-child(2):after,
+                    &:nth-child(3):after{
+                        content: ','
+                    }
+                    p{
+                        display: block;
+                    }
+                }
+            }
+        }
+        //
+        // PROJECTS
+        //
+        .projects{
+            hr{
+                opacity: 0;
+            }
+            .item{
+                box-sizing: border-box;
+                text-align: left;
+                line-height: 1em;
+                padding: 5px 0 5px 30%;
+                &:first-child{
+                    padding-top:0;
+                    margin: -15px 0 0 0;
+                }
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                span{
+                    font-size: 9pt;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    text-align: left;
+                    display: block;
+                    padding: 0;
+                    margin: 0 auto;
+                }
+                p{
+                    display: block;
+                }
+            }
+        }
+        //
+        // EDUCATION
+        //
+        .qualifications{
+            hr{
+                opacity: 0;
+            }
+            .item{
+                box-sizing: border-box;
+                text-align: left;
+                line-height: 1em;
+                padding: 5px 0 5px 30%;
+                &:first-child{
+                    padding-top:0;
+                    margin: -15px 0 0 0;
+                }
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                span{
+                    &:nth-child(1){
+                        font-size: 9pt;
+                        font-weight: 700;
+                        display: block;
+                        text-transform: uppercase;
+                        padding: 0;
+                        margin: 0 auto;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(3),
+                    &:nth-child(4),
+                    &:nth-child(5){
+                        display: inline-block;
+                        font-style: italic;
+                        font-size: 9pt;
+                        font-weight: 400;
+                    }
+                    &:nth-child(3):before,
+                    &:nth-child(4):before,
+                    &:nth-child(5):before{
+                        content: '\2022';
+                        display: inline-block;
+                        padding: 0 5px 0 3px;
+                    }
+                }
+            }
+        }
+        //
+        // SKILLS
+        //
+        .skills{
+            text-align: left;
+            height: auto;
+            box-sizing: border-box;
+            display: block;
+            word-wrap: break-word;
+            hr{
+                opacity: 0;
+            }
+            .skillswrapper{
+                box-sizing: border-box;
+                padding: 0 0 0 30%;
+                width: 100%;
+                display: block;
+                margin: -19px 0 0 0;
+                .item{
+                    display: inline-block;
+                    &:nth-child(odd){
+                        font-weight: 700;
+                    }
+                    span{
+                        font-size: 9pt;
+                        text-transform: uppercase;
+                        box-sizing: border-box;
+                        padding: 2px 18px 2px 0;
+                    }
+                }
+            }
+        }
     }
 }

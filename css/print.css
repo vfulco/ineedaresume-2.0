@@ -2,23 +2,21 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
 #print-page {
-  padding: 0;
   margin: 15px auto 35px auto;
   width: 7.23in;
   mso-header-margin: .5in;
   mso-footer-margin: .5in;
   mso-paper-source: 0;
   z-index: 5000;
-  background-color: #fff;
   text-align: center;
   font-weight: 300;
   overflow: visible !important;
-  font-family: 'Lato', sans-serif;
   box-sizing: border-box;
-  padding: 15px;
-  border: 1px solid rgba(72, 135, 244, 0.3);
+  padding: 5px;
+  border: 1px solid rgba(49, 53, 68, 0.1);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
   z-index: 0;
@@ -86,6 +84,9 @@
   letter-spacing: 0.5px;
   line-height: 1.5em;
   display: block;
+  font-size: 10pt;
+  letter-spacing: 1px;
+  color: rgba(49, 53, 68, 0.4);
   font-weight: bolder;
   font-family: 'Montserrat', sans-serif;
 }
@@ -109,11 +110,11 @@
   .modal-lightbox,
   #pdf-instructions,
   .hint,
-  .hasadblocker {
-    display: none !important;
+  .hasadblocker,
+  .switchviews {
+    opacity: 0;
   }
   #print-page {
-    display: block;
     margin: 0 auto;
     /*Disabled these in print query*/
     mso-header-margin: .5in;
@@ -126,20 +127,19 @@
     margin-left: 0;
     margin-top: 0 !important;
     margin-bottom: 0;
-    border: none;
     -webkit-transform: scale(1);
     transform: scale(1);
+    float: none !important;
+    display: block !important;
+    border: none !important;
   }
-  #summary,
-  .job,
-  .project,
-  .qualification {
-    page-break-inside: avoid;
-  }
-  .editable-header {
+  .pdf-header {
     border: none;
     background-color: transparent;
-    box-sizing: border-box;
+  }
+  .pdf-header:after {
+    content: '';
+    color: rgba(0, 0, 0, 0) !important;
   }
 }
 @page {

@@ -10,6 +10,12 @@ resumeApp.config(function($routeProvider) {
         controller  : 'mainController'
     })
 
+    // route for cover letter
+    .when('/cover', {
+        templateUrl : 'pages/cover.html',
+        controller  : 'coverController'
+    })
+
     // route for basic info entry
     .when('/basic', {
         templateUrl : 'pages/basic.html',

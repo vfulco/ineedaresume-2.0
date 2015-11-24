@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
 .settings {
   width: 100%;
@@ -133,15 +134,21 @@
   color: #313544;
 }
 .settings ul li ol li.theme:nth-child(1) {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 700;
+  font-family: 'Pacifico', sans-serif;
 }
 .settings ul li ol li.theme:nth-child(2) {
-  font-family: 'Pacifico', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
 }
 .settings ul li ol li.theme:nth-child(3) {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
+  text-transform: uppercase;
+}
+.settings ul li ol li.theme:nth-child(4) {
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 .settings ul li ol li.adjustment {
@@ -276,6 +283,40 @@
   .input-hint {
     top: 40px;
     font-size: 7pt;
+  }
+}
+.switchviews {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.switchviews span {
+  display: block;
+  font-size: 8pt;
+  color: rgba(49, 53, 68, 0.5);
+  letter-spacing: 0.5px;
+  padding: 0 0 3px 0;
+}
+.switchviews a {
+  box-sizing: border-box;
+  padding: 6px 12px;
+  background-color: rgba(72, 135, 244, 0.7);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 8pt;
+  letter-spacing: 0.75px;
+  border-radius: 3px;
+}
+.switchviews a:hover {
+  cursor: pointer;
+  background-color: rgba(72, 135, 244, 0.9);
+}
+.switchviews a.active {
+  background-color: #4887f4;
+}
+@media (max-width: 800px) {
+  .switchviews {
+    margin-top: 30px;
   }
 }
 .settings-scrolled {
@@ -526,6 +567,7 @@
   font-family: 'Montserrat', sans-serif;
   margin: 14px 0 0 0;
   float: left;
+  border-radius: 3px;
 }
 @media (max-width: 800px) {
   #pdf-instructions .text .button {

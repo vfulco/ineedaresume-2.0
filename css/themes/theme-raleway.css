@@ -2,15 +2,9 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
-#print-page.theme-raleway {
-  font-family: 'Raleway', sans-serif;
-  color: #313544;
-}
-#print-page.theme-raleway hr {
-  display: none;
-}
-#print-page.theme-raleway .pdf-section-header {
+#print-page.theme-raleway .pdf-header {
   font-family: 'Raleway', sans-serif;
   font-size: 14pt;
   margin: 10px 0 10px 0;
@@ -21,7 +15,7 @@
   display: table;
   padding: 0;
 }
-#print-page.theme-raleway .pdf-section-header span {
+#print-page.theme-raleway .pdf-header span {
   width: 1px;
   white-space: nowrap;
   display: table-cell;
@@ -30,14 +24,14 @@
   font-style: normal;
   text-align: center;
 }
-#print-page.theme-raleway .pdf-section-header:before {
+#print-page.theme-raleway .pdf-header:before {
   content: "\00a0";
   border-top: 1px solid #313544;
   position: relative;
   top: 12px;
   display: table-cell;
 }
-#print-page.theme-raleway .pdf-section-header:after {
+#print-page.theme-raleway .pdf-header:after {
   content: "\00a0";
   height: 0;
   border-top: 1px solid #313544;
@@ -45,204 +39,220 @@
   top: 12px;
   display: table-cell;
 }
-#print-page.theme-raleway .section-body {
-  transition: 0.12s;
+#print-page.theme-raleway p {
+  white-space: pre-line;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 9pt;
+  text-align: justify;
+  line-height: 1.4em;
+  font-weight: lighter;
 }
-#print-page.theme-raleway .adjust-lineheight {
-  line-height: 1.2em;
+#print-page.theme-raleway hr {
+  height: 0;
+  opacity: 0;
+  border-top: 1px solid rgba(49, 53, 68, 0.1);
+  border-bottom: 0px;
+  padding: 0px 0;
+  margin: 10px auto;
 }
-#print-page.theme-raleway #name {
-  font-weight: 800;
-  font-size: 30pt;
-  padding: 0px 0 0px 14px;
-  margin: 0 0 24px 0;
-  line-height: 0.85em;
+#print-page.theme-raleway #cover-letter .date {
   display: block;
-  transition: 0.12s;
+  text-align: left;
+  font-size: 10pt;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 15px 0 15px 0;
+  border-top: 1px solid rgba(49, 53, 68, 0.1);
+  margin: 15px 0 0 0;
+}
+#print-page.theme-raleway #cover-letter p {
+  font-size: 10pt;
+}
+#print-page.theme-raleway .name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 30pt;
+  line-height: 0.85;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 14px;
-  text-align: center;
+  padding: 0 0 20px 0;
   word-spacing: 7.23in;
 }
-#print-page.theme-raleway #basicHeaderBottom {
-  display: none;
-}
-#print-page.theme-raleway #contact-info-bottom {
-  display: none;
-}
-#print-page.theme-raleway #contact-info-top {
-  transition: 0.12s;
-  margin: 10px 0 3px 0;
-}
-#print-page.theme-raleway #contact-info-top span {
-  display: inline-block;
-  font-weight: lighter;
-  box-sizing: border-box;
-  padding: 2px 8px 6px 8px;
+#print-page.theme-raleway .contact {
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
-  font-size: 9pt;
-  text-transform: uppercase;
-  letter-spacing: 1.25px;
 }
-#print-page.theme-raleway #contact-info-top span:nth-child(2) {
-  position: relative;
-  top: -2px;
+#print-page.theme-raleway .contact.two {
+  display: none !important;
 }
-#print-page.theme-raleway #contact-info-top span:nth-child(2) i {
-  position: relative;
-  top: 3px;
+#print-page.theme-raleway .contact .pdf-header {
+  display: none;
 }
-#print-page.theme-raleway #contact-info-top span i {
-  margin: 0 2px 0 0;
-  font-size: 13pt;
-  position: relative;
-  top: 1px;
+#print-page.theme-raleway .contact hr {
+  display: none;
 }
-#print-page.theme-raleway #contact-info-top span.social {
+#print-page.theme-raleway .contact .block {
+  display: block;
+}
+#print-page.theme-raleway .contact .block span {
   font-weight: 500;
-  font-size: 7pt;
+  font-size: 9pt;
+  padding: 2px 5px 8px 5px;
+}
+#print-page.theme-raleway .contact span {
   letter-spacing: 1px;
-}
-#print-page.theme-raleway #contact-info-top span.social i {
-  margin: 0 0 0 0;
-  font-size: 11pt;
-  top: 2px;
-}
-#print-page.theme-raleway .summary {
-  text-align: left;
-  font-size: 9pt;
-  position: relative;
-  text-align: justify;
-  white-space: pre-line;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: 0.5px;
-  font-weight: 300;
-  transition: 0.12s;
-}
-#print-page.theme-raleway .job {
-  text-align: left;
-  padding: 5px 0;
-  line-height: 0.95em;
-}
-#print-page.theme-raleway .job:nth-child(1) {
-  margin: 0px 0 0 0;
-}
-#print-page.theme-raleway .job span {
-  font-size: 9pt;
-  font-weight: 600;
-  line-height: 0.5em;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-#print-page.theme-raleway .job span:nth-child(1) {
-  display: block;
-  font-size: 11pt;
-  font-weight: 800;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-style: normal;
-  margin: 0 0 2px 0;
-}
-#print-page.theme-raleway .job span:nth-child(3),
-#print-page.theme-raleway .job span:nth-child(4),
-#print-page.theme-raleway .job span:nth-child(6) {
-  display: none;
-}
-#print-page.theme-raleway .job span:nth-child(2):after,
-#print-page.theme-raleway .job span:nth-child(5):after {
-  content: '\00a0 /';
-  font-weight: 900;
-}
-#print-page.theme-raleway .job p {
-  text-align: left;
-  font-size: 9pt;
-  text-align: justify;
-  font-weight: 300;
-  font-family: 'Source Sans Pro', sans-serif;
-  margin: 0;
-  letter-spacing: 0.5px;
-}
-#print-page.theme-raleway .project {
-  text-align: left;
-  padding: 3px 0;
-}
-#print-page.theme-raleway .project span {
-  display: block;
-  font-size: 11pt;
-  font-weight: 800;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-style: normal;
-  margin: 0 0 2px 0;
-}
-#print-page.theme-raleway .project p {
-  text-align: left;
-  font-size: 9pt;
-  text-align: justify;
-  font-weight: 300;
-  margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: 0.5px;
-}
-#print-page.theme-raleway .qualification {
-  text-align: center;
-  padding: 5px 0;
-}
-#print-page.theme-raleway .qualification span {
   font-size: 10pt;
-  font-weight: 500;
-  font-size: 9pt;
-  letter-spacing: 1.5px;
-  line-height: 0.8em;
+}
+#print-page.theme-raleway .contact span i {
+  position: relative;
+  top: 2px;
+  font-size: 12pt;
+  margin: 0 4px 0 0;
+}
+#print-page.theme-raleway .experience .item {
+  text-align: left;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-raleway .experience .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-raleway .experience .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-raleway .experience .item span:nth-child(1) {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
-}
-#print-page.theme-raleway .qualification span:nth-child(1) {
-  display: block;
-  font-size: 11pt;
-  font-weight: 800;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-style: normal;
-  margin: 0 0 0px 0;
-}
-#print-page.theme-raleway .qualification span:nth-child(3),
-#print-page.theme-raleway .qualification span:nth-child(4),
-#print-page.theme-raleway .qualification span:nth-child(6),
-#print-page.theme-raleway .qualification span:nth-child(7),
-#print-page.theme-raleway .qualification span:nth-child(9) {
-  display: none;
-}
-#print-page.theme-raleway .qualification span:nth-child(2):after,
-#print-page.theme-raleway .qualification span:nth-child(5):after,
-#print-page.theme-raleway .qualification span:nth-child(8):after {
-  content: '\00a0 /';
+  letter-spacing: 3px;
+  font-size: 12pt;
   font-weight: 900;
+  text-align: left;
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+}
+#print-page.theme-raleway .experience .item span:nth-child(2),
+#print-page.theme-raleway .experience .item span:nth-child(3),
+#print-page.theme-raleway .experience .item span:nth-child(4) {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: left;
+  position: relative;
+}
+#print-page.theme-raleway .experience .item span:nth-child(3):before,
+#print-page.theme-raleway .experience .item span:nth-child(4):before {
+  content: '//';
+  position: relative;
+  letter-spacing: -1px;
+  box-sizing: border-box;
+  padding: 0 10px 0 4px;
+  font-weight: 300;
+}
+#print-page.theme-raleway .experience .item span p {
+  display: block;
+}
+#print-page.theme-raleway .projects .item {
+  text-align: left;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-raleway .projects .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-raleway .projects .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-raleway .projects .item span {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12pt;
+  font-weight: 900;
+  text-align: left;
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+}
+#print-page.theme-raleway .projects .item p {
+  display: block;
+}
+#print-page.theme-raleway .qualifications .item {
+  text-align: left;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-raleway .qualifications .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-raleway .qualifications .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-raleway .qualifications .item span:nth-child(1) {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12pt;
+  font-weight: 900;
+  text-align: left;
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+}
+#print-page.theme-raleway .qualifications .item span:nth-child(2),
+#print-page.theme-raleway .qualifications .item span:nth-child(3),
+#print-page.theme-raleway .qualifications .item span:nth-child(4),
+#print-page.theme-raleway .qualifications .item span:nth-child(5) {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: left;
+  position: relative;
+}
+#print-page.theme-raleway .qualifications .item span:nth-child(3):before,
+#print-page.theme-raleway .qualifications .item span:nth-child(4):before,
+#print-page.theme-raleway .qualifications .item span:nth-child(5):before {
+  content: '//';
+  position: relative;
+  letter-spacing: -1px;
+  box-sizing: border-box;
+  padding: 0 10px 0 4px;
+  font-weight: 300;
 }
 #print-page.theme-raleway .skills {
+  display: block;
   text-align: left;
 }
-#print-page.theme-raleway .skills .skill {
+#print-page.theme-raleway .skills .item {
   text-align: left;
   display: inline-block;
+  font-weight: 700;
 }
-#print-page.theme-raleway .skills .skill .dot-divider {
-  display: none;
+#print-page.theme-raleway .skills .item:last-child span:after {
+  content: '';
 }
-#print-page.theme-raleway .skills .skill span {
+#print-page.theme-raleway .skills .item span {
+  font-family: 'Raleway', sans-serif;
   font-size: 10pt;
-  font-weight: 600;
-  font-size: 9pt;
-  letter-spacing: 1.5px;
   text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: left;
+  position: relative;
 }
-#print-page.theme-raleway .skills .skill:nth-child(even) span {
-  font-weight: 500;
-}
-#print-page.theme-raleway .skills .skill:after {
-  content: '\00a0 / \00a0';
-  font-weight: 900;
-  font-size: 10pt;
-}
-#print-page.theme-raleway .skills .skill:last-child:after {
-  display: none;
+#print-page.theme-raleway .skills .item span:after {
+  content: '//';
+  position: relative;
+  font-weight: 300;
+  letter-spacing: -1px;
+  box-sizing: border-box;
+  padding: 0 10px 0 4px;
 }

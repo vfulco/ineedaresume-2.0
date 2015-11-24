@@ -120,15 +120,21 @@
                         color: @color-black;
                     }
                     &:nth-child(1){
-                        font-family: @source-font;
-                        font-weight: 700;
+                        font-family: @cursive-font;
                     }
                     &:nth-child(2){
-                        font-family: @cursive-font;
+                        font-family: @source-font;
+                        font-weight: 700;
                     }
                     &:nth-child(3){
                         font-family: @raleway-font;
                         font-weight: 700;
+                        text-transform: uppercase;
+                    }
+                    &:nth-child(4){
+                        font-family: @arvo-font;
+                        font-weight: 700;
+                        letter-spacing: 1.5px;
                         text-transform: uppercase;
                     }
                 }
@@ -265,6 +271,39 @@
     }
 }
 
+
+.switchviews{
+    width: 100%;
+    display: block;
+    text-align: center;
+    span{
+        display: block;
+        font-size: 8pt;
+        color: fade(@color-black, 50%);
+        letter-spacing: 0.5px;
+        padding: 0 0 3px 0;
+    }
+    a{
+        box-sizing: border-box;
+        padding: 6px 12px;
+        background-color: fade(@color-blue, 70%);
+        color: @color-white;
+        text-transform: uppercase;
+        font-size: 8pt;
+        letter-spacing: 0.75px;
+        border-radius: 3px;
+        &:hover{
+            cursor: pointer;
+            background-color: fade(@color-blue, 90%);
+        }
+        &.active{
+            background-color: @color-blue;
+        }
+    }
+    @media (max-width: 800px) {
+        margin-top:30px;
+    }
+}
 
 .settings-scrolled{
     top:49px;
@@ -504,6 +543,7 @@
             font-family: @sans-font;
             margin: 14px 0 0 0;
             float:left;
+            border-radius: 3px;
             @media (max-width: 800px) {
                 font-size: 8pt;
                 padding: 10px 10px;

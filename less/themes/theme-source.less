@@ -2,185 +2,228 @@
 
 @import "../variables.less";
 
-
-
 #print-page{
-
     &.theme-source{
         font-family: @source-font;
-        color: @color-black;
-    	hr{
-    		display: block;
-    		opacity: 1;
-    		color: transparent;
-    		background-color: transparent;
-    		border: 0px solid #000;
-    		border-bottom: 1px solid rgba(0,0,0,0.075);
-    		margin: 8px 0;
-    	}
-    	.pdf-section-header{
-    		display: inline-block;
-    		text-align: center;
-    		font-weight: 300;
+        //
+        // UNIVERSAL ELEMENT STYLES
+        //
+        .pdf-header{
+            display: block;
+            font-size: 13pt;
             letter-spacing: 0.75px;
-    		font-size: 13pt;
-    	}
-        .section-body{
-            transition: @transition;
+            font-weight: 300;
+            margin: 0 0 4px 0;
+            &:after{
+                content: ' click to edit';
+                text-transform: uppercase;
+                font-size: 8pt;
+                color: fade(@color-black, 40%);
+                position: absolute;
+                margin-top: 6px;
+                margin-left: 10px;
+            }
         }
-
-        // Line height for all paragraphs
-        .adjust-lineheight{
+        p{
+            white-space: pre-line;
+            padding: 0;
+            margin: 0 auto;
+            font-size: 9pt;
+            text-align: justify;
             line-height: 1.5em;
         }
-
-
-    	// Personal Information
-    	#name{
-    		font-weight: 300;
-    		font-size: 28pt;
-    		padding: 0px 0 2px 0;
-    		margin: 0;
-    		display: block;
-            letter-spacing: 2.5px;
-            transition: @transition;
-    	}
-
-        // Contact information
-        #basicHeaderBottom,
-        #basicHeaderTop{
-            display: none;
+        hr{
+            height: 0;
+            border-top: 1px solid fade(@color-black, 10%);
+            border-bottom: 0px;
+            padding: 0px 0;
+            margin: 10px auto;
         }
-        #contact-info-bottom{
-            display: none;
+        //
+        // COVER LETTER
+        //
+        #cover-letter{
+            .date{
+                display: block;
+                text-align: left;
+                font-size: 10pt;
+                font-weight: 700;
+                box-sizing: border-box;
+                padding: 15px 0 15px 0;
+                border-top: 1px solid fade(@color-black, 10%);
+                margin: 15px 0 0 0;
+            }
+            p{
+                font-size: 10pt;
+            }
         }
-    	#contact-info-top{
-            transition: @transition;
-            margin: 0 0 3px 0;
-    		span{
-    			display: inline-block;
-    			font-weight: lighter;
-    			box-sizing: border-box;
-    			padding: 5px 8px;
-                font-weight: 500;
-    			font-size: 10pt;
-                i{
-                    margin: 0 2px 0 0;
-                }
-                &.social{
-                    font-weight: 400;
-                    font-size: 9pt;
-                }
-    		}
-    	}
-
-    	// Summary
-    	.summary{
-    		text-align: left;
-    		font-size: 9pt;
-    		text-align: justify;
-     		white-space: pre-line;
-            font-family: @source-font;
-     		font-weight: 300;
-            transition: @transition;
-            margin: 4px 0;
-    	}
-
-
-    	// Jobs
-    	.job{
-    		text-align: left;
-    		padding: 2px 0;
-    		span{
-    			font-size: 9pt;
-    			font-weight: 400;
-    			line-height: 1.4em;
-    			&:nth-child(1){
-    				display: block;
-    				font-size: 11pt;
-                    font-weight: 700;
-                    font-style: normal;
-                    position: relative;
-                    top: 4px;
-    			}
-    		}
-    		p{
-    			text-align: left;
-    			font-size: 9pt;
-    			text-align: justify;
-    			font-weight: 300;
-    			margin: 0;
-    		}
-    	}
-
-    	// Projects
-    	.project{
-    		text-align: left;
-    		padding: 2px 0;
-    		span{
-    			font-size: 11pt;
-    			font-weight: 600;
-    			line-height: 1.4em;
-    		}
-    		p{
-    			text-align: left;
-    			font-size: 9pt;
-    			text-align: justify;
-    			font-weight: 300;
-    			margin: 0;
-    		}
-    	}
-
-    	// Qualifications
-    	.qualification{
-    		text-align: center;
-    		padding: 4px 0;
-    		span{
-    			font-size: 10pt;
-    			font-weight: 400;
-    			line-height: 1.0em;
-    			font-size: 9pt;
-    			&:nth-child(1){
-    				display: block;
-    				font-weight: 600;
-    				font-size: 11pt;
-    			}
-    		}
-    	}
-
-    	// Skills
-    	.skill{
-    		display: inline-block;
-            text-align: center;
-    		&:last-child{
-    			.dot-divider{
-    				display: none;
-    			}
-    		}
-    		.dot-divider{
-    			font-size: 2pt;
-    			padding: 0 8px 0px 4px;
-    			position: relative;
-    			top: -3px;
-    			display: inline-block;
-    		}
-    		span{
-    			font-size: 11pt;
-    			font-weight: 400;
-    			line-height: 1.0em;
-    			font-size: 9pt;
-    			display: inline-block;
-    		}
-            &:nth-child(even){
+        //
+        // NAME
+        //
+        .name{
+            font-size: 28pt;
+            font-weight: 300;
+            letter-spacing: 4px;
+            padding: 0 0 3px 0;
+        }
+        //
+        // CONTACT
+        //
+        .contact{
+            &.two{
+                display: none !important;
+            }
+            .pdf-header{
+                display: none;
+            }
+            hr{
+                display: none;
+            }
+            .block{
+                display: block;
                 span{
-                    font-weight: 700;
+                    font-size: 9pt;
+                    font-weight: 400;
+                    padding: 2px 5px 8px 5px;
                 }
             }
-    	}
-
-
-
-
+            span{
+                font-weight: 500;
+                font-size: 10pt;
+                letter-spacing: 0.5px;
+                i{
+                    position: relative;
+                    top: 1px;
+                    margin: 0 3px 0 0;
+                }
+            }
+        }
+        .experience{
+            .item{
+                text-align: left;
+                line-height: 1em;
+                padding: 5px 0;
+                &:first-child{
+                    padding-top:0;
+                }
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                span{
+                    &:nth-child(1){
+                        font-size: 11pt;
+                        font-weight: 600;
+                        text-align: left;
+                        display: block;
+                        padding: 0;
+                        margin: 0 auto;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(3),
+                    &:nth-child(4){
+                        font-size: 9pt;
+                        font-weight: 400;
+                        text-align: left;
+                        position: relative;
+                    }
+                    &:nth-child(3):before,
+                    &:nth-child(4):before{
+                        content: ',';
+                        position: relative;
+                        left: -3px;
+                        box-sizing: border-box;
+                        padding: 0 3px 0 0;
+                    }
+                    p{
+                        display: block;
+                    }
+                }
+            }
+        }
+        .projects{
+            .item{
+                text-align: left;
+                line-height: 1em;
+                padding: 5px 0;
+                &:first-child{
+                    padding-top:0;
+                }
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                span{
+                    font-size: 11pt;
+                    font-weight: 600;
+                    text-align: left;
+                    display: block;
+                    padding: 0;
+                    margin: 0 auto;
+                }
+                p{
+                    display: block;
+                }
+            }
+        }
+        .qualifications{
+            .item{
+                text-align: center;
+                line-height: 1em;
+                padding: 5px 0;
+                &:first-child{
+                    padding-top:0;
+                }
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                span{
+                    &:nth-child(1){
+                        font-size: 11pt;
+                        font-weight: 600;
+                        display: block;
+                        padding: 0;
+                        margin: 0 auto;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(3),
+                    &:nth-child(4),
+                    &:nth-child(5){
+                        display: inline-block;
+                        font-size: 9pt;
+                        font-weight: 400;
+                    }
+                    &:nth-child(3):before,
+                    &:nth-child(4):before,
+                    &:nth-child(5):before{
+                        content: '\2022';
+                        display: inline-block;
+                        padding: 0 5px 0 3px;
+                    }
+                }
+            }
+        }
+        .skills{
+            .item{
+                text-align: center;
+                display: inline-block;
+                &:nth-child(odd){
+                    font-weight: 700;
+                }
+                &:last-child{
+                    span{
+                        &:after{
+                            content: '';
+                        }
+                    }
+                }
+                span{
+                    font-size: 9pt;
+                    &:after{
+                        content: '\2022';
+                        display: inline-block;
+                        padding: 0 5px 0 5px;
+                    }
+                }
+            }
+        }
     }
-
 }

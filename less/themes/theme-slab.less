@@ -1,64 +1,51 @@
-// theme-source.less - for source/standard resume theme
+// theme-slab.less - for slab font resume theme
 
 @import "../variables.less";
-
 #print-page{
-    &.theme-raleway{
+    &.theme-slab{
+        font-family: @source-font;
         //
         // UNIVERSAL ELEMENT STYLES
         //
         .pdf-header{
-            font-family: @raleway-font;
-    		font-size: 14pt;
-            margin: 10px 0 10px 0;
-            width:100%;
+            font-family: @arvo-font;
+            font-weight: 700;
+            display: block;
+            font-size: 14pt;
+            letter-spacing: 2.75px;
+            margin: 4px 0 6px 0;
             text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 4px;
-            display: table;
-            padding: 0;
-            span{
-                width: 1px;
-                white-space: nowrap;
-                display: table-cell;
-                box-sizing: border-box;
-                padding: 0 15px 0 19px;
-                font-style: normal;
-                text-align: center;
-            }
-            &:before{
-                content: "\00a0";
-                border-top: 1px solid @color-black;
-                position: relative;
-                top: 12px;
-                display: table-cell;
-            }
+            text-align: left;
             &:after{
-                content: "\00a0";
-                height: 0;
-                border-top: 1px solid @color-black;
-                position: relative;
-                top: 12px;
-                display: table-cell;
+                font-family: @source-font;
+                font-weight: lighter;
+                content: ' click to edit';
+                text-transform: uppercase;
+                font-size: 8pt;
+                color: fade(@color-black, 40%);
+                position: absolute;
+                margin-top: 5px;
+                margin-left: 10px;
             }
-    	}
-
+        }
         p{
             white-space: pre-line;
             padding: 0;
             margin: 0 auto;
-            font-size: 9pt;
+            font-size: 8pt;
             text-align: justify;
-            line-height: 1.4em;
-            font-weight: lighter;
+            line-height: 1.5em;
+            font-weight: 400;
+            letter-spacing: 0.75px;
+            font-family: @lato-font;
+            color: fade(@dark-text, 75%);
         }
         hr{
             height: 0;
-            opacity: 0;
-            border-top: 1px solid fade(@color-black, 10%);
+            border-top: 1px solid fade(@color-black, 15%);
             border-bottom: 0px;
-            padding: 0px 0;
-            margin: 10px auto;
+            padding: 0 0;
+            margin: 15px auto;
         }
         //
         // COVER LETTER
@@ -82,22 +69,21 @@
         // NAME
         //
         .name{
-            font-family: @raleway-font;
-            font-size: 30pt;
-            line-height: 0.85;
-            font-weight: 900;
+            font-family: @arvo-font;
             text-transform: uppercase;
-            letter-spacing: 14px;
-            padding: 0 0 20px 0;
-            word-spacing: 7.23in;
+            font-weight: 700;
+            font-size: 24pt;
+            letter-spacing: 3.5px;
+            padding: 0 0 3px 0;
+            text-align: left;
         }
         //
         // CONTACT
         //
         .contact{
-            font-family: @raleway-font;
-            text-transform: uppercase;
-            font-weight: 700;
+            display: block;
+            text-align: left !important;
+            padding: 6px 0 6px 0;
             &.two{
                 display: none !important;
             }
@@ -109,20 +95,33 @@
             }
             .block{
                 display: block;
-                span{
-                    font-weight: 500;
-                    font-size: 9pt;
-                    padding: 2px 5px 8px 5px;
-                }
+                text-align: left;
             }
             span{
-                letter-spacing: 1px;
-                font-size: 10pt;
+                font-size: 9pt;
+                letter-spacing: 0.5px;
+                font-weight: 500;
+                padding: 0 10px 0 0;
                 i{
-                    position: relative;
-                    top: 2px;
-                    font-size: 12pt;
-                    margin: 0 4px 0 0;
+                    width: auto;
+                    display: inline-block;
+                    color: transparent;
+                    &:before{
+                        font-family: @source-font;
+                        width: auto;
+                        display: inline-block;
+                        color: @dark-text;
+                        font-size: 9pt;
+                        position: relative;
+                        top:-1.25px;
+                        font-weight: 700;
+                    }
+                    &.ion-android-mail:before{content: 'Email:';}
+                    &.ion-iphone:before{content: 'Email:';}
+                    &.ion-social-linkedin:before{content: 'LinkedIn:';}
+                    &.ion-social-twitter:before{content: 'Twitter:';}
+                    &.ion-social-skype:before{content: 'Skype:';}
+                    &.ion-android-cloud:before{content: 'Website:';}
                 }
             }
         }
@@ -139,36 +138,32 @@
                 }
                 span{
                     &:nth-child(1){
-                        font-family: @raleway-font;
-                        font-weight: 700;
+                        font-size: 10pt;
                         text-transform: uppercase;
-                        letter-spacing: 3px;
-                        font-size: 12pt;
                         font-weight: 900;
                         text-align: left;
                         display: block;
                         padding: 0;
+                        letter-spacing: 1px;
                         margin: 0 auto;
+                        line-height: 0.9em;
                     }
                     &:nth-child(2),
                     &:nth-child(3),
                     &:nth-child(4){
-                        font-family: @raleway-font;
-                        font-size: 10pt;
-                        font-weight: 700;
-                        text-transform: uppercase;
-                        letter-spacing: 1.5px;
+                        line-height: 0.9em;
+                        font-size: 9pt;
+                        font-weight: 600;
                         text-align: left;
                         position: relative;
+                        font-style: italic;
                     }
                     &:nth-child(3):before,
                     &:nth-child(4):before{
-                        content: '//';
-                        position: relative;
-                        letter-spacing: -1px;
+                        content: '/';
                         box-sizing: border-box;
-                        padding: 0 10px 0 4px;
-                        font-weight: 300;
+                        padding: 0 4px 0 2px;
+                        font-weight: bolder;
                     }
                     p{
                         display: block;
@@ -188,16 +183,15 @@
                     padding-bottom: 0;
                 }
                 span{
-                    font-family: @raleway-font;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    letter-spacing: 3px;
-                    font-size: 12pt;
+                    font-size: 10pt;
                     font-weight: 900;
                     text-align: left;
                     display: block;
                     padding: 0;
                     margin: 0 auto;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    line-height: 0.9em;
                 }
                 p{
                     display: block;
@@ -217,14 +211,12 @@
                 }
                 span{
                     &:nth-child(1){
-                        font-family: @raleway-font;
-                        font-weight: 700;
-                        text-transform: uppercase;
-                        letter-spacing: 3px;
-                        font-size: 12pt;
+                        line-height: 0.9em;
+                        font-size: 10pt;
                         font-weight: 900;
-                        text-align: left;
                         display: block;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
                         padding: 0;
                         margin: 0 auto;
                     }
@@ -232,34 +224,29 @@
                     &:nth-child(3),
                     &:nth-child(4),
                     &:nth-child(5){
-                        font-family: @raleway-font;
-                        font-size: 10pt;
-                        font-weight: 700;
-                        text-transform: uppercase;
-                        letter-spacing: 1.5px;
+                        font-size: 9pt;
+                        font-weight: 400;
                         text-align: left;
                         position: relative;
+                        font-style: italic;
                     }
                     &:nth-child(3):before,
                     &:nth-child(4):before,
                     &:nth-child(5):before{
-                        content: '//';
-                        position: relative;
-                        letter-spacing: -1px;
-                        box-sizing: border-box;
-                        padding: 0 10px 0 4px;
-                        font-weight: 300;
+                        content: '/';
+                        display: inline-block;
+                        padding: 0 5px 0 3px;
+                        font-weight: bolder;
                     }
                 }
             }
         }
         .skills{
-            display: block;
             text-align: left;
+            display: block;
             .item{
-                text-align: left;
+                text-align: center;
                 display: inline-block;
-                font-weight: 700;
                 &:last-child{
                     span{
                         &:after{
@@ -268,19 +255,16 @@
                     }
                 }
                 span{
-                    font-family: @raleway-font;
                     font-size: 10pt;
+                    padding: 0;
+                    position: relative; top: -4px;
+                    font-weight: 700;
                     text-transform: uppercase;
-                    letter-spacing: 1.5px;
-                    text-align: left;
-                    position: relative;
                     &:after{
-                        content: '//';
-                        position: relative;
-                        font-weight: 300;
-                        letter-spacing: -1px;
-                        box-sizing: border-box;
-                        padding: 0 10px 0 4px;
+                        content: '/';
+                        display: inline-block;
+                        font-weight: 400;
+                        padding: 0 8px 0 8px;
                     }
                 }
             }

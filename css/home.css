@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
 #has-local-storage {
   display: none;
@@ -193,7 +194,7 @@
 }
 #home-page #home-intro {
   box-sizing: border-box;
-  padding: 85px 35px 85px 37px;
+  padding: 95px 35px 115px 37px;
   margin: 0 0;
   color: #3a3f52;
   height: 70%;
@@ -234,6 +235,26 @@
 }
 #home-page #home-intro #intro-text h2 small {
   font-size: 9pt;
+}
+#home-page #home-intro #intro-text span {
+  display: block;
+  text-align: center;
+}
+#home-page #home-intro #intro-text span a {
+  font-size: 8pt;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #4887f4;
+  color: #ffffff;
+  box-sizing: border-box;
+  padding: 12px 12px;
+  border-radius: 3px;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+}
+#home-page #home-intro #intro-text span a:hover {
+  cursor: pointer;
+  background-color: rgba(72, 135, 244, 0.8);
 }
 #home-page #media {
   background-color: #f2f2f2;
@@ -501,6 +522,44 @@
     line-height: 1.55em;
   }
 }
+#home-page #themes {
+  background-color: #4887f4;
+  box-sizing: border-box;
+  padding: 55px 10%;
+  text-align: center;
+}
+@media (max-width: 650px) {
+  #home-page #themes {
+    padding: 45px 5%;
+  }
+}
+#home-page #themes span {
+  display: block;
+  color: #ffffff;
+  width: 70%;
+  margin-left: 15%;
+  text-align: center;
+  padding: 0;
+}
+@media (max-width: 560px) {
+  #home-page #themes span {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+#home-page #themes img {
+  width: 40%;
+  margin: 2px;
+  display: inline-block;
+}
+@media (max-width: 560px) {
+  #home-page #themes img {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 1px;
+    width: 50%;
+  }
+}
 #home-page #questions {
   box-sizing: border-box;
   padding: 65px 11%;
@@ -616,7 +675,7 @@
 }
 #home-page #footer {
   box-sizing: border-box;
-  padding: 55px 25px 35px 25px;
+  padding: 55px 25px 5px 25px;
 }
 @media (max-width: 950px) {
   #home-page #footer {

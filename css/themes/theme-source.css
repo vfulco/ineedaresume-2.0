@@ -2,154 +2,196 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
 #print-page.theme-source {
   font-family: 'Source Sans Pro', sans-serif;
-  color: #313544;
 }
-#print-page.theme-source hr {
+#print-page.theme-source .pdf-header {
   display: block;
-  opacity: 1;
-  color: transparent;
-  background-color: transparent;
-  border: 0px solid #000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.075);
-  margin: 8px 0;
-}
-#print-page.theme-source .pdf-section-header {
-  display: inline-block;
-  text-align: center;
-  font-weight: 300;
-  letter-spacing: 0.75px;
   font-size: 13pt;
+  letter-spacing: 0.75px;
+  font-weight: 300;
+  margin: 0 0 4px 0;
 }
-#print-page.theme-source .section-body {
-  transition: 0.12s;
+#print-page.theme-source .pdf-header:after {
+  content: ' click to edit';
+  text-transform: uppercase;
+  font-size: 8pt;
+  color: rgba(49, 53, 68, 0.4);
+  position: absolute;
+  margin-top: 6px;
+  margin-left: 10px;
 }
-#print-page.theme-source .adjust-lineheight {
+#print-page.theme-source p {
+  white-space: pre-line;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 9pt;
+  text-align: justify;
   line-height: 1.5em;
 }
-#print-page.theme-source #name {
-  font-weight: 300;
-  font-size: 28pt;
-  padding: 0px 0 2px 0;
-  margin: 0;
+#print-page.theme-source hr {
+  height: 0;
+  border-top: 1px solid rgba(49, 53, 68, 0.1);
+  border-bottom: 0px;
+  padding: 0px 0;
+  margin: 10px auto;
+}
+#print-page.theme-source #cover-letter .date {
   display: block;
-  letter-spacing: 2.5px;
-  transition: 0.12s;
-}
-#print-page.theme-source #basicHeaderBottom,
-#print-page.theme-source #basicHeaderTop {
-  display: none;
-}
-#print-page.theme-source #contact-info-bottom {
-  display: none;
-}
-#print-page.theme-source #contact-info-top {
-  transition: 0.12s;
-  margin: 0 0 3px 0;
-}
-#print-page.theme-source #contact-info-top span {
-  display: inline-block;
-  font-weight: lighter;
+  text-align: left;
+  font-size: 10pt;
+  font-weight: 700;
   box-sizing: border-box;
-  padding: 5px 8px;
+  padding: 15px 0 15px 0;
+  border-top: 1px solid rgba(49, 53, 68, 0.1);
+  margin: 15px 0 0 0;
+}
+#print-page.theme-source #cover-letter p {
+  font-size: 10pt;
+}
+#print-page.theme-source .name {
+  font-size: 28pt;
+  font-weight: 300;
+  letter-spacing: 4px;
+  padding: 0 0 3px 0;
+}
+#print-page.theme-source .contact.two {
+  display: none !important;
+}
+#print-page.theme-source .contact .pdf-header {
+  display: none;
+}
+#print-page.theme-source .contact hr {
+  display: none;
+}
+#print-page.theme-source .contact .block {
+  display: block;
+}
+#print-page.theme-source .contact .block span {
+  font-size: 9pt;
+  font-weight: 400;
+  padding: 2px 5px 8px 5px;
+}
+#print-page.theme-source .contact span {
   font-weight: 500;
   font-size: 10pt;
+  letter-spacing: 0.5px;
 }
-#print-page.theme-source #contact-info-top span i {
-  margin: 0 2px 0 0;
-}
-#print-page.theme-source #contact-info-top span.social {
-  font-weight: 400;
-  font-size: 9pt;
-}
-#print-page.theme-source .summary {
-  text-align: left;
-  font-size: 9pt;
-  text-align: justify;
-  white-space: pre-line;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 300;
-  transition: 0.12s;
-  margin: 4px 0;
-}
-#print-page.theme-source .job {
-  text-align: left;
-  padding: 2px 0;
-}
-#print-page.theme-source .job span {
-  font-size: 9pt;
-  font-weight: 400;
-  line-height: 1.4em;
-}
-#print-page.theme-source .job span:nth-child(1) {
-  display: block;
-  font-size: 11pt;
-  font-weight: 700;
-  font-style: normal;
+#print-page.theme-source .contact span i {
   position: relative;
-  top: 4px;
+  top: 1px;
+  margin: 0 3px 0 0;
 }
-#print-page.theme-source .job p {
+#print-page.theme-source .experience .item {
   text-align: left;
-  font-size: 9pt;
-  text-align: justify;
-  font-weight: 300;
-  margin: 0;
+  line-height: 1em;
+  padding: 5px 0;
 }
-#print-page.theme-source .project {
-  text-align: left;
-  padding: 2px 0;
+#print-page.theme-source .experience .item:first-child {
+  padding-top: 0;
 }
-#print-page.theme-source .project span {
+#print-page.theme-source .experience .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-source .experience .item span:nth-child(1) {
   font-size: 11pt;
   font-weight: 600;
-  line-height: 1.4em;
-}
-#print-page.theme-source .project p {
   text-align: left;
-  font-size: 9pt;
-  text-align: justify;
-  font-weight: 300;
-  margin: 0;
-}
-#print-page.theme-source .qualification {
-  text-align: center;
-  padding: 4px 0;
-}
-#print-page.theme-source .qualification span {
-  font-size: 10pt;
-  font-weight: 400;
-  line-height: 1.0em;
-  font-size: 9pt;
-}
-#print-page.theme-source .qualification span:nth-child(1) {
   display: block;
-  font-weight: 600;
-  font-size: 11pt;
+  padding: 0;
+  margin: 0 auto;
 }
-#print-page.theme-source .skill {
-  display: inline-block;
-  text-align: center;
-}
-#print-page.theme-source .skill:last-child .dot-divider {
-  display: none;
-}
-#print-page.theme-source .skill .dot-divider {
-  font-size: 2pt;
-  padding: 0 8px 0px 4px;
-  position: relative;
-  top: -3px;
-  display: inline-block;
-}
-#print-page.theme-source .skill span {
-  font-size: 11pt;
-  font-weight: 400;
-  line-height: 1.0em;
+#print-page.theme-source .experience .item span:nth-child(2),
+#print-page.theme-source .experience .item span:nth-child(3),
+#print-page.theme-source .experience .item span:nth-child(4) {
   font-size: 9pt;
+  font-weight: 400;
+  text-align: left;
+  position: relative;
+}
+#print-page.theme-source .experience .item span:nth-child(3):before,
+#print-page.theme-source .experience .item span:nth-child(4):before {
+  content: ',';
+  position: relative;
+  left: -3px;
+  box-sizing: border-box;
+  padding: 0 3px 0 0;
+}
+#print-page.theme-source .experience .item span p {
+  display: block;
+}
+#print-page.theme-source .projects .item {
+  text-align: left;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-source .projects .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-source .projects .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-source .projects .item span {
+  font-size: 11pt;
+  font-weight: 600;
+  text-align: left;
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+}
+#print-page.theme-source .projects .item p {
+  display: block;
+}
+#print-page.theme-source .qualifications .item {
+  text-align: center;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-source .qualifications .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-source .qualifications .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-source .qualifications .item span:nth-child(1) {
+  font-size: 11pt;
+  font-weight: 600;
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+}
+#print-page.theme-source .qualifications .item span:nth-child(2),
+#print-page.theme-source .qualifications .item span:nth-child(3),
+#print-page.theme-source .qualifications .item span:nth-child(4),
+#print-page.theme-source .qualifications .item span:nth-child(5) {
+  display: inline-block;
+  font-size: 9pt;
+  font-weight: 400;
+}
+#print-page.theme-source .qualifications .item span:nth-child(3):before,
+#print-page.theme-source .qualifications .item span:nth-child(4):before,
+#print-page.theme-source .qualifications .item span:nth-child(5):before {
+  content: '\2022';
+  display: inline-block;
+  padding: 0 5px 0 3px;
+}
+#print-page.theme-source .skills .item {
+  text-align: center;
   display: inline-block;
 }
-#print-page.theme-source .skill:nth-child(even) span {
+#print-page.theme-source .skills .item:nth-child(odd) {
   font-weight: 700;
+}
+#print-page.theme-source .skills .item:last-child span:after {
+  content: '';
+}
+#print-page.theme-source .skills .item span {
+  font-size: 9pt;
+}
+#print-page.theme-source .skills .item span:after {
+  content: '\2022';
+  display: inline-block;
+  padding: 0 5px 0 5px;
 }

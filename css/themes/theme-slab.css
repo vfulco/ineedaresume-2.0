@@ -1,0 +1,259 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,300,700);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
+@import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
+#print-page.theme-slab {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#print-page.theme-slab .pdf-header {
+  font-family: 'Arvo', serif;
+  font-weight: 700;
+  display: block;
+  font-size: 14pt;
+  letter-spacing: 2.75px;
+  margin: 4px 0 6px 0;
+  text-transform: uppercase;
+  text-align: left;
+}
+#print-page.theme-slab .pdf-header:after {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: lighter;
+  content: ' click to edit';
+  text-transform: uppercase;
+  font-size: 8pt;
+  color: rgba(49, 53, 68, 0.4);
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+#print-page.theme-slab p {
+  white-space: pre-line;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 8pt;
+  text-align: justify;
+  line-height: 1.5em;
+  font-weight: 400;
+  letter-spacing: 0.75px;
+  font-family: 'Lato', sans-serif;
+  color: rgba(58, 63, 82, 0.75);
+}
+#print-page.theme-slab hr {
+  height: 0;
+  border-top: 1px solid rgba(49, 53, 68, 0.15);
+  border-bottom: 0px;
+  padding: 0 0;
+  margin: 15px auto;
+}
+#print-page.theme-slab #cover-letter .date {
+  display: block;
+  text-align: left;
+  font-size: 10pt;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 15px 0 15px 0;
+  border-top: 1px solid rgba(49, 53, 68, 0.1);
+  margin: 15px 0 0 0;
+}
+#print-page.theme-slab #cover-letter p {
+  font-size: 10pt;
+}
+#print-page.theme-slab .name {
+  font-family: 'Arvo', serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 24pt;
+  letter-spacing: 3.5px;
+  padding: 0 0 3px 0;
+  text-align: left;
+}
+#print-page.theme-slab .contact {
+  display: block;
+  text-align: left !important;
+  padding: 6px 0 6px 0;
+}
+#print-page.theme-slab .contact.two {
+  display: none !important;
+}
+#print-page.theme-slab .contact .pdf-header {
+  display: none;
+}
+#print-page.theme-slab .contact hr {
+  display: none;
+}
+#print-page.theme-slab .contact .block {
+  display: block;
+  text-align: left;
+}
+#print-page.theme-slab .contact span {
+  font-size: 9pt;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  padding: 0 10px 0 0;
+}
+#print-page.theme-slab .contact span i {
+  width: auto;
+  display: inline-block;
+  color: transparent;
+}
+#print-page.theme-slab .contact span i:before {
+  font-family: 'Source Sans Pro', sans-serif;
+  width: auto;
+  display: inline-block;
+  color: #3a3f52;
+  font-size: 9pt;
+  position: relative;
+  top: -1.25px;
+  font-weight: 700;
+}
+#print-page.theme-slab .contact span i.ion-android-mail:before {
+  content: 'Email:';
+}
+#print-page.theme-slab .contact span i.ion-iphone:before {
+  content: 'Email:';
+}
+#print-page.theme-slab .contact span i.ion-social-linkedin:before {
+  content: 'LinkedIn:';
+}
+#print-page.theme-slab .contact span i.ion-social-twitter:before {
+  content: 'Twitter:';
+}
+#print-page.theme-slab .contact span i.ion-social-skype:before {
+  content: 'Skype:';
+}
+#print-page.theme-slab .contact span i.ion-android-cloud:before {
+  content: 'Website:';
+}
+#print-page.theme-slab .experience .item {
+  text-align: left;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-slab .experience .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-slab .experience .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-slab .experience .item span:nth-child(1) {
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: left;
+  display: block;
+  padding: 0;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  line-height: 0.9em;
+}
+#print-page.theme-slab .experience .item span:nth-child(2),
+#print-page.theme-slab .experience .item span:nth-child(3),
+#print-page.theme-slab .experience .item span:nth-child(4) {
+  line-height: 0.9em;
+  font-size: 9pt;
+  font-weight: 600;
+  text-align: left;
+  position: relative;
+  font-style: italic;
+}
+#print-page.theme-slab .experience .item span:nth-child(3):before,
+#print-page.theme-slab .experience .item span:nth-child(4):before {
+  content: '/';
+  box-sizing: border-box;
+  padding: 0 4px 0 2px;
+  font-weight: bolder;
+}
+#print-page.theme-slab .experience .item span p {
+  display: block;
+}
+#print-page.theme-slab .projects .item {
+  text-align: left;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-slab .projects .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-slab .projects .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-slab .projects .item span {
+  font-size: 10pt;
+  font-weight: 900;
+  text-align: left;
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 0.9em;
+}
+#print-page.theme-slab .projects .item p {
+  display: block;
+}
+#print-page.theme-slab .qualifications .item {
+  text-align: left;
+  line-height: 1em;
+  padding: 5px 0;
+}
+#print-page.theme-slab .qualifications .item:first-child {
+  padding-top: 0;
+}
+#print-page.theme-slab .qualifications .item:last-child {
+  padding-bottom: 0;
+}
+#print-page.theme-slab .qualifications .item span:nth-child(1) {
+  line-height: 0.9em;
+  font-size: 10pt;
+  font-weight: 900;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0;
+  margin: 0 auto;
+}
+#print-page.theme-slab .qualifications .item span:nth-child(2),
+#print-page.theme-slab .qualifications .item span:nth-child(3),
+#print-page.theme-slab .qualifications .item span:nth-child(4),
+#print-page.theme-slab .qualifications .item span:nth-child(5) {
+  font-size: 9pt;
+  font-weight: 400;
+  text-align: left;
+  position: relative;
+  font-style: italic;
+}
+#print-page.theme-slab .qualifications .item span:nth-child(3):before,
+#print-page.theme-slab .qualifications .item span:nth-child(4):before,
+#print-page.theme-slab .qualifications .item span:nth-child(5):before {
+  content: '/';
+  display: inline-block;
+  padding: 0 5px 0 3px;
+  font-weight: bolder;
+}
+#print-page.theme-slab .skills {
+  text-align: left;
+  display: block;
+}
+#print-page.theme-slab .skills .item {
+  text-align: center;
+  display: inline-block;
+}
+#print-page.theme-slab .skills .item:last-child span:after {
+  content: '';
+}
+#print-page.theme-slab .skills .item span {
+  font-size: 10pt;
+  padding: 0;
+  position: relative;
+  top: -4px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#print-page.theme-slab .skills .item span:after {
+  content: '/';
+  display: inline-block;
+  font-weight: 400;
+  padding: 0 8px 0 8px;
+}

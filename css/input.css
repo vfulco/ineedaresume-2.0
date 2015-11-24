@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import "https://fonts.googleapis.com/css?family=Raleway:400,900,200,700";
 .section-save {
   display: none;
@@ -241,6 +242,7 @@
   border-radius: 0px;
   border: 1px solid #4887f4;
   font-weight: bolder;
+  border-radius: 3px;
 }
 @media (max-width: 670px) {
   .input-form .form-group .save-btn {

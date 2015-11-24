@@ -1,0 +1,75 @@
+// theme-base.less - basic styling for PDF.
+// Override these styles in the specific theme files.
+@import "../variables.less";
+
+#print-page{
+    color: @dark-text;
+    float: none;
+    display: block;
+    //
+    // UNIVERSAL ELEMENT STYLES
+    //
+    .pdf-header{
+        display: block;
+        font-size: 13pt;
+        transition: @transition;
+        &:hover{
+            cursor: pointer;
+            background-color: fade(@color-blue, 15%);
+            transition: @transition;
+        }
+    }
+    p{
+        white-space: pre-line;
+        padding: 0;
+        margin: 0 auto;
+        font-size: 9pt;
+        text-align: left;
+        line-height: 1.6em;
+    }
+    hr{
+        height: 0;
+        border-top: 1px solid fade(@color-black, 10%);
+        border-bottom: 0px;
+        padding: 0;
+        margin: 0 auto;
+    }
+    //
+    // COVER LETTER
+    //
+    #cover-letter{
+        height: 9.58in !important;
+        overflow: hidden;
+        .date{
+
+        }
+        p{
+
+        }
+    }
+    //
+    // NAME
+    //
+    .name{
+        padding: 0;
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        font-size: 32pt;
+    }
+    //
+    // CONTACT
+    //
+    .contact{
+        span{
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 3px 5px;
+            i{
+                position: relative;
+                top: 1px;
+                margin: 0 3px 0 0;
+            }
+        }
+    }
+}

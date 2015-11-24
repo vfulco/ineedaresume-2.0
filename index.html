@@ -27,7 +27,7 @@
 
     <!-- Open Graph data -->
     <meta property="og:title" content="ineedaresu.me - Beautiful free resume creator" />
-    <meta property="og:url" content="http://ineedaresu.me/beta" />
+    <meta property="og:url" content="http://ineedaresu.me/" />
     <meta property="og:image" content="http://ineedaresu.me/assets/socialpromo.png" />
     <meta property="og:description" content="ineedaresume is a completely free tool to create a beautiful resume in seconds. Enter your details, choose your layout, then download your resume in minutes!" />
 
@@ -60,9 +60,11 @@
     <link rel="stylesheet" href="css/print.css" />
 
     <!-- PDF THEMES -->
+    <link rel="stylesheet" href="css/themes/theme-base.css" />
     <link rel="stylesheet" href="css/themes/theme-source.css" />
     <link rel="stylesheet" href="css/themes/theme-pacifico.css" />
     <link rel="stylesheet" href="css/themes/theme-raleway.css" />
+    <link rel="stylesheet" href="css/themes/theme-slab.css" />
 
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,900" rel="stylesheet" type="text/css">
@@ -82,13 +84,14 @@
 
     <!-- Custom/App scripts -->
     <script src="app.js"></script>
-    <!-- <script src="scripts/angular/factories.js/"></script> -->
-    <script src="scripts/angular/testfactories.js"></script>
+    <script src="scripts/angular/factories.js"></script>
+    <!-- <script src="scripts/angular/testfactories.js"></script> -->
     <script src="scripts/javascript.js"></script>
     <script src="scripts/ads.js"></script>
 
     <!-- Controllers -->
     <script src="scripts/angular/controllers/home.js"></script>
+    <script src="scripts/angular/controllers/cover.js"></script>
     <script src="scripts/angular/controllers/basic.js"></script>
     <script src="scripts/angular/controllers/summary.js"></script>
     <script src="scripts/angular/controllers/experience.js"></script>
@@ -124,8 +127,8 @@
 
     <ul id="navigation-links" ng-controller="navCtrl">
         <li ng-class="navClass('home')"><a href="#/">Home</a></li>
+        <li ng-class="navClass('cover')"><a href="#cover">Cover Letter</a></li>
         <li ng-class="navClass('basic')"><a href="#basic">Basic Info</a></li>
-        <!-- <li ng-class="navClass('social')"><a href="#social">Social</a></li> -->
         <li ng-class="navClass('summary')"><a href="#summary">Summary</a></li>
         <li ng-class="navClass('experience')"><a href="#experience">Experience</a></li>
         <li ng-class="navClass('projects')"><a href="#projects">Projects</a></li>

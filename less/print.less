@@ -3,19 +3,16 @@
 @import "variables.less";
 
 #print-page{
-	padding: 0;
 	margin: 15px auto 35px auto;
 	width:7.23in;
 	mso-header-margin:.5in; mso-footer-margin:.5in; mso-paper-source:0;
 	z-index: 5000;
-	background-color: #fff;
 	text-align: center;
 	font-weight: 300;
 	overflow: visible !important;
-	font-family: @lato-font;
 	box-sizing: border-box;
-	padding: 15px;
-	border: 1px solid fade(@color-blue, 30%);
+	padding: 5px;
+	border: 1px solid fade(@color-black, 10%);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
 	z-index: 0;
@@ -59,6 +56,7 @@
 		transform: scale(0.3);
 		margin-left: -1.0845in;
 	}
+
 	.pdf-advice{
 		text-align: center;
 		box-sizing: border-box;
@@ -66,6 +64,9 @@
 		letter-spacing: 0.5px;
 		line-height: 1.5em;
 		display: block;
+		font-size: 10pt;
+		letter-spacing: 1px;
+		color: fade(@color-black, 40%);
 		font-weight: bolder;
 		font-family: @sans-font;
 	}
@@ -92,6 +93,7 @@
 
 // PRINT MEDIA
 @media print {
+
 	nav,
 	#navigation-links,
 	.section-title,
@@ -101,12 +103,13 @@
 	.modal-lightbox,
 	#pdf-instructions,
 	.hint,
-	.hasadblocker
+	.hasadblocker,
+	.switchviews
 	{
-		display: none !important;
+		// display: none !important;
+		opacity: 0;
 	}
 	#print-page{
-		display: block;
 		margin: 0 auto;
 		/*Disabled these in print query*/
 		mso-header-margin:.5in; mso-footer-margin:.5in; mso-paper-source:0;
@@ -116,23 +119,21 @@
 		margin-left: 0;
 		margin-top: 0 !important;
 		margin-bottom: 0;
-		border:none;
 		-webkit-transform: scale(1);
 		transform: scale(1);
-
-
-	}
-	#summary,
-	.job,
-	.project,
-	.qualification{
-		page-break-inside: avoid;
+		float: none !important;
+		display: block !important;
+		border: none !important;
 	}
 
-	.editable-header{
+
+	.pdf-header{
 		border: none;
 		background-color: transparent;
-	    box-sizing: border-box;
+		&:after{
+			content: '';
+			color: rgba(0,0,0,0) !important;
+		}
 	}
 
 }

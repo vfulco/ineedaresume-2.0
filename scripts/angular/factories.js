@@ -1,6 +1,7 @@
 resumeApp.value('prompts', {answeredLocal: false});
 
 resumeApp.value('basics', {});
+resumeApp.value('cover', {});
 resumeApp.value('summary', {});
 
 

@@ -3,9 +3,10 @@
         <li>
             Theme <i class="ion-chevron-down"></i>
             <ol>
-                <li class="theme" ng-click="setThemeSource(); activeTheme($event)">Source</li>
                 <li class="theme active" ng-click="setThemePacifico(); activeTheme($event)">Pacifico</li>
+                <li class="theme" ng-click="setThemeSource(); activeTheme($event)">Source</li>
                 <li class="theme" ng-click="setThemeRaleway(); activeTheme($event)">Raleway</li>
+                <li class="theme" ng-click="setThemeSlab(); activeTheme($event)">Slab</li>
             </ol>
         </li>
         <li>
@@ -38,132 +39,129 @@
 
 
 <span class="hint">
-    Click on a section header highlighed in blue to change it.
+    Click on a section header to change it.
 </span>
 <span class="hint">
     You can rearrange items within a section by clicking and dragging.
 </span>
+<span class="switchviews">
+    <!-- <span>view:</span> -->
+    <a id="showResumeBtn" ng-click="showResume()" class="active">Resume</a>
+    <a id="showCoverBtn" ng-click="showCoverLetter()">Cover Letter</a>
+</span>
 
 <div id="print-page" ng-class="themeClass">
 
+    <!-- COVER LETTER -->
+    <div id="cover-letter" ng-show="cover.body && showingCoverLetter">
+        <span class="name" ng-show="basics.name">{{basics.name}}</span>
+        <!-- CONTACT -->
+        <span class="contact">
+            <hr>
+            <span ng-show="basics.email"><i class="ion-android-mail" ng-show="showIcons"></i>{{basics.email}}</span>
+            <span ng-show="basics.phone"><i class="ion-iphone" ng-show="showIcons"></i>{{basics.phone}}</span>
+        </span>
+        <!-- DATE -->
+        <span class="date">Date: {{date | date:'dd MMMM yyyy'}}</span>
+        <p class="text-adjust">{{cover.body}}</p>
+    </div>
+
     <span class="pdf-advice" ng-hide="basics.name || basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link || summary.body || jobs.length > 0 || projects.length > 0 || qualifications.length > 0 || skills.length > 0">
-        How can we make you a resume<br/>if you haven't filled anyhting in?
+        How can we make you a resume<br/>if you haven't filled anything in?
     </span>
 
+    <span ng-show="showingResume">
+        <!-- NAME -->
+        <span class="name" ng-show="basics.name">{{basics.name}}</span>
 
-    <div>
-        <span id="name" ng-show="basics.name">{{basics.name}}</span>
+        <!-- CONTACT -->
+        <span class="contact">
+            <hr>
+            <span ng-show="basics.email"><i class="ion-android-mail" ng-show="showIcons"></i>{{basics.email}}</span>
+            <span ng-show="basics.phone"><i class="ion-iphone" ng-show="showIcons"></i>{{basics.phone}}</span>
+            <div class="block">
+                <span ng-show="basics.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i>{{basics.linkedin}}</span>
+                <span ng-show="basics.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i>{{basics.twitter}}</span>
+                <span ng-show="basics.skype"><i class="ion-social-skype" ng-show="showIcons"></i>{{basics.skype}}</span>
+                <span ng-show="basics.link"><i class="ion-android-cloud" ng-show="showIcons"></i>{{basics.link}}</span>
+            </div>
+        </span>
 
-        <span class="pdf-section-header editable-header" id="basicHeaderTop" ng-click="editBasicHeader()" ng-show="basics.name || basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link"><span>{{basicHeader}}</span></span>
+        <!-- SUMMARY -->
+        <span class="summary" ng-show="summary.body">
+            <hr>
+            <div class="pdf-header" ng-click="editSummaryTitle()"><span>{{summaryTitle}}</span></div>
+            <p class="text-adjust">{{summary.body}}</p>
+        </span>
 
-        <div id="contact-info-top" ng-show="basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link">
-            <span ng-show="basics.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{basics.email}}</span>
-            <span ng-show="basics.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{basics.phone}}</span>
-            <br/>
-            <span class="social" ng-show="basics.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{basics.linkedin}}</span>
-            <span class="social" ng-show="basics.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{basics.twitter}}</span>
-            <span class="social" ng-show="basics.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{basics.skype}}</span>
-            <span class="social" ng-show="basics.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{basics.link}}</span>
-        </div>
+        <!-- EXPERIENCE -->
+        <span class="experience" ng-show="jobs.length > 0">
+            <hr>
+            <span class="pdf-header" ng-click="editJobsHeader()"><span>{{jobsHeader}}</span></span>
+            <span  ui-sortable ng-model="jobs">
+                <div class="item sortable" ng-repeat="item in jobs">
+                    <span ng-show="jobs[$index].jobTitle">{{item.jobTitle}}</span>
+                    <span ng-show="jobs[$index].jobEmployer">{{item.jobEmployer}}</span>
+                    <span ng-show="jobs[$index].jobLocation">{{item.jobLocation}}</span>
+                    <span ng-show="jobs[$index].jobTime">{{item.jobTime}}</span>
+                    <p ng-show="jobs[$index].jobDescription" class="text-adjust">{{item.jobDescription}}</p>
+                </div>
+            </span>
+        </span>
 
-    </div> <!-- End Basic info -->
+        <!-- PROJECTS -->
+        <span class="projects" ng-show="projects.length > 0">
+            <hr>
+            <span class="pdf-header" ng-click="editProjectsHeader()"><span>{{projectsHeader}}</span></span>
+            <span  ui-sortable ng-model="projects">
+                <div class="item sortable" ng-repeat="item in projects">
+                    <span>{{item.projectTitle}}</span>
+                    <p class="text-adjust">{{item.projectDescription}}</p>
+                </div>
+            </span>
+        </span>
 
+        <!-- QUALIFICATIONS -->
+        <span class="qualifications" ng-show="qualifications.length > 0">
+            <hr>
+            <span class="pdf-header" ng-click="editQualificationsHeader()"><span>{{qualificationsHeader}}</span></span>
+            <span  ui-sortable ng-model="qualifications">
+                <div class="item sortable" ng-repeat="item in qualifications">
+                    <span ng-show="qualifications[$index].qualificationTitle">{{item.qualificationTitle}}</span>
+                    <span ng-show="qualifications[$index].qualificationInstitution">{{item.qualificationInstitution}}</span>
+                    <span ng-show="qualifications[$index].qualificationLocation">{{item.qualificationLocation}}</span>
+                    <span ng-show="qualifications[$index].qualificationCompletion">{{item.qualificationCompletion}}</span>
+                    <span ng-show="qualifications[$index].qualificationGpa">{{item.qualificationGpa}} GPA</span>
+                </div>
+            </span>
+        </span>
 
+        <!-- SKILLS -->
+        <span class="skills" ng-show="skills.length > 0">
+            <hr>
+            <span class="pdf-header" ng-click="editSkillsHeader()"><span>{{skillsHeader}}</span></span>
+            <span  ui-sortable ng-model="skills" class="skillswrapper">
+                <div class="item sortable" ng-repeat="item in skills">
+                    <span>{{item.skill}}</span>
+                </div>
+            </span>
+        </span>
 
-    <hr ng-show="summary.body">
+        <!-- CONTACT -->
+        <span class="contact two">
+            <hr>
+            <div class="pdf-header" id="basicHeaderTop" ng-click="editBasicHeader()" ng-show="{{basics.email}}">{{basicHeader}}</div>
+            <div class="contactwrapper">
+                <span ng-show="basics.email"><i class="ion-android-mail" ng-show="showIcons"></i>{{basics.email}}</span>
+                <span ng-show="basics.phone"><i class="ion-iphone" ng-show="showIcons"></i>{{basics.phone}}</span>
+                <span ng-show="basics.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i>{{basics.linkedin}}</span>
+                <span ng-show="basics.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i>{{basics.twitter}}</span>
+                <span ng-show="basics.skype"><i class="ion-social-skype" ng-show="showIcons"></i>{{basics.skype}}</span>
+                <span ng-show="basics.link"><i class="ion-android-cloud" ng-show="showIcons"></i>{{basics.link}}</span>
+            </div>
+        </span>
 
-
-    <span class="pdf-section-header editable-header" ng-click="editSummaryTitle()" ng-hide="!summary.body"><span>{{summaryTitle}}</span></span>
-    <div class="section-body" ng-hide="!summary.body">
-        <p class="summary adjust-lineheight" ng-bind-html="summary.body | unsafe" >
-            <!-- summaryFormatted if rich text -->
-        </p>
-    </div><!-- End Summary -->
-
-
-    <hr ng-show="jobs.length > 0">
-
-    <span class="pdf-section-header editable-header" ng-click="editJobsHeader()" ng-show="jobs.length > 0"><span>{{jobsHeader}}</span></span>
-    <div class="section-body" ui-sortable ng-model="jobs">
-        <div class="job sortable" ng-repeat="item in jobs">
-            <span>{{item.jobTitle}}</span>
-            <span>{{item.jobEmployer}}</span>
-            <span ng-show="jobs[$index].jobEmployer && jobs[$index].jobLocation">&nbsp;&middot;&nbsp;</span>
-            <span ng-show="jobs[$index].jobEmployer && jobs[$index].jobTime && !jobs[$index].jobLocation">&nbsp;&middot;&nbsp;</span>
-            <span>{{item.jobLocation}}</span>
-            <span ng-show="jobs[$index].jobLocation && jobs[$index].jobTime">&nbsp;&middot;&nbsp;</span>
-            <span>{{item.jobTime}}</span>
-            <p class="adjust-lineheight" ng-bind-html="item.jobDescription | unsafe" >
-                <!-- {{item.jobDescription}} -->
-                <!-- {{addBullets(item.jobDescription)}} -->
-            </p>
-        </div>
-    </div><!-- End Jobs -->
-
-
-    <hr ng-show="projects.length > 0">
-
-    <div class="section-spacer" ng-hide="projects.length > 0 && jobs.length > 0 && qualifications.length > 0"></div>
-
-
-    <span class="pdf-section-header editable-header" ng-click="editProjectsHeader()" ng-show="projects.length > 0"><span>{{projectsHeader}}</span></span>
-    <div class="section-body" ui-sortable ng-model="projects">
-        <div class="project sortable" ng-repeat="item in projects">
-            <span>{{item.projectTitle}}</span>
-            <p class="adjust-lineheight" ng-bind-html="item.projectDescription | unsafe" >
-                <!-- {{item.projectDescription}} -->
-            </p>
-        </div>
-    </div><!-- End Projects -->
-
-
-    <hr ng-show="qualifications.length > 0">
-
-    <span class="pdf-section-header editable-header" ng-click="editQualificationsHeader()" ng-show="qualifications.length > 0"><span>{{qualificationsHeader}}</span></span>
-    <div class="section-body" ui-sortable ng-model="qualifications">
-        <div class="qualification sortable" ng-repeat="item in qualifications">
-            <span>{{item.qualificationTitle}}</span>
-            <span>{{item.qualificationInstitution}}</span>
-            <span ng-show="qualifications[$index].qualificationInstitution && qualifications[$index].qualificationLocation">&nbsp;&middot;&nbsp;</span>
-            <span ng-show="qualifications[$index].qualificationInstitution && qualifications[$index].qualificationCompletion && !qualifications[$index].qualificationLocation">&nbsp;&middot;&nbsp;</span>
-            <span>{{item.qualificationLocation}}</span>
-            <span ng-show="qualifications[$index].qualificationLocation && qualifications[$index].qualificationCompletion">&nbsp;&middot;&nbsp;</span>
-            <span ng-show="qualifications[$index].qualificationLocation && qualifications[$index].qualificationGpa && !qualification[$index].qualificationLocation">&nbsp;&middot;&nbsp;</span>
-            <span>{{item.qualificationCompletion}}</span>
-            <span ng-show="qualifications[$index].qualificationLocation && qualifications[$index].qualificationCompletion">&nbsp;&middot;&nbsp;</span>
-            <span ng-show="qualifications[$index].qualificationGpa">{{item.qualificationGpa}} GPA</span>
-        </div>
-    </div><!-- End Qualifications -->
-
-
-    <hr ng-show="skills.length > 0">
-
-
-    <span class="pdf-section-header editable-header" ng-click="editSkillsHeader()" ng-show="skills.length > 0"><span>{{skillsHeader}}</span></span>
-    <div class="section-body skills" ui-sortable ng-model="skills">
-        <div class="skill sortable" ng-repeat="item in skills">
-          <span>{{item.skill}}</span>
-          <span class="dot-divider"><i class="ion-record"></i></span>
-        </div>
-    </div><!-- End Skills -->
-
-
-
-    <span class="pdf-section-header editable-header" id="basicHeaderBottom" ng-click="editBasicHeader()" ng-show="basics.email || basics.phone || basics.linkedin || basics.twitter || basics.skype || basics.link">{{basicHeader}}</span>
-    <div>
-        <div class="section-body" id="contact-info-bottom">
-            <span ng-show="basics.email"><i class="ion-android-mail" ng-show="showIcons"></i> {{basics.email}}</span>
-            <span ng-show="basics.phone"><i class="ion-iphone" ng-show="showIcons"></i> {{basics.phone}}</span>
-            <span ng-show="basics.linkedin"><i class="ion-social-linkedin" ng-show="showIcons"></i> {{basics.linkedin}}</span>
-            <span ng-show="basics.twitter"><i class="ion-social-twitter" ng-show="showIcons"></i> {{basics.twitter}}</span>
-            <span ng-show="basics.skype"><i class="ion-social-skype" ng-show="showIcons"></i> {{basics.skype}}</span>
-            <span ng-show="basics.link"><i class="ion-android-cloud" ng-show="showIcons"></i> {{basics.link}}</span>
-        </div>
-    </div> <!-- End Basic info bottom -->
-
-
-
-
+    </span>
 
 </div><!-- End PDF -->
 
