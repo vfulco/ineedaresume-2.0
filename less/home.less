@@ -688,3 +688,66 @@
         }
     }
 }
+
+
+
+#producthunt{
+    background-color: #da552f;
+    color: @color-white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 5000001;
+    box-sizing: border-box;
+    padding: 15px 15px 20px 15px;
+    h1{
+        font-family: @cursive-font;
+        font-size: 16pt;
+        letter-spacing: 0.75px;
+        padding: 0;
+        margin: 0 auto;
+    }
+    p{
+        font-size: 9pt;
+        width: 70%;
+        margin-left: 15%;
+        text-align: justify;
+        letter-spacing: 1px;
+        font-weight: bolder;
+        padding: 0;
+        margin: 0 auto 15px auto;
+        font-family: @source-font;
+        a{
+            color: @color-white;
+            font-weight: bolder;
+            text-decoration: underline;
+            &:hover{
+                cursor: pointer;
+                color: fade(@color-white, 70%);
+            }
+        }
+        @media (max-width: 800px) {
+            width: 90%;
+            margin-left: 5%;
+        }
+    }
+    span{
+        background-color: @color-white;
+        color: #da552f;
+        box-sizing: border-box;
+        padding: 10px 12px;
+        text-transform: uppercase;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        border-radius: 3px;
+        font-size: 8pt;
+        transition: @transition;
+        &:hover{
+            cursor: pointer;
+            background-color: fade(@color-white, 80%);
+            transition: @transition;
+        }
+    }
+}

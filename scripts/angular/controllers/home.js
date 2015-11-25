@@ -20,7 +20,9 @@ resumeApp.controller('mainController',
     if($storage.localBasics && $storage.localBasics.name){$scope.welcomeName = $storage.localBasics.name;}
     else{$scope.welcomeName = "";}
 
-
+    $scope.dismissPH = function(){
+        $("#producthunt").remove();
+    }
 
     $scope.navClass = function (page) {
         var currentRoute = $location.path().substring(1) || '';

@@ -10,6 +10,13 @@ resumeApp.config(function($routeProvider) {
         controller  : 'mainController'
     })
 
+    // route for home page
+    .when('/producthunt', {
+        templateUrl : 'pages/producthunt.html',
+        controller  : 'mainController'
+    })
+
+
     // route for cover letter
     .when('/cover', {
         templateUrl : 'pages/cover.html',
@@ -64,6 +71,10 @@ resumeApp.config(function($routeProvider) {
         templateUrl : 'pages/404.html',
         controller  : 'fourohfourController'
     })
+
+    .otherwise({
+        redirectTo: "/"
+    });
 
 
 });

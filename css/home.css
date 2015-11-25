@@ -812,3 +812,65 @@
   background-color: rgba(72, 135, 244, 0.7);
   transition: 0.12s;
 }
+#producthunt {
+  background-color: #da552f;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 5000001;
+  box-sizing: border-box;
+  padding: 15px 15px 20px 15px;
+}
+#producthunt h1 {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 16pt;
+  letter-spacing: 0.75px;
+  padding: 0;
+  margin: 0 auto;
+}
+#producthunt p {
+  font-size: 9pt;
+  width: 70%;
+  margin-left: 15%;
+  text-align: justify;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  padding: 0;
+  margin: 0 auto 15px auto;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+#producthunt p a {
+  color: #ffffff;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+#producthunt p a:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+@media (max-width: 800px) {
+  #producthunt p {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+#producthunt span {
+  background-color: #ffffff;
+  color: #da552f;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  font-size: 8pt;
+  transition: 0.12s;
+}
+#producthunt span:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: 0.12s;
+}
