@@ -4,6 +4,8 @@
 resumeApp.controller('projectsController', ['$scope', 'projects', function($scope, projects){
     $scope.projects = projects.projects;
 
+    ga('send', 'pageview', '/projects');
+
     $(document).prop('title', "Projects | ineedaresume");
 
     if( window.canRunAds === undefined ){

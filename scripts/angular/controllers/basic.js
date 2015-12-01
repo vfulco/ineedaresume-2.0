@@ -5,6 +5,8 @@ resumeApp.controller('basicController', ['$scope', 'basics', function($scope, ba
 
     $scope.basics = basics;
 
+    ga('send', 'pageview', '/basic');
+
     $(document).prop('title', "Basic Info | ineedaresume");
 
     // Hide alert if they dont have an adblocker

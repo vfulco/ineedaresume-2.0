@@ -5,6 +5,8 @@ resumeApp.controller('summaryController', ['$scope', 'summary', function($scope,
 
     $scope.summary = summary;
 
+    ga('send', 'pageview', '/summary');
+
     $(document).prop('title', "Summary | ineedaresume");
 
     if( window.canRunAds === undefined ){

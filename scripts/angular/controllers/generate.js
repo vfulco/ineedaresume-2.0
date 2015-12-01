@@ -3,6 +3,7 @@ resumeApp.controller('generateController',
     ['$scope', '$localStorage', '$sessionStorage', 'cover', 'basics', 'summary', 'jobs', 'projects', 'qualifications', 'skills',
     function($scope, $localStorage, $sessionStorage, cover, basics, summary, jobs, projects, qualifications, skills){
 
+        ga('send', 'pageview', '/generate');
 
         $storage = $localStorage;
         $scope.cover = cover;
@@ -179,6 +180,7 @@ resumeApp.controller('generateController',
             $scope.showingCoverLetter = false;
             $("#showResumeBtn").addClass("active");
             $("#showCoverBtn").removeClass("active");
+            $(document).prop('title', "Create a resume | ineedaresume");
         }
 
         $scope.instructionsText = true;
@@ -214,16 +216,12 @@ resumeApp.controller('generateController',
         $scope.printResume = function(){
             $scope.showingResume = true;
             $scope.showingCoverLetter = true;
-            ga('send', 'event', 'Button', 'Click', 'DownloadPDF');
+            ga('send', 'event', 'Button', 'Click', 'Generate');
             $(document).prop('title', "Your Resume");
             print();
-            $scope.closeInstructions();
-            $scope.showingResume = true;
-            $scope.showingCoverLetter = false;
-            $("#showResumeBtn").addClass("active");
-            $("#showCoverBtn").removeClass("active");
-            $(document).prop('title', "Create a resume | ineedaresume");
         }
+
+
 
 
 

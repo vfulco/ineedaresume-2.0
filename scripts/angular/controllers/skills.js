@@ -4,6 +4,8 @@
 resumeApp.controller('skillsController', ['$scope', 'skills', function($scope, skills){
     $scope.skills = skills.skills;
 
+    ga('send', 'pageview', '/skills');
+
     $(document).prop('title', "Skills | ineedaresume");
 
     if( window.canRunAds === undefined ){

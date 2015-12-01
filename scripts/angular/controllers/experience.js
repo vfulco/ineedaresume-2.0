@@ -4,6 +4,8 @@
 resumeApp.controller('experienceController', ['$scope', 'jobs', function($scope, jobs){
     $scope.jobs = jobs.jobs;
 
+    ga('send', 'pageview', '/experience');
+
 
     $(document).prop('title', "Experiences | ineedaresume");
 

@@ -91,6 +91,7 @@
 
 
 
+
 // PRINT MEDIA
 @media print {
 
@@ -114,16 +115,21 @@
 		/*Disabled these in print query*/
 		mso-header-margin:.5in; mso-footer-margin:.5in; mso-paper-source:0;
 		z-index: 0;
-		position: absolute;
-		top:0px !important; left:0%;
+		width:100%;
+		position: absolute !important;
+		top:0px !important; left:0px !important;
 		margin-left: 0;
 		margin-top: 0 !important;
 		margin-bottom: 0;
 		-webkit-transform: scale(1);
 		transform: scale(1);
-		float: none !important;
 		display: block !important;
 		border: none !important;
+	}
+
+	#content{
+		position: absolute;
+		top:0; left: 0;
 	}
 
 

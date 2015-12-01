@@ -5,6 +5,8 @@ resumeApp.controller('coverController', ['$scope', 'cover', function($scope, cov
 
     $scope.cover = cover;
 
+    ga('send', 'pageview', '/cover');
+
     $(document).prop('title', "Cover Letter | ineedaresume");
 
     if( window.canRunAds === undefined ){

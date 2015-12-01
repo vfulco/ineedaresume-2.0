@@ -4,12 +4,14 @@
 resumeApp.controller('qualificationsController', ['$scope', 'qualifications', function($scope, qualifications){
     $scope.qualifications = qualifications.qualifications;
 
+    ga('send', 'pageview', '/qualifications');
+
     $(document).prop('title', "Qualifications | ineedaresume");
 
     if( window.canRunAds === undefined ){
         $(".advertisement").slideUp();
     }
-    
+
     $scope.saveQualification = function(){
         if(!$scope.qualificationTitleInput || !$scope.qualificationInstitutionInput){
             $("#save-qualifications").html('<i class="ion-close-round"></i> Missing required fields');

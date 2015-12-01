@@ -42,22 +42,45 @@ resumeApp.controller('mainController',
     $scope.loadLocal = function(){
         $("#has-local-storage").slideUp(500);
         // Load Basic
-        if($storage.localBasics.name){basics.name = $storage.localBasics.name;}
-        if($storage.localBasics.email){basics.email = $storage.localBasics.email;}
-        if($storage.localBasics.phone){basics.phone = $storage.localBasics.phone;}
-        if($storage.localBasics.linkedin){basics.linkedin = $storage.localBasics.linkedin;}
-        if($storage.localBasics.twitter){basics.twitter = $storage.localBasics.twitter;}
-        if($storage.localBasics.skype){basics.skype = $storage.localBasics.skype;}
-        if($storage.localBasics.link){basics.link = $storage.localBasics.link;}
+        if($storage.localBasics){
+            basics.name = $storage.localBasics.name;
+            basics.email = $storage.localBasics.email;
+            basics.phone = $storage.localBasics.phone;
+            basics.linkedin = $storage.localBasics.linkedin;
+            basics.skype = $storage.localBasics.skype;
+            basics.link = $storage.localBasics.link;
+        }
+        // if($storage.localBasics.email){basics.email = $storage.localBasics.email;}
+        // if($storage.localBasics.phone){basics.phone = $storage.localBasics.phone;}
+        // if($storage.localBasics.linkedin){basics.linkedin = $storage.localBasics.linkedin;}
+        // if($storage.localBasics.twitter){basics.twitter = $storage.localBasics.twitter;}
+        // if($storage.localBasics.skype){basics.skype = $storage.localBasics.skype;}
+        // if($storage.localBasics.link){basics.link = $storage.localBasics.link;}
         // Load Cover
-        if($storage.localCover.body){cover.body = $storage.localCover.body;}
+        if($storage.localCover){cover.body = $storage.localCover.body;}
         // Load Summary
-        if($storage.localSummary.body){summary.body = $storage.localSummary.body;}
+        if($storage.localSummary){summary.body = $storage.localSummary.body;}
         // Load Everything Else
-        if($storage.localJobs[0]){$scope.jobs.push($storage.localJobs[0]);}
-        if($storage.localProjects[0]){$scope.projects.push($storage.localProjects[0]);}
-        if($storage.localQualifications[0]){$scope.qualifications.push($storage.localQualifications[0]);}
-        if($storage.localSkills[0]){$scope.skills.push($storage.localSkills[0]);}
+        if($storage.localJobs){
+            for (i = 0; i < $storage.localJobs.length; i++) {
+                $scope.jobs.push($storage.localJobs[i]);
+            }
+        }
+        if($storage.localProjects){
+            for (i = 0; i < $storage.localProjects.length; i++) {
+                $scope.projects.push($storage.localProjects[i]);
+            }
+        }
+        if($storage.localQualifications){
+            for (i = 0; i < $storage.localQualifications.length; i++) {
+                $scope.qualifications.push($storage.localQualifications[i]);
+            }
+        }
+        if($storage.localSkills){
+            for (i = 0; i < $storage.localSkills.length; i++) {
+                $scope.skills.push($storage.localSkills[i]);
+            }
+        }
         prompts.answeredLocal = true;
     }
     $scope.ignoreLocal = function(){
